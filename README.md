@@ -17,3 +17,8 @@ Ainda na recente estratégia de ​marketing,​ foi decidido avançar com a op�
 O sistema deve incluir e gerir informação relativa aos museus da Rede Portuguesa de Museus, sobre os detentores dos Cartões Amigo, sobre os tipos de cartão, bem como dos eventos promovidos pelas instituições aderentes à iniciativa. Deve ainda permitir reservar bilhetes para as iniciativas promovidas por estas instituições.
 
 Implemente também outras funcionalidades que considere relevantes, para além dos requisitos globais enunciados na página inicial.
+
+
+
+**v0.1 -** 
+Construção de classes necessárias iniciada.
