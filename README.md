@@ -3,7 +3,7 @@
 <img src="https://github.com/gabrielrocco/AEDA/blob/master/feup_logo.jpeg" alt="alt text" width="175" height="60">
 
 
-**PROPOSTA: Tema 4 – Cartão Museus de Portugal (Parte 1)**
+# PROPOSTA: Tema 4 – Cartão Museus de Portugal 
 
 O Cartão Amigo dos Museus de Portugal é um cartão anual que oferece entrada gratuita e ilimitada na Rede Portuguesa de Museus composta por 156 museus nacionais, bem como descontos em eventos selecionados de várias salas de espetáculo aderentes à iniciativa.
 
