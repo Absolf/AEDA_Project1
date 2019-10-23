@@ -19,6 +19,7 @@ O sistema deve incluir e gerir informação relativa aos museus da Rede Portugue
 Implemente também outras funcionalidades que considere relevantes, para além dos requisitos globais enunciados na página inicial.
 
 
+# Progresso:
 
-**v0.1 -** 
+**v0.1 - 23/10/2019** 
 Construção de classes necessárias iniciada.
