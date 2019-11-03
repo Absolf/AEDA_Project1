@@ -7,8 +7,7 @@
 #include "cartao_amigo.h"
 #include "Date.h"
 
-class CartaoAmigo {
-    Cliente *clientes;
+class CartaoAmigo{
     Date validade;
     Date dataAcquisition;
     Date nascimento;
@@ -17,9 +16,9 @@ class CartaoAmigo {
     string contacto;
     float valorAssinatura;
 public:
-    virtual float getValorAssinatura() const;
-
-    void setValorAssinatura(float valorAssinatura);
+    CartaoAmigo(){};
+    float getValorAssinatura() const;
+    void setValorAssinatura(float &valorAssinatura);
 
     const Date &getValidade() const;
 
@@ -45,27 +44,31 @@ public:
 
     void setContacto(const string &contacto);
 
-    CartaoAmigo(Date validade, Date dataAcquisition, Date nascimento, string nome, Local morada, string contacto);
+    CartaoAmigo(Date validade, Date dataAcquisition, Date nascimento, string nome, Local morada, string contacto, float valorAssinatura): validade(validade), dataAcquisition(dataAcquisition), nascimento(nascimento),
+    nome(nome), morada(morada), contacto(contacto), valorAssinatura(valorAssinatura) {};
     void addClient();
-    virtual void emitirCartao();
+    //virtual void emitirCartao();
 };
 
 class CartaoAmigoUni : public  CartaoAmigo{
+    float valorAssinatura;
 public:
     CartaoAmigoUni();
     void emitirCartao();
     float getValorAssinatura() const;
+    void setValorAssinatura(float &valorAssinatura);
 
 };
 
 class CartaoAmigoSilver : public CartaoAmigo {
+    float valorAssinatura;
 public:
     void emitirCartao();
     float getValorAssinatura() const;
-
 };
 
 class CartaoAmigoIndi : public CartaoAmigo {
+    float valorAssinatura;
 public:
     void emitirCartao();
     float getValorAssinatura() const;

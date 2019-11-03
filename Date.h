@@ -4,7 +4,6 @@
 
 #ifndef AEDA_PROJETO_DATE_H
 #define AEDA_PROJETO_DATE_H
-#include "utils.h"
 #include <time.h>
 #include <iostream>
 #include <regex>

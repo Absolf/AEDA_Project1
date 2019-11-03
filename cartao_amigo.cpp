@@ -60,14 +60,6 @@ void Cliente::setTipoAssinatura(int tipoAssinatura) {
     tipo_assinatura = tipoAssinatura;
 }
 
-float Cliente::getValorAssinatura() const {
-    return valor_assinatura;
-}
-
-void Cliente::setValorAssinatura(float valorAssinatura) {
-    valor_assinatura = valorAssinatura;
-}
-
 const string &Cliente::getNome() const {
     return nome;
 }
@@ -164,10 +156,5 @@ void Evento::setPorcentagemDisponivel(int porcentagemDisponivel) {
     porcentagem_disponivel = porcentagemDisponivel;
 }
 
-const Instituicao &Evento::getInst() const {
-    return inst;
-}
 
-void Evento::setInst(const Instituicao &inst) {
-    Evento::inst = inst;
-}
+

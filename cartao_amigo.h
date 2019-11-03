@@ -4,7 +4,7 @@
 
 #ifndef AEDA_PROJETO_CARTAO_AMIGO_H
 #define AEDA_PROJETO_CARTAO_AMIGO_H
-#endif //AEDA_PROJETO_CARTAO_AMIGO_H
+
 
 #import <string>
 #import <vector>
@@ -69,9 +69,9 @@ public:
 
     void setTipoAssinatura(int tipoAssinatura);
 
-    float getValorAssinatura() const;
+    virtual float getValorAssinatura() const;
 
-    void setValorAssinatura(float valorAssinatura);
+    virtual void setValorAssinatura(float valorAssinatura);
 
     const string &getNome() const;
 
@@ -133,10 +133,6 @@ public:
 
     void setPorcentagemDisponivel(int porcentagemDisponivel);
 
-    const Instituicao &getInst() const;
-
-    void setInst(const Instituicao &inst);
-
 };
 
 class Gestao {
@@ -168,7 +164,7 @@ de ingressos. Recebe o evento em questão e o vetor de clientes Silver*/
 
 
 
-
+#endif //AEDA_PROJETO_CARTAO_AMIGO_H
 
 
 

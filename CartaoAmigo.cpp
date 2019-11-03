@@ -4,9 +4,6 @@
 
 #include "CartaoAmigo.h"
 #include "Date.h"
-
-CartaoAmigo::CartaoAmigo(){};
-
 const Date &CartaoAmigo::getValidade() const {
     return validade;
 }
@@ -33,7 +30,7 @@ const Date &CartaoAmigo::getNascimento() const {
 }
 
 void CartaoAmigo::setNascimento(const Date &nascimento) {
-    this->nascimento = clientes->getNascimento();
+    this->nascimento = nascimento;
 }
 
 const string &CartaoAmigo::getNome() const {
@@ -41,7 +38,7 @@ const string &CartaoAmigo::getNome() const {
 }
 
 void CartaoAmigo::setNome(const string &nome) {
-    this->nome = clientes->getNome();
+    this->nome = nome;
 }
 
 const Local &CartaoAmigo::getMorada() const {
@@ -49,7 +46,7 @@ const Local &CartaoAmigo::getMorada() const {
 }
 
 void CartaoAmigo::setMorada(const Local &morada) {
-    this->morada = clientes->getMorada();
+    this->morada = morada;
 }
 
 const string &CartaoAmigo::getContacto() const {
@@ -57,26 +54,24 @@ const string &CartaoAmigo::getContacto() const {
 }
 
 void CartaoAmigo::setContacto(const string &contacto) {
-    this->contacto = clientes->getContacto();
+    this->contacto = contacto;
 }
 
 float CartaoAmigo::getValorAssinatura() const {
     return valorAssinatura;
 }
 
-void CartaoAmigo::setValorAssinatura(float valorAssinatura) {
+void CartaoAmigo::setValorAssinatura(float &valorAssinatura) {
     this->valorAssinatura = valorAssinatura;
 }
 
 //----------- Cartão Amigo Uni
-CartaoAmigoUni::CartaoAmigoUni(float valorAssinatura) : valorAssinatura(valorAssinatura) {
-
-
+CartaoAmigoUni::CartaoAmigoUni() {
 }
 
 float CartaoAmigoUni::getValorAssinatura() const {
     return 32.45;
 }
-void CartaoAmigoUni::setValorAssinatura(float valorAssinatura) {
+void CartaoAmigoUni::setValorAssinatura(float &valorAssinatura) {
     this->valorAssinatura = valorAssinatura;
 }
