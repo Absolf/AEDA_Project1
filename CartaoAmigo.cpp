@@ -65,13 +65,44 @@ void CartaoAmigo::setValorAssinatura(float &valorAssinatura) {
     this->valorAssinatura = valorAssinatura;
 }
 
-//----------- Cartão Amigo Uni
+ostream &operator<<(ostream &out, const CartaoAmigo &cliente){
+    out << cliente.getValorAssinatura() <<endl
+    << cliente.getNome() <<endl
+    //out << this->getMorada() <<endl
+    << cliente.getContacto()<<endl
+    << cliente.getNascimento() <<endl
+    << cliente.getDataAcquisition() << "\n validade: " << cliente.getValidade() <<endl;
+    return out;
+
+}
+void CartaoAmigo::emitirCartao() {
+    cout << this->getNome();
+    cout << this->getNascimento();
+    //cout << this->morada;
+    cout << this->getContacto();
+    cout << this->getDataAcquisition();
+}
+
+//----------- Cartão Amigo Uni ----------
 CartaoAmigoUni::CartaoAmigoUni() {
 }
 
 float CartaoAmigoUni::getValorAssinatura() const {
     return 32.45;
 }
-void CartaoAmigoUni::setValorAssinatura(float &valorAssinatura) {
-    this->valorAssinatura = valorAssinatura;
+
+//-----Cartão Amigo Silver -------------
+CartaoAmigoSilver::CartaoAmigoSilver() {}
+
+float CartaoAmigoSilver::getValorAssinatura() const {
+    return 30.0;
 }
+
+//---------- Cartão Amigo Indi -------------
+CartaoAmigoIndi::CartaoAmigoIndi(){}
+
+float CartaoAmigoIndi::getValorAssinatura() const {
+    return 54.90;
+}
+
+

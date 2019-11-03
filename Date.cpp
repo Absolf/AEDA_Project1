@@ -191,6 +191,10 @@ string Date::returnDate(Date date)
 }
 
 //Comparison operators
+ostream &operator<<(ostream &out, const Date &date){
+    out << date.day << "/"<< date.month << "/" << date.year << endl;
+    return out;
+}
 bool Date::operator == (const Date& d2){
 // check for equality
     if (!d2.valid()) { return false; };
