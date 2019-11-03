@@ -52,7 +52,7 @@ public:
 
 class CartaoAmigoUni : public  CartaoAmigo{
 public:
-    CartaoAmigoUni()
+    CartaoAmigoUni();
     void emitirCartao();
     float getValorAssinatura() const;
 
