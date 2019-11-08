@@ -9,12 +9,16 @@ CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: ../cartao_amigo.h
 CMakeFiles/AEDA_Projeto.dir/Date.cpp.o: ../Date.cpp
 CMakeFiles/AEDA_Projeto.dir/Date.cpp.o: ../Date.h
 
+CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Menus.cpp
+CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Menus.h
+
 CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o: ../Date.h
 CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o: ../cartao_amigo.cpp
 CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o: ../cartao_amigo.h
 
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../CartaoAmigo.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../Date.h
+CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../Menus.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../cartao_amigo.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../main.cpp
 

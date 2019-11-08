@@ -1,8 +1,13 @@
 #include <iostream>
 #include "Date.h"
 #include "CartaoAmigo.h"
+#include "Menus.h"
 
 int main() {
+
+
+    mainMenu();
+    /*
 
     CartaoAmigo *p1 = new CartaoAmigoSilver();
     p1->setContacto("32566466");
@@ -14,11 +19,13 @@ int main() {
     float i = 20.0;
     p1->setValorAssinatura(i);
     p1->setNome("Pedro");
-    /*
+
     cout << p1->getValidade() << endl << p1->getDataAcquisition()
-    << endl << p1->getNascimento() << endl << p1->getValorAssinatura() << endl << p1->getNome() << endl;*/
+    << endl << p1->getNascimento() << endl << p1->getValorAssinatura() << endl << p1->getNome() << endl;
     p1->emitirCartao();
 
      std::cout << "Hello, World!" << std::endl;
+     */
+
     return 0;
 }

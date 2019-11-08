@@ -177,6 +177,33 @@ Date.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Date.cpp.s
 .PHONY : Date.cpp.s
 
+Menus.o: Menus.cpp.o
+
+.PHONY : Menus.o
+
+# target to build an object file
+Menus.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o
+.PHONY : Menus.cpp.o
+
+Menus.i: Menus.cpp.i
+
+.PHONY : Menus.i
+
+# target to preprocess a source file
+Menus.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Menus.cpp.i
+.PHONY : Menus.cpp.i
+
+Menus.s: Menus.cpp.s
+
+.PHONY : Menus.s
+
+# target to generate assembly for a file
+Menus.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Menus.cpp.s
+.PHONY : Menus.cpp.s
+
 cartao_amigo.o: cartao_amigo.cpp.o
 
 .PHONY : cartao_amigo.o
@@ -246,6 +273,9 @@ help:
 	@echo "... Date.o"
 	@echo "... Date.i"
 	@echo "... Date.s"
+	@echo "... Menus.o"
+	@echo "... Menus.i"
+	@echo "... Menus.s"
 	@echo "... cartao_amigo.o"
 	@echo "... cartao_amigo.i"
 	@echo "... cartao_amigo.s"

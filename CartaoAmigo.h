@@ -33,14 +33,15 @@ public:
 
     const string &getNome() const;
     void setNome(const string &nome);
-
+/**
+ *
+ * @return
+ */
     const Local &getMorada() const;
     void setMorada(const Local &morada);
 
     const string &getContacto() const;
     void setContacto(const string &contacto);
-
-    void addClient();
     void emitirCartao();
     friend ostream &operator<<(ostream &out, const CartaoAmigo &cliente);
 

@@ -96,6 +96,12 @@
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.cpp">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
