@@ -6,47 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.cpp
-CartaoAmigo.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
-Date.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
 
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
-cartao_amigo.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.h
-Date.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
-time.h
--
-iostream
--
-regex
--
-ctime
--
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
 string
--
-vector
--
-iostream
--
-Date.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/main.cpp
-iostream
--
-Date.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
-CartaoAmigo.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
-Menus.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
 

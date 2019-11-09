@@ -123,6 +123,33 @@ AEDA_Projeto/fast:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/build
 .PHONY : AEDA_Projeto/fast
 
+Address.o: Address.cpp.o
+
+.PHONY : Address.o
+
+# target to build an object file
+Address.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Address.cpp.o
+.PHONY : Address.cpp.o
+
+Address.i: Address.cpp.i
+
+.PHONY : Address.i
+
+# target to preprocess a source file
+Address.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Address.cpp.i
+.PHONY : Address.cpp.i
+
+Address.s: Address.cpp.s
+
+.PHONY : Address.s
+
+# target to generate assembly for a file
+Address.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Address.cpp.s
+.PHONY : Address.cpp.s
+
 CartaoAmigo.o: CartaoAmigo.cpp.o
 
 .PHONY : CartaoAmigo.o
@@ -204,32 +231,86 @@ Menus.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Menus.cpp.s
 .PHONY : Menus.cpp.s
 
-cartao_amigo.o: cartao_amigo.cpp.o
+Museum.o: Museum.cpp.o
 
-.PHONY : cartao_amigo.o
+.PHONY : Museum.o
 
 # target to build an object file
-cartao_amigo.cpp.o:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o
-.PHONY : cartao_amigo.cpp.o
+Museum.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o
+.PHONY : Museum.cpp.o
 
-cartao_amigo.i: cartao_amigo.cpp.i
+Museum.i: Museum.cpp.i
 
-.PHONY : cartao_amigo.i
+.PHONY : Museum.i
 
 # target to preprocess a source file
-cartao_amigo.cpp.i:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.i
-.PHONY : cartao_amigo.cpp.i
+Museum.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Museum.cpp.i
+.PHONY : Museum.cpp.i
 
-cartao_amigo.s: cartao_amigo.cpp.s
+Museum.s: Museum.cpp.s
 
-.PHONY : cartao_amigo.s
+.PHONY : Museum.s
 
 # target to generate assembly for a file
-cartao_amigo.cpp.s:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.s
-.PHONY : cartao_amigo.cpp.s
+Museum.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Museum.cpp.s
+.PHONY : Museum.cpp.s
+
+SalaEspetaculo.o: SalaEspetaculo.cpp.o
+
+.PHONY : SalaEspetaculo.o
+
+# target to build an object file
+SalaEspetaculo.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o
+.PHONY : SalaEspetaculo.cpp.o
+
+SalaEspetaculo.i: SalaEspetaculo.cpp.i
+
+.PHONY : SalaEspetaculo.i
+
+# target to preprocess a source file
+SalaEspetaculo.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.i
+.PHONY : SalaEspetaculo.cpp.i
+
+SalaEspetaculo.s: SalaEspetaculo.cpp.s
+
+.PHONY : SalaEspetaculo.s
+
+# target to generate assembly for a file
+SalaEspetaculo.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.s
+.PHONY : SalaEspetaculo.cpp.s
+
+Time.o: Time.cpp.o
+
+.PHONY : Time.o
+
+# target to build an object file
+Time.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Time.cpp.o
+.PHONY : Time.cpp.o
+
+Time.i: Time.cpp.i
+
+.PHONY : Time.i
+
+# target to preprocess a source file
+Time.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Time.cpp.i
+.PHONY : Time.cpp.i
+
+Time.s: Time.cpp.s
+
+.PHONY : Time.s
+
+# target to generate assembly for a file
+Time.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Time.cpp.s
+.PHONY : Time.cpp.s
 
 main.o: main.cpp.o
 
@@ -258,6 +339,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sistemaCartaoAmigoMuseus.o: sistemaCartaoAmigoMuseus.cpp.o
+
+.PHONY : sistemaCartaoAmigoMuseus.o
+
+# target to build an object file
+sistemaCartaoAmigoMuseus.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o
+.PHONY : sistemaCartaoAmigoMuseus.cpp.o
+
+sistemaCartaoAmigoMuseus.i: sistemaCartaoAmigoMuseus.cpp.i
+
+.PHONY : sistemaCartaoAmigoMuseus.i
+
+# target to preprocess a source file
+sistemaCartaoAmigoMuseus.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i
+.PHONY : sistemaCartaoAmigoMuseus.cpp.i
+
+sistemaCartaoAmigoMuseus.s: sistemaCartaoAmigoMuseus.cpp.s
+
+.PHONY : sistemaCartaoAmigoMuseus.s
+
+# target to generate assembly for a file
+sistemaCartaoAmigoMuseus.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s
+.PHONY : sistemaCartaoAmigoMuseus.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -267,6 +375,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... AEDA_Projeto"
 	@echo "... edit_cache"
+	@echo "... Address.o"
+	@echo "... Address.i"
+	@echo "... Address.s"
 	@echo "... CartaoAmigo.o"
 	@echo "... CartaoAmigo.i"
 	@echo "... CartaoAmigo.s"
@@ -276,12 +387,21 @@ help:
 	@echo "... Menus.o"
 	@echo "... Menus.i"
 	@echo "... Menus.s"
-	@echo "... cartao_amigo.o"
-	@echo "... cartao_amigo.i"
-	@echo "... cartao_amigo.s"
+	@echo "... Museum.o"
+	@echo "... Museum.i"
+	@echo "... Museum.s"
+	@echo "... SalaEspetaculo.o"
+	@echo "... SalaEspetaculo.i"
+	@echo "... SalaEspetaculo.s"
+	@echo "... Time.o"
+	@echo "... Time.i"
+	@echo "... Time.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... sistemaCartaoAmigoMuseus.o"
+	@echo "... sistemaCartaoAmigoMuseus.i"
+	@echo "... sistemaCartaoAmigoMuseus.s"
 .PHONY : help
 
 

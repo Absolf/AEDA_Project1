@@ -70,18 +70,18 @@ CMakeFiles/AEDA_Projeto.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/main.cpp" -o CMakeFiles/AEDA_Projeto.dir/main.cpp.s
 
-CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
-CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o: ../cartao_amigo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.cpp"
+CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
+CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../sistemaCartaoAmigoMuseus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp"
 
-CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.cpp" > CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.i
+CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp" > CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i
 
-CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.cpp" -o CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.s
+CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp" -o CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s
 
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: ../CartaoAmigo.cpp
@@ -122,25 +122,85 @@ CMakeFiles/AEDA_Projeto.dir/Menus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/Menus.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.cpp" -o CMakeFiles/AEDA_Projeto.dir/Menus.cpp.s
 
+CMakeFiles/AEDA_Projeto.dir/Time.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
+CMakeFiles/AEDA_Projeto.dir/Time.cpp.o: ../Time.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/AEDA_Projeto.dir/Time.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/Time.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.cpp"
+
+CMakeFiles/AEDA_Projeto.dir/Time.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/Time.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.cpp" > CMakeFiles/AEDA_Projeto.dir/Time.cpp.i
+
+CMakeFiles/AEDA_Projeto.dir/Time.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/Time.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.cpp" -o CMakeFiles/AEDA_Projeto.dir/Time.cpp.s
+
+CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
+CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o: ../Museum.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.cpp"
+
+CMakeFiles/AEDA_Projeto.dir/Museum.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/Museum.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.cpp" > CMakeFiles/AEDA_Projeto.dir/Museum.cpp.i
+
+CMakeFiles/AEDA_Projeto.dir/Museum.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/Museum.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.cpp" -o CMakeFiles/AEDA_Projeto.dir/Museum.cpp.s
+
+CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
+CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o: ../SalaEspetaculo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.cpp"
+
+CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.cpp" > CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.i
+
+CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.cpp" -o CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.s
+
+CMakeFiles/AEDA_Projeto.dir/Address.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
+CMakeFiles/AEDA_Projeto.dir/Address.cpp.o: ../Address.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/AEDA_Projeto.dir/Address.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/Address.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp"
+
+CMakeFiles/AEDA_Projeto.dir/Address.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/Address.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp" > CMakeFiles/AEDA_Projeto.dir/Address.cpp.i
+
+CMakeFiles/AEDA_Projeto.dir/Address.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/Address.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp" -o CMakeFiles/AEDA_Projeto.dir/Address.cpp.s
+
 # Object files for target AEDA_Projeto
 AEDA_Projeto_OBJECTS = \
 "CMakeFiles/AEDA_Projeto.dir/main.cpp.o" \
-"CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o" \
+"CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o" \
 "CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o" \
 "CMakeFiles/AEDA_Projeto.dir/Date.cpp.o" \
-"CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o"
+"CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o" \
+"CMakeFiles/AEDA_Projeto.dir/Time.cpp.o" \
+"CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o" \
+"CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o" \
+"CMakeFiles/AEDA_Projeto.dir/Address.cpp.o"
 
 # External object files for target AEDA_Projeto
 AEDA_Projeto_EXTERNAL_OBJECTS =
 
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/main.cpp.o
-AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/cartao_amigo.cpp.o
+AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Date.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o
+AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Time.cpp.o
+AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o
+AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o
+AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Address.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/build.make
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable AEDA_Projeto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable AEDA_Projeto"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AEDA_Projeto.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

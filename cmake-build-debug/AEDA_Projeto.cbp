@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.cpp">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
@@ -102,13 +108,31 @@
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
-		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.cpp">
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.cpp">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
-		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cartao_amigo.h">
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/main.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CMakeLists.txt">

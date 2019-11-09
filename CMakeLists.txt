@@ -3,4 +3,4 @@ project(AEDA_Projeto)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(AEDA_Projeto main.cpp cartao_amigo.cpp cartao_amigo.h CartaoAmigo.cpp CartaoAmigo.h Date.cpp Date.h Menus.cpp Menus.h)
+add_executable(AEDA_Projeto main.cpp sistemaCartaoAmigoMuseus.cpp sistemaCartaoAmigoMuseus.h CartaoAmigo.cpp CartaoAmigo.h Date.cpp Date.h Menus.cpp Menus.h Time.cpp Time.h Museum.cpp Museum.h SalaEspetaculo.cpp SalaEspetaculo.h Address.cpp Address.h)
