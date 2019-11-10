@@ -6,11 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp
-Address.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/Date.cpp
+Date.h
+/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/Date.h
 
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
-string
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
+/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/Date.h
+time.h
+-
+iostream
+-
+regex
+-
+ctime
+-
 

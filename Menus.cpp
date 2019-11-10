@@ -3,6 +3,7 @@
 //
 
 #include "Menus.h"
+#include "CartaoAmigo.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -112,12 +113,15 @@ void mainMenu() {
         default:
             mainMenu();
             break;
-        case '1':
+        case '1': {
             subMenuSeeAll();
-
-        case '2':
-
-
+            break;
+        }
+        case '2':{
+            CartaoAmigo teste;
+            teste.emitirCartao();
+            break;
+        }
         case '3':
 
 

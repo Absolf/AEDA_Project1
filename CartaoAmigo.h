@@ -42,6 +42,10 @@ public:
     const string &getContacto() const;
     void setContacto(const string &contacto);
 
+    const string &getNif() const;
+
+    void setNif(const string &nif);
+
     void emitirCartao();
 
     float darDescontoMuseu();
@@ -53,6 +57,7 @@ public:
 };
 
 class CartaoAmigoUni : public  CartaoAmigo{
+    float valorAssinatura;
 public:
     CartaoAmigoUni();
     void emitirCartao();
@@ -61,6 +66,7 @@ public:
 };
 
 class CartaoAmigoSilver : public CartaoAmigo {
+    float valorAssinatura;
 public:
     CartaoAmigoSilver();
     void emitirCartao();
@@ -73,6 +79,7 @@ de ingressos. Recebe o evento em questão e o vetor de clientes Silver*/
 };
 
 class CartaoAmigoIndi : public CartaoAmigo {
+    float valorAssinatura;
 public:
     CartaoAmigoIndi();
     void emitirCartao();

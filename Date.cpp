@@ -113,25 +113,6 @@ int Date::daysMonth(int month, int year)
         return 31;
 }
 
-bool Date::valid() const {
-// This function will check the given date is valid or not.
-// If the date is not valid then it will return the value false.
-// Need some more checks on the year, though
-    if (year <0) return false;
-    if (month >12 || month <1) return false;
-    if (day >31 || day <1) return false;
-    if ((day ==31 &&
-         ( month ==2 || month ==4 || month ==6 || month ==9 || month ==11) ) )
-        return false;
-    if ( day ==30 && month ==2) return false;
-    if ( year <2000){
-        if ((day ==29 && month ==2) && !((year-1900)%4==0)) return false;
-    };
-    if ( year >2000){
-        if ((day ==29 && month ==2) && !((year-2000)%4==0)) return false;
-    };
-    return true;
-};
 
 //Verifies if the date given is valid or not (taking into account days in a month, leap years and current date)
 bool Date::verifyDate(string date)
@@ -146,17 +127,19 @@ bool Date::verifyDate(string date)
     struct tm *aTime = localtime(&theTime); //Determines the current date
     bool isDate = false;
     int thisYear= aTime->tm_year + 1900;
-    int limit = thisYear + 10;
+    int lowLimit = thisYear - 100;
+    int highLimit = thisYear + 5;
     unsigned short maxDay = daysMonth(month, year);
-    if((year >= (unsigned) thisYear) && (year < (unsigned) limit) && //Conditions for date validation
+    if(((year >= (unsigned) lowLimit) && (year <= (unsigned) highLimit))&& //Conditions for date validation
        (month <= 12 && month > 0) &&
        (day <= maxDay && day > 0))
     {
         isDate = true;
     }
+
     else
     {
-        cout << "Date limits for year(" << thisYear << "-" << limit << ") month (1-12) day (1-" << maxDay << ")" << endl;
+        cout << "Date limits for year(" << (year - 100) << "-" << (thisYear + 5) << ") month (1-12) day (1-" << maxDay << ")" << endl;
         isDate = false;
     }
     return isDate;
@@ -195,6 +178,27 @@ ostream &operator<<(ostream &out, const Date &date){
     out << date.day << "/"<< date.month << "/" << date.year << endl;
     return out;
 }
+
+bool Date::valid() const {
+// This function will check the given date is valid or not.
+// If the date is not valid then it will return the value false.
+// Need some more checks on the year, though
+    if (year <0) return false;
+    if (month >12 || month <1) return false;
+    if (day >31 || day <1) return false;
+    if ((day ==31 &&
+         ( month ==2 || month ==4 || month ==6 || month ==9 || month ==11) ) )
+        return false;
+    if ( day ==30 && month ==2) return false;
+    if ( year <2000){
+        if ((day ==29 && month ==2) && !((year-1900)%4==0)) return false;
+    };
+    if ( year >2000){
+        if ((day ==29 && month ==2) && !((year-2000)%4==0)) return false;
+    };
+    return true;
+};
+
 bool Date::operator == (const Date& d2){
 // check for equality
     if (!d2.valid()) { return false; };
