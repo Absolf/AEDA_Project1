@@ -16,7 +16,7 @@ using namespace std;
 
 class sistemaCartaoAmigoMuseumPortugal {
 
-    vector<Cliente *> clientes;
+    vector<Cliente*> clientes;
     vector<Evento*> eventos;
     vector<Museum*> museu;
 public:
