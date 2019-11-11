@@ -150,6 +150,60 @@ Address.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Address.cpp.s
 .PHONY : Address.cpp.s
 
+Atracao.o: Atracao.cpp.o
+
+.PHONY : Atracao.o
+
+# target to build an object file
+Atracao.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Atracao.cpp.o
+.PHONY : Atracao.cpp.o
+
+Atracao.i: Atracao.cpp.i
+
+.PHONY : Atracao.i
+
+# target to preprocess a source file
+Atracao.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Atracao.cpp.i
+.PHONY : Atracao.cpp.i
+
+Atracao.s: Atracao.cpp.s
+
+.PHONY : Atracao.s
+
+# target to generate assembly for a file
+Atracao.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Atracao.cpp.s
+.PHONY : Atracao.cpp.s
+
+Bilhete.o: Bilhete.cpp.o
+
+.PHONY : Bilhete.o
+
+# target to build an object file
+Bilhete.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Bilhete.cpp.o
+.PHONY : Bilhete.cpp.o
+
+Bilhete.i: Bilhete.cpp.i
+
+.PHONY : Bilhete.i
+
+# target to preprocess a source file
+Bilhete.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Bilhete.cpp.i
+.PHONY : Bilhete.cpp.i
+
+Bilhete.s: Bilhete.cpp.s
+
+.PHONY : Bilhete.s
+
+# target to generate assembly for a file
+Bilhete.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Bilhete.cpp.s
+.PHONY : Bilhete.cpp.s
+
 CartaoAmigo.o: CartaoAmigo.cpp.o
 
 .PHONY : CartaoAmigo.o
@@ -230,6 +284,33 @@ Date.s: Date.cpp.s
 Date.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Date.cpp.s
 .PHONY : Date.cpp.s
+
+Evento.o: Evento.cpp.o
+
+.PHONY : Evento.o
+
+# target to build an object file
+Evento.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Evento.cpp.o
+.PHONY : Evento.cpp.o
+
+Evento.i: Evento.cpp.i
+
+.PHONY : Evento.i
+
+# target to preprocess a source file
+Evento.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Evento.cpp.i
+.PHONY : Evento.cpp.i
+
+Evento.s: Evento.cpp.s
+
+.PHONY : Evento.s
+
+# target to generate assembly for a file
+Evento.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Evento.cpp.s
+.PHONY : Evento.cpp.s
 
 Menus.o: Menus.cpp.o
 
@@ -405,6 +486,12 @@ help:
 	@echo "... Address.o"
 	@echo "... Address.i"
 	@echo "... Address.s"
+	@echo "... Atracao.o"
+	@echo "... Atracao.i"
+	@echo "... Atracao.s"
+	@echo "... Bilhete.o"
+	@echo "... Bilhete.i"
+	@echo "... Bilhete.s"
 	@echo "... CartaoAmigo.o"
 	@echo "... CartaoAmigo.i"
 	@echo "... CartaoAmigo.s"
@@ -414,6 +501,9 @@ help:
 	@echo "... Date.o"
 	@echo "... Date.i"
 	@echo "... Date.s"
+	@echo "... Evento.o"
+	@echo "... Evento.i"
+	@echo "... Evento.s"
 	@echo "... Menus.o"
 	@echo "... Menus.i"
 	@echo "... Menus.s"

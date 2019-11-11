@@ -121,7 +121,7 @@ void mainMenu() {
             Cliente teste;
 
             if(teste.temCartao())
-                cout << "true"<< endl;
+                cout << teste.temCartao()<< endl;
             else
                 cout << "false"<< endl;
             cout << teste.getNome()<<endl;
@@ -130,15 +130,13 @@ void mainMenu() {
             teste.setContacto("935550893");
             teste.setMorada("testando");
             Date nascimento("1995/11/21");
-            Date aq("2018/05/11");
             teste.setNascimento(nascimento);
             teste.setUniversitario(true);
             teste.aderirCartao();
-            //teste.getCartao().setDataAcquisition(aq);
             cout << teste.getNome() << endl;
             cout << teste.getCartao().getNome() << endl;
             if(teste.temCartao())
-                cout << "true"<< endl;
+                cout << teste.temCartao() <<" teste :" << teste.getCartao().getDataAcquisition() << " over " << endl;
             else
                 cout << "false"<< endl;
             cout << teste.getCartao().getNascimento();

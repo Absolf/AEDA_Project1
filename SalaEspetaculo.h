@@ -6,33 +6,38 @@
 #define AEDA_PROJETO_SALAESPETACULO_H
 #include "Address.h"
 #include "CartaoAmigo.h"
+#include "Atracao.h"
+#include "Time.h"
 
-class SalaEspetaculo {
-    string nome;
-    int capacidadeMaxima;
-    int lotacao;
-    Address localizacao; //Para comparar com a loc. do usuario -> bilhetes gratuitos para Silver
-    int id;
+class SalaEspetaculo : Atracao{
+    bool aderente = false;
 public:
-    SalaEspetaculo();
-    virtual void sellTicket();
+    bool isAderente() const;
 
+    void setAderente(bool aderente);
+
+    SalaEspetaculo();
+    void venderBilhete();
 };
 
-
-class Evento : public SalaEspetaculo {
-    bool aceitaDescontoCartaoAmigo; //Apenas eventos selecionados possuem desconto
-    Address localizacao;
+class Evento : public SalaEspetaculo{
+    SalaEspetaculo *salaEspetaculo;
+    string nome;
+    Date data;
+    time_t horario;
 public:
-
     Evento(){};
-    bool getAceitaDescontoCartaoAmigo() const;
+    const SalaEspetaculo& getSalaEspetaculo() const;
+    void setSalaEspetaculo(SalaEspetaculo *salaEspetaculo);
 
-    void setAceitaDescontoCartaoAmigo(bool aceitaDescontoCartaoAmigo);
+    const string &getNome() const;
+    void setNome(const string &nome);
 
-    void sellTicket();
-    void porcentagemOcupada();
-    void makeReserva();
+    const Date &getData() const;
+    void setData(const Date &data);
+
+    const time_t&getHorario() const;
+    void setHorario(const time_t &horario);
 };
 
 

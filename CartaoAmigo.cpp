@@ -12,7 +12,7 @@ void CartaoAmigo::setNif(const string &nif) {
 }
 
 float CartaoAmigo::getAnuidade() const{
-    return anuidade;
+    return 0.0;
 }
 
 const Date& CartaoAmigo::getDataAcquisition() const {

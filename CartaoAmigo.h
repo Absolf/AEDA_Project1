@@ -22,7 +22,7 @@ public:
     CartaoAmigo();
     CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, float anuidade, string nif): dataAcquisition(dataAcquisition), nascimento(nascimento),
                                                                                                                                           nome(nome), morada(morada), contacto(contacto), anuidade(anuidade), nif(nif) {};
-    float getAnuidade() const;
+    virtual float getAnuidade() const;
 
     const Date &getDataAcquisition() const;
     void setDataAcquisition(const Date &dataAcquisition);

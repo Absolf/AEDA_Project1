@@ -9,7 +9,6 @@ using namespace std;
 #include "CartaoAmigo.h"
 
 class Time {
-    CartaoAmigo novo;
     int hora;
     int minutos;
     int segundos;

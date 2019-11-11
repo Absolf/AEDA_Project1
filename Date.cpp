@@ -113,12 +113,16 @@ int Date::daysMonth(int month, int year)
         return 31;
 }
 
-int Date::actualYear(){
-    int thisYear = 0;
+void Date::actualDate(){
+    int thisYear = 0, thisMonth = 0, thisDay = 0;
     time_t theTime = time(NULL);
     struct tm *aTime = localtime(&theTime); //Determines the current date
     thisYear= aTime->tm_year + 1900;
-    return thisYear;
+    thisDay = aTime->tm_mday;
+    thisMonth = aTime->tm_mon;
+    this->day = thisDay;
+    this->month = thisMonth;
+    this->year = thisYear;
 }
 //Verifies if the date given is valid or not (taking into account days in a month, leap years and current date)
 bool Date::verifyDate(string date)
@@ -129,11 +133,10 @@ bool Date::verifyDate(string date)
     date = regex_replace(date, regex("/"), " "); //Transforms the date into a string
     istringstream teste(date);
     teste >> year >> month >> day;
-    /*time_t theTime = time(NULL);
+    time_t theTime = time(NULL);
     struct tm *aTime = localtime(&theTime); //Determines the current date
-     */
     bool isDate = false;
-    int thisYear= actualYear();
+    int thisYear= aTime->tm_year + 1900;
     int lowLimit = thisYear - 100;
     int highLimit = thisYear + 5;
     unsigned short maxDay = daysMonth(month, year);
