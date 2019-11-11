@@ -43,10 +43,14 @@ void Cliente::setContacto(const string &contacto) {
 }
 
 bool Cliente::temCartao(){
-    if(this->cartao->getNome() == "") {
+
+    if(this->cartao)
+        return (this->cartao);
+    else {
+        cout << "Name: '"<< this->cartao->getNome() <<"' " << endl;
         return false;
-    }else
-        return true;
+    }
+
 }
 
 const bool &Cliente::getUniversitario() const{
@@ -62,18 +66,51 @@ const CartaoAmigo& Cliente::getCartao() const{
 void Cliente::setCartao(CartaoAmigo *cartao){
     this->cartao = cartao;
 }
+void Cliente::addBilhete(Bilhete *b) {
+    bilhetes.push_back(b);
+}
 
 void Cliente::aderirCartao(){
-    cout << nascimento.actualYear() - getNascimento().getYear() << endl;
-    if((nascimento.actualYear() - nascimento.getYear()) >65)
+    Date acq;
+    acq.actualDate();
+    if((acq.getYear() - getNascimento().getYear()) >65)
         cartao = new CartaoAmigoSilver();
-    else if((universitario == true) && (nascimento.actualYear() - nascimento.getYear()) <= 65)
+    else if((universitario) && (acq.getYear() - nascimento.getYear()) <= 65)
         cartao = new CartaoAmigoUni();
     else
         cartao = new CartaoAmigoIndi();
+    cartao->setDataAcquisition(acq);
     cartao->setNome(nome);
     cartao->setNascimento(nascimento);
     cartao->setContacto(contacto);
     cartao->setMorada(morada);
     cartao->setNif(nif);
+}
+
+const vector<Bilhete*> & Cliente::getBilhetes() const{
+    return bilhetes;
+}
+
+void Cliente::setBilhetes(const vector<Bilhete* > bilhetes) {
+    Cliente::bilhetes = bilhetes;
+}
+
+
+void Cliente::printCliente() {
+    cout << " Apresentando função printCliente() \n------------Cliente------------- \n";
+    cout << "Nome: " << this->getNome() << endl;
+    cout << "Data de Nascimento: "<< this->getNascimento();
+    cout << "Nif: "<< this->getNif() << endl;
+    cout << "Contacto Telemóvel: " << this->getContacto() << endl;
+    cout << "Morada: "<< this->getMorada() << endl;
+    cout << "É membro de universidade? ";
+    if(getUniversitario())
+        cout << " Sim" << endl;
+    else
+        cout <<"Não" <<endl;
+    for(int i = 0; i< this->getBilhetes().size(); i++){
+        cout << endl;
+        this->getBilhetes()[i]->printBilhete();
+        cout << endl;
+    }
 }

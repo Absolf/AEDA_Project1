@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "AEDA_Projeto"
   "AEDA_Projeto.pdb"
   "CMakeFiles/AEDA_Projeto.dir/Address.cpp.o"
+  "CMakeFiles/AEDA_Projeto.dir/Atracao.cpp.o"
+  "CMakeFiles/AEDA_Projeto.dir/Bilhete.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/Date.cpp.o"

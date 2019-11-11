@@ -7,18 +7,17 @@
 
 #include "string"
 #include "Address.h"
-#include "CartaoAmigo.h"
+#include "Atracao.h"
+#include "Cliente.h"
 #include <vector>
 
 using namespace std;
-class Museum {
-    string nome;
-    int capacidadeMaxima;
-    int lotacao;
-    Address endereco;
+class Museum : public Atracao{
+    
 public:
     Museum();
-    virtual void sellTicket();
+    void venderBilhete();
+    void reservarBilhete();
 
 };
 

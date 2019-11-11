@@ -4,45 +4,84 @@
 CMakeFiles/AEDA_Projeto.dir/Address.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+CMakeFiles/AEDA_Projeto.dir/Atracao.cpp.o
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.cpp
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+CMakeFiles/AEDA_Projeto.dir/Bilhete.cpp.o
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.cpp
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/Date.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+CMakeFiles/AEDA_Projeto.dir/Evento.cpp.o
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Evento.cpp
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Evento.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h
 CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/Time.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
@@ -50,17 +89,22 @@ CMakeFiles/AEDA_Projeto.dir/Time.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/main.cpp
 CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+ /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp
  /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h

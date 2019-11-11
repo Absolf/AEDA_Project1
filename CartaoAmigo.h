@@ -9,21 +9,18 @@
 #include "SalaEspetaculo.h"
 #include <vector>
 
+
 class CartaoAmigo{
     Date dataAcquisition;
     Date nascimento;
     string nome;
     string morada;
     string contacto;
-    float anuidade;
     string nif;
-
 public:
     CartaoAmigo();
-    CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, float anuidade, string nif): dataAcquisition(dataAcquisition), nascimento(nascimento),
-                                                                                                                                          nome(nome), morada(morada), contacto(contacto), anuidade(anuidade), nif(nif) {};
+    CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif): dataAcquisition(dataAcquisition), nascimento(nascimento),nome(nome), morada(morada), contacto(contacto), nif(nif){};
     virtual float getAnuidade() const;
-
     const Date &getDataAcquisition() const;
     void setDataAcquisition(const Date &dataAcquisition);
 
@@ -49,23 +46,29 @@ public:
 };
 
 class CartaoAmigoUni : public  CartaoAmigo{
+    float anuidade;
 public:
     CartaoAmigoUni(){};
+    CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif, float anuidade);
     CartaoAmigoUni operator=(const CartaoAmigo&);
     float getAnuidade() const;
 
 };
 
 class CartaoAmigoSilver : public CartaoAmigo {
+    float anuidade;
 public:
     CartaoAmigoSilver(){};
+    CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif, float anuidade);
     CartaoAmigoSilver operator=(const CartaoAmigo&);
     float getAnuidade() const;
 };
 
 class CartaoAmigoIndi : public CartaoAmigo {
+    float anuidade;
 public:
     CartaoAmigoIndi(){};
+    CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif, float anuidade);
     CartaoAmigoSilver operator=(const CartaoAmigo&);
     float getAnuidade() const;
 

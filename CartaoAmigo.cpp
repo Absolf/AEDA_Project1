@@ -12,7 +12,7 @@ void CartaoAmigo::setNif(const string &nif) {
 }
 
 float CartaoAmigo::getAnuidade() const{
-    return anuidade;
+    return 0.0;
 }
 
 const Date& CartaoAmigo::getDataAcquisition() const {
@@ -50,15 +50,17 @@ void CartaoAmigo::setContacto(const string &contacto) {
     this->contacto = contacto;
 }
 
+/*
 CartaoAmigo CartaoAmigo::operator=(const CartaoAmigo &c1) {
     return CartaoAmigo(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(), this->nome = c1.getNome(), this->morada = c1.getMorada(), this->contacto = c1.getContacto(), this->anuidade = c1.getAnuidade(), this->nif = c1.getNif());
 }
-
+*/
 
 
 
 //---------------------Cartao Amigo uni
-
+CartaoAmigoUni::CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif, float anuidade) :
+        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, nif), anuidade(anuidade) {};
 float CartaoAmigoUni::getAnuidade() const{
     return 32.45;
 }
@@ -66,14 +68,16 @@ float CartaoAmigoUni::getAnuidade() const{
 
 
 //---------------------CartaoAmigo Silver
-
+CartaoAmigoSilver::CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif, float anuidade) :
+        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, nif), anuidade(anuidade) {};
 float CartaoAmigoSilver::getAnuidade() const{
     return 30.0;
 }
 
 
 //---------------------CartaoAmigoIndi
-
+CartaoAmigoIndi::CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif, float anuidade) :
+        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, nif), anuidade(anuidade) {};
 float CartaoAmigoIndi::getAnuidade() const {
     return 54.9;
 }

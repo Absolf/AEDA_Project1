@@ -90,6 +90,18 @@
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.cpp">
 			<Option target="AEDA_Projeto"/>
 		</Unit>

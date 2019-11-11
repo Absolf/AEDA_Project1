@@ -5,34 +5,41 @@
 #ifndef AEDA_PROJETO_SALAESPETACULO_H
 #define AEDA_PROJETO_SALAESPETACULO_H
 #include "Address.h"
-#include "CartaoAmigo.h"
+#include "Atracao.h"
+#include "Time.h"
 
-class SalaEspetaculo {
-    string nome;
-    int capacidadeMaxima;
-    int lotacao;
-    Address localizacao; //Para comparar com a loc. do usuario -> bilhetes gratuitos para Silver
-    int id;
+
+class SalaEspetaculo : public Atracao{
+    bool aderente = false;
 public:
-    SalaEspetaculo();
-    virtual void sellTicket();
 
+    SalaEspetaculo();
+    SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente);
+    bool isAderente() const;
+
+    void setAderente(bool aderente);
+    void venderBilhete();
 };
 
-
-class Evento : public SalaEspetaculo {
-    bool aceitaDescontoCartaoAmigo; //Apenas eventos selecionados possuem desconto
-    Address localizacao;
+class Evento : public SalaEspetaculo{
+    string nomeEvento;
+    Date data;
+    time_t horario;
 public:
+    Evento();
+    Evento(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente, string nomeEvento, Date data, time_t horario);
+    /*
+    const SalaEspetaculo& getSalaEspetaculo() const;
+    void setSalaEspetaculo(SalaEspetaculo *salaEspetaculo);
+*/
+    const string &getNomeEvento() const;
+    void setNomeEvento(const string &nomeEvento);
 
-    Evento(){};
-    bool getAceitaDescontoCartaoAmigo() const;
+    const Date &getData() const;
+    void setData(const Date &data);
 
-    void setAceitaDescontoCartaoAmigo(bool aceitaDescontoCartaoAmigo);
-
-    void sellTicket();
-    void porcentagemOcupada();
-    void makeReserva();
+    const time_t&getHorario() const;
+    void setHorario(const time_t &horario);
 };
 
 

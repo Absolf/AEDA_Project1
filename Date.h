@@ -38,7 +38,7 @@ public:
     bool isBissexto(int year); //Determines if the input year is a leap year or not
     int daysMonth(int month, int year); //Retrives the number of days in the input month (takes into account leap years)
     bool verifyDate(string date); //Verifies if the given string date is valid or not (taking into account days in a month, leap years and current date)
-    int actualYear();
+    void actualDate();
     // outhet methods */
 
     static string returnDate(Date date); //Displays the date in a string

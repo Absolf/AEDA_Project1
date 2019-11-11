@@ -17,36 +17,34 @@ class Time {
 	int minutos;
 	int segundos;
 public:
-	Time();
-	int getHora() const;
-	void setHora(int hora);
-	int getMinutos() const;
-	void setMinutos(int minutos);
-	int getSegundos() const;
-	void setSegundos(int segundos);
+    Time();
+    int getHora() const;
+    void setHora(int hora);
+    int getMinutos() const;
+    void setMinutos(int minutos);
+    int getSegundos() const;
+    void setSegundos(int segundos);
 
 
-	//-------------------------------
-	bool valid();
+    //-------------------------------
+    bool valid();
 
-	void setTime(int hora, int minutos, int segundos);
-	void setTimeString(string linha);//set Time throw a string
-	string getTimeString(); //???
-	//bool verifyTime(string time); verifica a func de cima.
+    void setTime(int hora, int minutos, int segundos);
+    void setTimeString(string linha);//set Time throw a string
+    string getTimeString(); //???
+    //bool verifyTime(string time); verifica a func de cima.
 
-	//other methods
-	//static string returnTime(Time time); //Displays the date in a string
-	friend ostream &operator<<(ostream &out, const Time &time); //output operator
-	bool operator ==(const Time&t); // comparison operators
-	bool operator != (const Time&t);
-	bool operator >(const Time&t);
-	bool operator <(const Time&t);
+    //other methods
+    //static string returnTime(Time time); //Displays the date in a string
+    friend ostream &operator<<(ostream &out, const Time &time); //output operator
+    bool operator ==(const Time&t); // comparison operators
+    bool operator != (const Time&t);
+    bool operator >(const Time&t);
+    bool operator <(const Time&t);
 
-	//------------------------------//
-	Time operator-(const Time& t);
-	//Time operator+(const Time& t2);
-
-
+    //------------------------------//
+    Time operator-(const Time& t);
+    //Time operator+(const Time& t2);
 
 };
 

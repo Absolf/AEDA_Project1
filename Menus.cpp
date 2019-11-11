@@ -3,10 +3,11 @@
 //
 
 #include "Menus.h"
-#include "Cliente.h"
+#include "sistemaCartaoAmigoMuseus.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
@@ -118,34 +119,56 @@ void mainMenu() {
             break;
         }
         case '2':{
+
+            cout << "Preenchendo um evento "<< endl;
+            Date eventDate("2020/11/21");
+            time_t timer;
+            struct tm aTime;
+            aTime.tm_hour;
+            Evento *evento = new Evento("Espaço alfa", 20 , 19, "Rua de São Brás0", 0 , true, "TomorrowLand",eventDate,aTime.tm_hour);
+            cout << "Lotacão evento depois de criado: " << evento->getLotacao() << endl;
+
+            cout << "Associando um evento a um bilhete" << endl;
+            Bilhete bi;
+            bi.setValor(25.5);
+            cout << "Foi atribuido manualmente um valor pro bilhete" << endl;
+            bi.setEvento(evento);
+            sistemaCartaoAmigoMuseumPortugal obj;
+            cout << "Preenchendo um cliente" << endl;
             Cliente teste;
 
-            if(teste.temCartao())
-                cout << "true"<< endl;
-            else
-                cout << "false"<< endl;
-            cout << (teste.getNome() ==  "")<<endl;
             teste.setNif("213123123");
             teste.setNome(("victor"));
             teste.setContacto("935550893");
             teste.setMorada("testando");
             Date nascimento("1995/11/21");
-            Date aq("2018/05/11");
             teste.setNascimento(nascimento);
             teste.setUniversitario(true);
             teste.aderirCartao();
-            teste.getCartao().setDataAcquisition(aq);
-            cout << teste.getNome() << endl;
-            cout << teste.getCartao().getNome() << endl;
-            if(teste.temCartao())
-                cout << "true"<< endl;
-            else
-                cout << "false"<< endl;
-            cout << teste.getCartao().getNascimento();
-            cout << teste.getCartao().getAnuidade();
+            cout << "Com as informações do cliente, foi gerado um cartao" << endl;
+            obj.venderBilhete(&teste,&bi, evento);
+            teste.printCliente();
+
+            //--- Segundo teste
+            Cliente teste2;
+            teste2.setNif("5468789");
+            teste2.setNome(("Edu"));
+            teste2.setContacto("6665558");
+            teste2.setMorada("FEUP");
+            Date nascimento2("1998/11/21");
+            teste2.setNascimento(nascimento2);
+            teste2.setUniversitario(true);
+            teste2.aderirCartao();
+            obj.venderBilhete(&teste2, &bi, evento);
+            teste2.printCliente();
             break;
+
+
+
         }
         case '3':
+
+            break;
 
 
         case '0':
