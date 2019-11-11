@@ -119,6 +119,8 @@ void mainMenu() {
         }
         case '2':{
             Cliente teste;
+            Bilhete bi;
+
 
             if(teste.temCartao())
                 cout << teste.temCartao()<< endl;

@@ -8,9 +8,13 @@
 
 class Bilhete {
     float valor;
-    SalaEspetaculo sala;
+    Evento *evento;
 public:
-
+    Bilhete(){};
+    float getValor() const;
+    void setValor(float valor);
+    const Evento &getEvento() const;
+    void setEvento(Evento *evento);
 };
 
 

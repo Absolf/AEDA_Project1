@@ -65,6 +65,9 @@ const CartaoAmigo& Cliente::getCartao() const{
 void Cliente::setCartao(CartaoAmigo *cartao){
     this->cartao = cartao;
 }
+void Cliente::addBilhete(Bilhete *b) {
+    bilhetes.push_back(b);
+}
 
 void Cliente::aderirCartao(){
     Date acq;

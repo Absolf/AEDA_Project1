@@ -8,6 +8,7 @@ using namespace std;
 #import <string>
 #import "Date.h"
 #import "CartaoAmigo.h"
+#include "Bilhete.h"
 
 class Cliente {
     Date nascimento;
@@ -17,7 +18,7 @@ class Cliente {
     string nif;
     CartaoAmigo *cartao;
     bool universitario = false;
-
+    vector<Bilhete* > bilhetes;
 public:
     Cliente();
     const Date &getNascimento() const;
@@ -43,7 +44,7 @@ public:
     const string &getNif() const;
 
     void setNif(const string &nif);
-
+    void addBilhete(Bilhete *b);
     void aderirCartao();
 };
 
