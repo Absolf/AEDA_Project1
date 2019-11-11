@@ -8,14 +8,11 @@ const string &CartaoAmigo::getNif() const {
 }
 
 void CartaoAmigo::setNif(const string &nif) {
-    CartaoAmigo::nif = nif;
+    this->nif = nif;
 }
 
-float CartaoAmigo::getValorAssinatura() const {
-    return valorAssinatura;
-}
-void CartaoAmigo::setValorAssinatura(float &valorAssinatura) {
-    this->nif = nif;
+float CartaoAmigo::getAnuidade() const{
+    return anuidade;
 }
 
 const Date& CartaoAmigo::getDataAcquisition() const {
@@ -39,10 +36,10 @@ void CartaoAmigo::setNome(const string &nome){
     this-> nome=nome;
 }
 
-const Address & CartaoAmigo::getMorada() const {
+const string & CartaoAmigo::getMorada() const {
     return morada;
 }
-void CartaoAmigo::setMorada(const Address &morada){
+void CartaoAmigo::setMorada(const string &morada){
     this->morada = morada;
 }
 
@@ -53,30 +50,39 @@ void CartaoAmigo::setContacto(const string &contacto) {
     this->contacto = contacto;
 }
 
-void CartaoAmigo::emitirCartao(){
-    CartaoAmigo novo;
-    string line;
-    cout << "Nome:" << endl;
-    getline(cin, line);
-    novo.setNome(line);
-    cout << "Data Aqcquisition:" << endl;
-    getline(cin, line);
-    Date teste(line);
-    novo.setDataAcquisition((teste));
-
-    cout << "Data Nascimento:" << endl;
-    getline(cin, line);
-    Date nascimento(line);
-    nascimento.setDateString(line);
-    novo.setNascimento(nascimento);
-
-    cout << novo.getNome() << endl;
-    cout << novo.getDataAcquisition();
-    cout << novo.getNascimento();
+CartaoAmigo CartaoAmigo::operator=(const CartaoAmigo &c1) {
+    return CartaoAmigo(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(), this->nome = c1.getNome(), this->morada = c1.getMorada(), this->contacto = c1.getContacto(), this->anuidade = c1.getAnuidade(), this->nif = c1.getNif());
 }
 
-float darDescontoMuseu();
-float darDescontoEvento();
+
+
+
+//---------------------Cartao Amigo uni
+
+float CartaoAmigoUni::getAnuidade() const{
+    return 32.45;
+}
+
+
+
+//---------------------CartaoAmigo Silver
+
+float CartaoAmigoSilver::getAnuidade() const{
+    return 30.0;
+}
+
+
+//---------------------CartaoAmigoIndi
+
+float CartaoAmigoIndi::getAnuidade() const {
+    return 54.9;
+}
+
+
+
+
+
+
 
 
 

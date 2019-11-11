@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "AEDA_Projeto.pdb"
   "CMakeFiles/AEDA_Projeto.dir/Address.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o"
+  "CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/Date.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o"

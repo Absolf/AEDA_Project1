@@ -13,16 +13,16 @@ class CartaoAmigo{
     Date dataAcquisition;
     Date nascimento;
     string nome;
-    Address morada;
+    string morada;
     string contacto;
-    float valorAssinatura;
+    float anuidade;
     string nif;
+
 public:
     CartaoAmigo();
-    CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto, float valorAssinatura): dataAcquisition(dataAcquisition), nascimento(nascimento),
-                                                                                                                                          nome(nome), morada(morada), contacto(contacto), valorAssinatura(valorAssinatura) {};
-    float getValorAssinatura() const;
-    void setValorAssinatura(float &valorAssinatura);
+    CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, float anuidade, string nif): dataAcquisition(dataAcquisition), nascimento(nascimento),
+                                                                                                                                          nome(nome), morada(morada), contacto(contacto), anuidade(anuidade), nif(nif) {};
+    float getAnuidade() const;
 
     const Date &getDataAcquisition() const;
     void setDataAcquisition(const Date &dataAcquisition);
@@ -32,12 +32,9 @@ public:
 
     const string &getNome() const;
     void setNome(const string &nome);
-/**
- *
- * @return
- */
-    const Address &getMorada() const;
-    void setMorada(const Address &morada);
+
+    const string &getMorada() const;
+    void setMorada(const string &morada);
 
     const string &getContacto() const;
     void setContacto(const string &contacto);
@@ -45,45 +42,32 @@ public:
     const string &getNif() const;
 
     void setNif(const string &nif);
-
-    void emitirCartao();
-
-    float darDescontoMuseu();
-    float darDescontoEvento();
-
+    CartaoAmigo operator=(const CartaoAmigo&);
     friend ostream &operator<<(ostream &out, const CartaoAmigo &cliente);
 
 
 };
 
 class CartaoAmigoUni : public  CartaoAmigo{
-    float valorAssinatura;
 public:
-    CartaoAmigoUni();
-    void emitirCartao();
-    float getValorAssinatura() const;
+    CartaoAmigoUni(){};
+    CartaoAmigoUni operator=(const CartaoAmigo&);
+    float getAnuidade() const;
 
 };
 
 class CartaoAmigoSilver : public CartaoAmigo {
-    float valorAssinatura;
 public:
-    CartaoAmigoSilver();
-    void emitirCartao();
-    float getValorAssinatura() const;
-    /*Avisa membros Silver de eventos na proximidade caso faltando menos de
-8h para o evento ainda nao tenham sido vendidos no minimo 50% do total
-de ingressos. Recebe o evento em questão e o vetor de clientes Silver*/
-    //void avisarMembrosSilver(Evento evento1 , vector<CartaoAmigo> &v);
-
+    CartaoAmigoSilver(){};
+    CartaoAmigoSilver operator=(const CartaoAmigo&);
+    float getAnuidade() const;
 };
 
 class CartaoAmigoIndi : public CartaoAmigo {
-    float valorAssinatura;
 public:
-    CartaoAmigoIndi();
-    void emitirCartao();
-    float getValorAssinatura() const;
+    CartaoAmigoIndi(){};
+    CartaoAmigoSilver operator=(const CartaoAmigo&);
+    float getAnuidade() const;
 
 };
 

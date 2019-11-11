@@ -10,11 +10,19 @@ CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: ../CartaoAmigo.h
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: ../Date.h
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: ../SalaEspetaculo.h
 
+CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o: ../Address.h
+CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o: ../CartaoAmigo.h
+CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o: ../Cliente.cpp
+CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o: ../Cliente.h
+CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o: ../Date.h
+CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o: ../SalaEspetaculo.h
+
 CMakeFiles/AEDA_Projeto.dir/Date.cpp.o: ../Date.cpp
 CMakeFiles/AEDA_Projeto.dir/Date.cpp.o: ../Date.h
 
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Address.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../CartaoAmigo.h
+CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Cliente.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Date.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Menus.cpp
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Menus.h

@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/88/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/92/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/88/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/92/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA"
+CMAKE_SOURCE_DIR = "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/cm
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/88/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/92/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/88/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/92/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/cmake-build-debug/CMakeFiles" "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,33 @@ CartaoAmigo.s: CartaoAmigo.cpp.s
 CartaoAmigo.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.s
 .PHONY : CartaoAmigo.cpp.s
+
+Cliente.o: Cliente.cpp.o
+
+.PHONY : Cliente.o
+
+# target to build an object file
+Cliente.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.o
+.PHONY : Cliente.cpp.o
+
+Cliente.i: Cliente.cpp.i
+
+.PHONY : Cliente.i
+
+# target to preprocess a source file
+Cliente.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.i
+.PHONY : Cliente.cpp.i
+
+Cliente.s: Cliente.cpp.s
+
+.PHONY : Cliente.s
+
+# target to generate assembly for a file
+Cliente.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Cliente.cpp.s
+.PHONY : Cliente.cpp.s
 
 Date.o: Date.cpp.o
 
@@ -381,6 +408,9 @@ help:
 	@echo "... CartaoAmigo.o"
 	@echo "... CartaoAmigo.i"
 	@echo "... CartaoAmigo.s"
+	@echo "... Cliente.o"
+	@echo "... Cliente.i"
+	@echo "... Cliente.s"
 	@echo "... Date.o"
 	@echo "... Date.i"
 	@echo "... Date.s"

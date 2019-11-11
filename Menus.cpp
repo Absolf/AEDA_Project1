@@ -3,7 +3,7 @@
 //
 
 #include "Menus.h"
-#include "CartaoAmigo.h"
+#include "Cliente.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -118,8 +118,31 @@ void mainMenu() {
             break;
         }
         case '2':{
-            CartaoAmigo teste;
-            teste.emitirCartao();
+            Cliente teste;
+
+            if(teste.temCartao())
+                cout << "true"<< endl;
+            else
+                cout << "false"<< endl;
+            cout << teste.getNome()<<endl;
+            teste.setNif("213123123");
+            teste.setNome(("victor"));
+            teste.setContacto("935550893");
+            teste.setMorada("testando");
+            Date nascimento("1995/11/21");
+            Date aq("2018/05/11");
+            teste.setNascimento(nascimento);
+            teste.setUniversitario(true);
+            teste.aderirCartao();
+            //teste.getCartao().setDataAcquisition(aq);
+            cout << teste.getNome() << endl;
+            cout << teste.getCartao().getNome() << endl;
+            if(teste.temCartao())
+                cout << "true"<< endl;
+            else
+                cout << "false"<< endl;
+            cout << teste.getCartao().getNascimento();
+            cout << teste.getCartao().getAnuidade();
             break;
         }
         case '3':

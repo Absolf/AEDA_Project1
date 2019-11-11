@@ -6,11 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/Date.cpp
-Date.h
-/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+string
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
 
-/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.cpp
+CartaoAmigo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+SalaEspetaculo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+vector
+-
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 time.h
 -
 iostream
@@ -19,4 +33,10 @@ regex
 -
 ctime
 -
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+CartaoAmigo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
 

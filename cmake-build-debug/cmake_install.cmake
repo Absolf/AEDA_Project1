@@ -1,4 +1,4 @@
-# Install script for directory: /home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA
+# Install script for directory: /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/laureano/Desktop/FEUP 2019-2020/AEDA/Projeto 1/AEDA/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
