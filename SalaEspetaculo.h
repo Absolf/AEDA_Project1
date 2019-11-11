@@ -5,33 +5,35 @@
 #ifndef AEDA_PROJETO_SALAESPETACULO_H
 #define AEDA_PROJETO_SALAESPETACULO_H
 #include "Address.h"
-#include "CartaoAmigo.h"
 #include "Atracao.h"
 #include "Time.h"
 
-class SalaEspetaculo : Atracao{
+
+class SalaEspetaculo : public Atracao{
     bool aderente = false;
 public:
+
+    SalaEspetaculo();
+    SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente);
     bool isAderente() const;
 
     void setAderente(bool aderente);
-
-    SalaEspetaculo();
     void venderBilhete();
 };
 
 class Evento : public SalaEspetaculo{
-    SalaEspetaculo *salaEspetaculo;
-    string nome;
+    string nomeEvento;
     Date data;
     time_t horario;
 public:
-    Evento(){};
+    Evento();
+    Evento(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente, string nomeEvento, Date data, time_t horario);
+    /*
     const SalaEspetaculo& getSalaEspetaculo() const;
     void setSalaEspetaculo(SalaEspetaculo *salaEspetaculo);
-
-    const string &getNome() const;
-    void setNome(const string &nome);
+*/
+    const string &getNomeEvento() const;
+    void setNomeEvento(const string &nomeEvento);
 
     const Date &getData() const;
     void setData(const Date &data);

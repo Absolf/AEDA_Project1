@@ -4,6 +4,12 @@
 
 #include "SalaEspetaculo.h"
 
+SalaEspetaculo::SalaEspetaculo(): Atracao() {};
+SalaEspetaculo::SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente) :
+    Atracao(nome, capacidadeMaxima, lotacao, endereco, id), aderente(aderente)
+    { };
+
+
 bool SalaEspetaculo::isAderente() const {
     return aderente;
 }
@@ -18,20 +24,27 @@ void SalaEspetaculo::venderBilhete() {
 
 
 // --------------------------------Evento
+
+Evento::Evento() : SalaEspetaculo(){};
+
+Evento::Evento(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente, string nomeEvento, Date data, time_t horario) :
+    SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento), data(data), horario(horario)
+    { };
+/*
 const SalaEspetaculo& Evento::getSalaEspetaculo() const {
     return *salaEspetaculo;
 }
 
 void Evento::setSalaEspetaculo(SalaEspetaculo *salaEspetaculo) {
     this->salaEspetaculo = salaEspetaculo;
+}*/
+
+const string &Evento::getNomeEvento() const {
+    return nomeEvento;
 }
 
-const string &Evento::getNome() const {
-    return nome;
-}
-
-void Evento::setNome(const string &nome) {
-    this->nome = nome;
+void Evento::setNomeEvento(const string &nomeEvento) {
+    this->nomeEvento = nomeEvento;
 }
 
 const Date & Evento::getData() const {

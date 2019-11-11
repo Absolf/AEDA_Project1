@@ -85,3 +85,31 @@ void Cliente::aderirCartao(){
     cartao->setMorada(morada);
     cartao->setNif(nif);
 }
+
+const vector<Bilhete*> & Cliente::getBilhetes() const{
+    return bilhetes;
+}
+
+void Cliente::setBilhetes(const vector<Bilhete* > bilhetes) {
+    Cliente::bilhetes = bilhetes;
+}
+
+
+void Cliente::printCliente() {
+    cout << " Apresentando função printCliente() \n------------Cliente------------- \n";
+    cout << "Nome: " << this->getNome() << endl;
+    cout << "Data de Nascimento: "<< this->getNascimento();
+    cout << "Nif: "<< this->getNif() << endl;
+    cout << "Contacto Telemóvel: " << this->getContacto() << endl;
+    cout << "Morada: "<< this->getMorada() << endl;
+    cout << "É membro de universidade? ";
+    if(getUniversitario())
+        cout << " Sim" << endl;
+    else
+        cout <<"Não" <<endl;
+    for(int i = 0; i< this->getBilhetes().size(); i++){
+        cout << endl;
+        this->getBilhetes()[i]->printBilhete();
+        cout << endl;
+    }
+}

@@ -11,9 +11,12 @@ class Atracao {
     string nome;
     int capacidadeMaxima;
     int lotacao;
-    Address endereco;
+    string endereco;
     int id;
 public:
+    Atracao();
+    Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id);
+
     virtual void venderBilhete();
     //virtual void reservarBilhete();
 
@@ -25,13 +28,13 @@ public:
 
     void setCapacidadeMaxima(int capacidadeMaxima);
 
-    int getLotacao() const;
+    const int getLotacao() const;
 
-    void setLotacao(int lotacao);
+    void setLotacao(const int &lotacao);
 
-    const Address &getEndereco() const;
+    const string &getEndereco() const;
 
-    void setEndereco(const Address &endereco);
+    void setEndereco(const string &endereco);
 
     int getId() const;
 

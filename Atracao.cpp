@@ -3,13 +3,17 @@
 //
 
 #include "Atracao.h"
+Atracao::Atracao() {}
+
+
+Atracao::Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id) : nome(nome), capacidadeMaxima(capacidadeMaxima), lotacao(lotacao), endereco(endereco), id(id) {};
 
 const string &Atracao::getNome() const {
     return nome;
 }
 
 void Atracao::setNome(const string &nome) {
-    Atracao::nome = nome;
+    this->nome = nome;
 }
 
 int Atracao::getCapacidadeMaxima() const {
@@ -17,23 +21,23 @@ int Atracao::getCapacidadeMaxima() const {
 }
 
 void Atracao::setCapacidadeMaxima(int capacidadeMaxima) {
-    Atracao::capacidadeMaxima = capacidadeMaxima;
+    this->capacidadeMaxima = capacidadeMaxima;
 }
 
-int Atracao::getLotacao() const {
+const int Atracao::getLotacao() const {
     return lotacao;
 }
 
-void Atracao::setLotacao(int lotacao) {
-    Atracao::lotacao = lotacao;
+void Atracao::setLotacao(const int &lotacao) {
+    this->lotacao = lotacao;
 }
 
-const Address &Atracao::getEndereco() const {
+const string &Atracao::getEndereco() const {
     return endereco;
 }
 
-void Atracao::setEndereco(const Address &endereco) {
-    Atracao::endereco = endereco;
+void Atracao::setEndereco(const string &endereco) {
+    this->endereco = endereco;
 }
 
 int Atracao::getId() const {
@@ -41,7 +45,7 @@ int Atracao::getId() const {
 }
 
 void Atracao::setId(int id) {
-    Atracao::id = id;
+    this->id = id;
 }
 
 void Atracao::venderBilhete() {

@@ -4,8 +4,9 @@
 
 #ifndef AEDA_PROJETO_SISTEMACARTAOAMIGOMUSEUS_H
 #define AEDA_PROJETO_SISTEMACARTAOAMIGOMUSEUS_H
-#include "CartaoAmigo.h"
+#include "SalaEspetaculo.h"
 #include "Museum.h"
+#include "Cliente.h"
 #include <vector>
 
 
@@ -13,11 +14,12 @@ using namespace std;
 
 
 class sistemaCartaoAmigoMuseumPortugal {
-    vector<CartaoAmigo*> cliente;
-    vector<SalaEspetaculo*> eventos;
+    vector<Cliente *> clientes;
+    vector<Evento*> eventos;
     vector<Museum*> museu;
 public:
     sistemaCartaoAmigoMuseumPortugal();
+    void venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento);
     void addCartaoAmigo() const ;
     void addMuseum() const;
     void addSalaEspetaculo() const;

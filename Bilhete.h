@@ -15,6 +15,7 @@ public:
     void setValor(float valor);
     const Evento &getEvento() const;
     void setEvento(Evento *evento);
+    void printBilhete();
 };
 
 
