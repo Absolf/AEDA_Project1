@@ -57,6 +57,7 @@ CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../main.cpp
 
 CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Address.h
 CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../CartaoAmigo.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Cliente.h
 CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Date.h
 CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Museum.h
 CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../SalaEspetaculo.h

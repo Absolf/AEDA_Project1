@@ -7,13 +7,14 @@
 #include "CartaoAmigo.h"
 #include "Museum.h"
 #include <vector>
+#include "Cliente.h"
 
 
 using namespace std;
 
 
 class sistemaCartaoAmigoMuseumPortugal {
-    vector<CartaoAmigo*> cliente;
+    vector<Cliente*> cliente;
     vector<SalaEspetaculo*> eventos;
     vector<Museum*> museu;
 public:

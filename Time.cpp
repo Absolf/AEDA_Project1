@@ -62,7 +62,7 @@ void Time::setTimeString(string linha) {
 }
 
 
-string Time::getTimeString() {//É PRECISO VALIDAR????? ---------- bool verifyTime(string time)??
+string Time::getTimeString() {//ï¿½ PRECISO VALIDAR????? ---------- bool verifyTime(string time)??
 
 	string hour = to_string(getHora());
 	string minuto = to_string(getMinutos());
@@ -140,9 +140,9 @@ bool Time::operator<(const Time& t) {
 }
 
 Time Time::operator-(const Time& t) {
-	//Podia fazer com matematica mas isto veio-me a cabeça primeiro...
+	//Podia fazer com matematica mas isto veio-me a cabeï¿½a primeiro...
 	// fazer com % divisao e com abs()
-	//possivelmente 59*3 iteraçoes para isto -_-
+	//possivelmente 59*3 iteraï¿½oes para isto -_-
 	int hora = this->hora - t.getHora();
 	int minuto = this->minutos - t.getMinutos();
 	int segundo = this->segundos - t.getSegundos();
@@ -168,7 +168,7 @@ Time Time::operator-(const Time& t) {
 	if (segundo < 0) {
 		while (segundo != 0) {
 			segundo++;
-			c++
+			c++;
 		}
 		segundo = 60 - c;
 		minuto--;
@@ -178,9 +178,9 @@ Time Time::operator-(const Time& t) {
 
 
 Time Time::operator+(const Time& t) {
-	//Podia fazer com matematica mas isto veio-me a cabeça primeiro...
+	//Podia fazer com matematica mas isto veio-me a cabeï¿½a primeiro...
 	// fazer com % divisao e com abs()
-	//possivelmente 59*3 iteraçoes para isto -_-
+	//possivelmente 59*3 iteraï¿½oes para isto -_-
 	// voltar a fazer ... secalhar
 	int hora = this->hora + t.getHora();
 	int minuto = this->minutos + t.getMinutos();

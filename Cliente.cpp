@@ -43,7 +43,7 @@ void Cliente::setContacto(const string &contacto) {
 }
 
 bool Cliente::temCartao(){
-    if(this->cartao == NULL) {
+    if(this->cartao->getNome() == "") {
         return false;
     }else
         return true;
@@ -64,10 +64,10 @@ void Cliente::setCartao(CartaoAmigo *cartao){
 }
 
 void Cliente::aderirCartao(){
-    cout << nascimento.actualYear() - getNascimento().getYear();
+    cout << nascimento.actualYear() - getNascimento().getYear() << endl;
     if((nascimento.actualYear() - nascimento.getYear()) >65)
         cartao = new CartaoAmigoSilver();
-    else if((universitario) && (nascimento.getYear()-nascimento.actualYear()) <= 65)
+    else if((universitario == true) && (nascimento.actualYear() - nascimento.getYear()) <= 65)
         cartao = new CartaoAmigoUni();
     else
         cartao = new CartaoAmigoIndi();

@@ -124,7 +124,7 @@ void mainMenu() {
                 cout << "true"<< endl;
             else
                 cout << "false"<< endl;
-            cout << teste.getNome()<<endl;
+            cout << (teste.getNome() ==  "")<<endl;
             teste.setNif("213123123");
             teste.setNome(("victor"));
             teste.setContacto("935550893");
@@ -134,7 +134,7 @@ void mainMenu() {
             teste.setNascimento(nascimento);
             teste.setUniversitario(true);
             teste.aderirCartao();
-            //teste.getCartao().setDataAcquisition(aq);
+            teste.getCartao().setDataAcquisition(aq);
             cout << teste.getNome() << endl;
             cout << teste.getCartao().getNome() << endl;
             if(teste.temCartao())
