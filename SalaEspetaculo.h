@@ -7,6 +7,7 @@
 #include "Address.h"
 #include "Atracao.h"
 #include "Time.h"
+#include "Date.h"
 
 
 class SalaEspetaculo : public Atracao{

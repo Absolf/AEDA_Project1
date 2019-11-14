@@ -285,33 +285,6 @@ Date.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Date.cpp.s
 .PHONY : Date.cpp.s
 
-Evento.o: Evento.cpp.o
-
-.PHONY : Evento.o
-
-# target to build an object file
-Evento.cpp.o:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Evento.cpp.o
-.PHONY : Evento.cpp.o
-
-Evento.i: Evento.cpp.i
-
-.PHONY : Evento.i
-
-# target to preprocess a source file
-Evento.cpp.i:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Evento.cpp.i
-.PHONY : Evento.cpp.i
-
-Evento.s: Evento.cpp.s
-
-.PHONY : Evento.s
-
-# target to generate assembly for a file
-Evento.cpp.s:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/Evento.cpp.s
-.PHONY : Evento.cpp.s
-
 Menus.o: Menus.cpp.o
 
 .PHONY : Menus.o
@@ -501,9 +474,6 @@ help:
 	@echo "... Date.o"
 	@echo "... Date.i"
 	@echo "... Date.s"
-	@echo "... Evento.o"
-	@echo "... Evento.i"
-	@echo "... Evento.s"
 	@echo "... Menus.o"
 	@echo "... Menus.i"
 	@echo "... Menus.s"
