@@ -5,6 +5,7 @@
 #ifndef AEDA_PROJETO_ADDRESS_H
 #define AEDA_PROJETO_ADDRESS_H
 using namespace std;
+
 #include "string"
 
 class Address {
@@ -16,6 +17,7 @@ class Address {
 public:
 
     Address();
+
     const string &getRua() const;
 
     void setRua(const string &rua);
@@ -24,7 +26,6 @@ public:
 
     void setCep(int cep);
 };
-
 
 
 #endif //AEDA_PROJETO_ADDRESS_H

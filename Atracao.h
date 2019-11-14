@@ -4,6 +4,7 @@
 
 #ifndef AEDA_PROJETO_ATRACAO_H
 #define AEDA_PROJETO_ATRACAO_H
+
 #include "Address.h"
 #include <string>
 
@@ -15,6 +16,7 @@ class Atracao {
     int id;
 public:
     Atracao();
+
     Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id);
 
     virtual void venderBilhete();

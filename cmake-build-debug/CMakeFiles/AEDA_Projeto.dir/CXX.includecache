@@ -6,12 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.cpp
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
 string
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
 
-<<<<<<< HEAD
-=======
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.cpp
+Atracao.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
 Address.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
@@ -26,14 +32,10 @@ Bilhete.h
 SalaEspetaculo.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
 
-<<<<<<< HEAD
->>>>>>> victor
-=======
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.cpp
 CartaoAmigo.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
 
->>>>>>> victor
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
 Date.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
@@ -44,19 +46,10 @@ SalaEspetaculo.h
 vector
 -
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> victor
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.cpp
 Cliente.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
 
-<<<<<<< HEAD
-=======
->>>>>>> victor
-=======
->>>>>>> victor
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
 string
 -
@@ -64,11 +57,12 @@ Date.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 CartaoAmigo.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
-<<<<<<< HEAD
-=======
 Bilhete.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
->>>>>>> victor
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.cpp
+Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 time.h
@@ -80,32 +74,23 @@ regex
 ctime
 -
 
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.cpp
+Menus.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
-<<<<<<< HEAD
-<<<<<<< HEAD
-Cliente.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
-=======
-sistemaCartaoAmigoMuseus.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h
->>>>>>> victor
 iostream
 -
 fstream
 -
-vector
+cstdlib
 -
-<<<<<<< HEAD
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
-
-=======
+ctime
+-
 time.h
 -
-=======
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
 vector
 -
->>>>>>> victor
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.cpp
 Museum.h
@@ -123,14 +108,10 @@ Cliente.h
 vector
 -
 
-<<<<<<< HEAD
->>>>>>> victor
-=======
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.cpp
 SalaEspetaculo.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
 
->>>>>>> victor
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
 Address.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
@@ -140,6 +121,10 @@ Time.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 Date.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.cpp
+Time.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 sstream
@@ -172,4 +157,6 @@ Cliente.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
 vector
 -
+Cliente.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
 

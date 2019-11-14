@@ -20,13 +20,12 @@ void Bilhete::setEvento(Evento *evento) {
     this->evento = evento;
 }
 
-void Bilhete::printBilhete()
-{
+void Bilhete::printBilhete() {
     cout << " Apresentando função printBilhete() \n------------Bilhete------------- \n";
     cout << "Sala de Espetáculo: " << evento->getNome() << endl;
-    cout << "Evento: " <<evento->getNomeEvento()  << endl;
-    cout <<"Valor: $" << valor << endl;
-    cout << "Data: "<< evento->getData() << endl;
+    cout << "Evento: " << evento->getNomeEvento() << endl;
+    cout << "Valor: $" << valor << endl;
+    cout << "Data: " << evento->getData() << endl;
     cout << "Horário: " << evento->getHorario();
     cout << "Lotacao: " << evento->getLotacao() << endl;
 

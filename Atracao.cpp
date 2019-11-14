@@ -3,10 +3,16 @@
 //
 
 #include "Atracao.h"
+
 Atracao::Atracao() {}
 
 
-Atracao::Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id) : nome(nome), capacidadeMaxima(capacidadeMaxima), lotacao(lotacao), endereco(endereco), id(id) {};
+Atracao::Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id) : nome(nome),
+                                                                                            capacidadeMaxima(
+                                                                                                    capacidadeMaxima),
+                                                                                            lotacao(lotacao),
+                                                                                            endereco(endereco),
+                                                                                            id(id) {};
 
 const string &Atracao::getNome() const {
     return nome;

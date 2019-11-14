@@ -3,10 +3,10 @@
 //
 #include "Time.h"
 
-Time::Time (){
-    hora =0;
-    minutos =0;
-    segundos =0;
+Time::Time() {
+    hora = 0;
+    minutos = 0;
+    segundos = 0;
 }
 
 Time::Time(int hora, int minutos, int segundos) {
@@ -30,7 +30,7 @@ int Time::getSegundos() const { return segundos; }
 void Time::setSegundos(int segundos) { this->segundos = segundos; }
 
 
-bool Time::valid(){
+bool Time::valid() {
     if (hora >= 0 && hora <= 23)
         if (minutos >= 0 && minutos <= 59)
             if (segundos >= 0 && segundos <= 59)
@@ -74,7 +74,6 @@ void Time::setTimeString(string linha) {
 }
 
 
-
 string Time::getTimeString() {//É PRECISO VALIDAR????? ---------- bool verifyTime(string time)??
     string hour = to_string(getHora());
     string minuto = to_string(getMinutos());
@@ -116,8 +115,7 @@ ostream &operator<<(ostream &out, Time &time) {
 }
 
 
-
-bool Time::operator ==(Time& t) {
+bool Time::operator==(Time &t) {
     if (!t.valid()) { return false; }
 
     if ((this->hora == t.getHora()) && (this->minutos == t.getMinutos()) && (this->segundos == t.getSegundos())) {
@@ -127,13 +125,14 @@ bool Time::operator ==(Time& t) {
 }
 
 
-bool Time::operator !=(const Time &t) {
+bool Time::operator!=(const Time &t) {
     return (this->hora == t.getHora() || this->minutos == t.getMinutos() || this->segundos == t.getSegundos());
 }
 
-bool Time::operator>(const Time& t) {
+bool Time::operator>(const Time &t) {
     // this is strict inequality
-    if (this->hora == t.getHora() && this->minutos == t.getMinutos() && this->segundos == t.getSegundos()) { return false; }
+    if (this->hora == t.getHora() && this->minutos == t.getMinutos() &&
+        this->segundos == t.getSegundos()) { return false; }
 
     if (this->hora > t.getHora()) {
         return true;
@@ -141,8 +140,7 @@ bool Time::operator>(const Time& t) {
     if (this->hora == t.getHora()) {
         if (this->minutos > t.getMinutos()) {
             return true;
-        }
-        else if (this->minutos == t.getMinutos()) {
+        } else if (this->minutos == t.getMinutos()) {
             if (this->segundos > t.getSegundos())
                 return true;
         }
@@ -150,9 +148,10 @@ bool Time::operator>(const Time& t) {
     return false;
 }
 
-bool Time::operator<(const Time& t) {
+bool Time::operator<(const Time &t) {
     // this is strict inequality
-    if (this->hora == t.getHora() && this->minutos == t.getMinutos() && this->segundos == t.getSegundos()) { return false; }
+    if (this->hora == t.getHora() && this->minutos == t.getMinutos() &&
+        this->segundos == t.getSegundos()) { return false; }
 
     if (this->hora < t.getHora()) {
         return true;
@@ -160,8 +159,7 @@ bool Time::operator<(const Time& t) {
     if (this->hora == t.getHora()) {
         if (this->minutos < t.getMinutos()) {
             return true;
-        }
-        else if (this->minutos == t.getMinutos()) {
+        } else if (this->minutos == t.getMinutos()) {
             if (this->segundos < t.getSegundos())
                 return true;
         }
@@ -169,7 +167,7 @@ bool Time::operator<(const Time& t) {
     return false;
 }
 
-Time Time::operator-(Time& t) {//----------------------------------------
+Time Time::operator-(Time &t) {//----------------------------------------
     //Podia fazer com matematica mas isto veio-me a cabeça primeiro...
     // fazer com % divisao e com abs()
 
@@ -208,11 +206,11 @@ Time Time::operator-(Time& t) {//----------------------------------------
     temp.minutos = minuto;
     temp.segundos = segundo;
 
-    return temp ;
+    return temp;
 }
 
 
-Time Time::operator+(const Time& t) {
+Time Time::operator+(const Time &t) {
     //Podia fazer com matematica mas isto veio-me a cabeça primeiro...
     // fazer com % divisao e com abs()
     //possivelmente 59*3 iteraçoes para isto -_-
@@ -225,7 +223,6 @@ Time Time::operator+(const Time& t) {
     int minuto = this->minutos + t.getMinutos();
     int segundo = this->segundos + t.getSegundos();
     int c = 0;
-
 
 
     if (hour > 24) {

@@ -29,31 +29,25 @@ void cleanLog(){
 int numeroUsuario;
 string NomeUsuario;
 
-void loadEverything(){
+void loadEverything() {
 
     string line;
-    ifstream myfile ("../instituicoes.txt");
+    ifstream myfile("../instituicoes.txt");
 
 
-    if (myfile.is_open())
-    {
-        while ( getline (myfile,line) )
-        {
+    if (myfile.is_open()) {
+        while (getline(myfile, line)) {
             //  cout << line << '\n';
         }
         myfile.close();
 
         cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
-    }
-
-    else cout << "Unable to open file";
+    } else cout << "Unable to open file";
 
 };
 
 
-
-
-void PrintInstituicoes(){
+void PrintInstituicoes() {
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
     vector<string> lines;
 
@@ -61,22 +55,20 @@ void PrintInstituicoes(){
     string newline;
 
 
-    ifstream myfile ("../instituicoes.txt");
-    if (myfile.is_open())
-    {
+    ifstream myfile("../instituicoes.txt");
+    if (myfile.is_open()) {
 
-        for(string line; getline( myfile, line ); )
-        {
+        for (string line; getline(myfile, line);) {
 
             lines.push_back(line);
 
         }
 
-        for (int i = 0; i<lines.size(); i++){
+        for (int i = 0; i < lines.size(); i++) {
 
 
             cout << "ID: ";
-            cout << lines[i]  << endl;
+            cout << lines[i] << endl;
             i++;
             cout << "Instituicao: ";
             cout << lines[i] << endl;
@@ -88,7 +80,6 @@ void PrintInstituicoes(){
             cout << lines[i] << endl << endl;
 
 
-
         }
 
 
@@ -99,35 +90,25 @@ void PrintInstituicoes(){
 };
 
 
-
-
-
-
-
-
-
-void PrintEventos(){
+void PrintEventos() {
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
     vector<string> lines;
 
     string newline;
-    ifstream myfile ("../eventos.txt");
-    if (myfile.is_open())
-    {
+    ifstream myfile("../eventos.txt");
+    if (myfile.is_open()) {
 
-        for(string line; getline( myfile, line ); )
-        {
+        for (string line; getline(myfile, line);) {
 
             lines.push_back(line);
 
         }
 
 
-
-        for (int i = 0; i<lines.size(); i++){
+        for (int i = 0; i < lines.size(); i++) {
 
             cout << "ID: ";
-            cout << lines[i]  << endl;
+            cout << lines[i] << endl;
             i++;
             cout << "Evento: ";
             cout << lines[i] << endl;
@@ -161,24 +142,15 @@ void PrintEventos(){
 };
 
 
-
-
-
-
-
-
-
-
-
 //Recebe como argumento o ID do usuario e faz uma busca para verificar sua existencia e seu nome
-int searchForNameById(int usuario){
+int searchForNameById(int usuario) {
 
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
     vector<string> lines;
 
 
     string newline;
-    ifstream myfile ("/Users/rocco/Desktop/ProjetoAEDA/AEDA/clientes.txt");
+    ifstream myfile("/Users/rocco/Desktop/ProjetoAEDA/AEDA/clientes.txt");
     if (myfile.is_open()) {
 
         for (string line; getline(myfile, line);) {
@@ -196,20 +168,16 @@ int searchForNameById(int usuario){
                     NomeUsuario = lines[i + 1]; //Onde estará o nome
                     //Retorna o index, para ser utilizado futuramente para alteracoes do usuario
                     return i;
-                }else{
+                } else {
                     NomeUsuario = "N_existe";
                 }
 
-            }catch (std::invalid_argument& e){
+            } catch (std::invalid_argument &e) {
                 //Caso o numero nao puder ser convertido para inteiro para verificar, este catch impede que o programa seja finalizado.
             };
 
 
-
-
         }
-
-
 
 
     }
@@ -221,14 +189,6 @@ int searchForNameById(int usuario){
 }
 
 
-
-
-
-
-
-
-
-
 //Tela inicial quando o programa é aberto, aparece apenas uma vez.
 void firstOpen() {
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
@@ -238,12 +198,10 @@ void firstOpen() {
     if (numeroUsuario == 0) {
         //Encaminha para fazer um novo cadastro
         novoCadastro();
-    }else{
+    } else {
         //Procura o usuario para verificar sua existencia e dados
         searchForNameById(numeroUsuario);
     }
-
-
 
 
     if (NomeUsuario != "N_existe") {
@@ -257,7 +215,7 @@ void firstOpen() {
 
         mainMenu();
 
-    }else{
+    } else {
         //Não encontrou nenhum usuário com este registro! Pode redirecionar para criar um cartão
         string newHandler;
         cout << endl << endl << endl << endl;
@@ -270,27 +228,17 @@ void firstOpen() {
             //encerrar
             cout << endl << "**********************" << endl;
             cout << "PROGRAMA FINALIZADO" << endl;
-            cout << "Foi um prazer recebe-lo "<< NomeUsuario << "." << endl;
+            cout << "Foi um prazer recebe-lo " << NomeUsuario << "." << endl;
             cout << "**********************" << endl;
             cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
             exit(0);
 
-        }else {
+        } else {
             //Fazer novo cadastro interativo
             novoCadastro();
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 void mainMenu() {       //Chama o menu principal
@@ -334,20 +282,20 @@ void mainMenu() {       //Chama o menu principal
             PrintEventos();
 
         case '4':
-            cout<<"A implementar"<<endl;
+            cout << "A implementar" << endl;
 
         case '5':
-            cout<<"A implementar"<<endl;
+            cout << "A implementar" << endl;
 
         case '6':
-            cout<<"A implementar"<<endl;
+            cout << "A implementar" << endl;
 
 
         case '0':
             //encerrar
             cout << endl << "**********************" << endl;
             cout << "PROGRAMA FINALIZADO" << endl;
-            cout << "Foi um prazer recebe-lo "<< NomeUsuario << "." << endl;
+            cout << "Foi um prazer recebe-lo " << NomeUsuario << "." << endl;
             cout << "**********************" << endl;
             //cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
             exit(0);
@@ -355,9 +303,7 @@ void mainMenu() {       //Chama o menu principal
     }
 
 
-
 };
-
 
 
 void subMenuSeeAll() {
@@ -391,7 +337,7 @@ void subMenuSeeAll() {
             //encerrar
             cout << endl << "**********************" << endl;
             cout << "PROGRAMA FINALIZADO" << endl;
-            cout << "Foi um prazer recebe-lo "<< NomeUsuario << "." << endl;
+            cout << "Foi um prazer recebe-lo " << NomeUsuario << "." << endl;
             cout << "**********************" << endl;
             //cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
             exit(0);
@@ -402,34 +348,15 @@ void subMenuSeeAll() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //Verifica o cartao expira em menos de 30 dias e mostra uma mensagem no inicio! No mesmo local
 //em que são mostradas as mensagens de eventos proximos
-void verificaValidade(int id){
+void verificaValidade(int id) {
     //NECESSITA OVERLOAD DE DATA
 }
 
 
-
-
-
-
-
-
-
 //Utilizado em qualquer caso que existe um novo usuário que deseja fazer o cadastro para adquirir o cartão.
-void novoCadastro(){
+void novoCadastro() {
 
 
     //CRIAR NOVA CLASSE DE CLIENTE AQUI!!!!
@@ -450,7 +377,9 @@ void novoCadastro(){
 
 
     cout << endl << "*************************************************************************";
-    cout << endl << NomeUsuario << ", ao completar o cadastro você terá entrada gratuita e ilimitada na " << endl <<"Rede Portuguesa de Museus, com acesso total à 156 museus nacionais, assim como " << endl << "descontos exclusivos em eventos. Para dar continuidade vamos precisar de alguns dados: " << endl;
+    cout << endl << NomeUsuario << ", ao completar o cadastro você terá entrada gratuita e ilimitada na " << endl
+         << "Rede Portuguesa de Museus, com acesso total à 156 museus nacionais, assim como " << endl
+         << "descontos exclusivos em eventos. Para dar continuidade vamos precisar de alguns dados: " << endl;
     cout << "*************************************************************************" << endl << endl;
     cout << "Por favor informe a data de nascimento (XX/XX/XXXX): ";
     tempHandler = "";
@@ -471,7 +400,7 @@ void novoCadastro(){
      }
      */
 
-    cout << endl<<"Por favor informe o vosso número de telemovel: ";
+    cout << endl << "Por favor informe o vosso número de telemovel: ";
     tempHandler = "";
     getline(cin, tempHandler);
     cin.clear();
@@ -479,7 +408,7 @@ void novoCadastro(){
 
     //SET CONTATO
 
-    cout << endl<< "Por favor informe seu NIF: ";
+    cout << endl << "Por favor informe seu NIF: ";
     tempHandler = "";
     getline(cin, tempHandler);
     cin.clear();
@@ -550,7 +479,8 @@ void novoCadastro(){
 
     cout << endl << "*************************************************************************" << endl;
     cout << "Parabéns " << NomeUsuario << ", você acaba de completar seu cadastro com sucesso! " << endl;
-    cout << "Por favor compareca à qualquer Museu da Rede Portuguesa " << endl << "para a emissão do seu cartão, não se esqueca de "<< endl;
+    cout << "Por favor compareca à qualquer Museu da Rede Portuguesa " << endl
+         << "para a emissão do seu cartão, não se esqueca de " << endl;
     cout << "levar um documento com foto e Cartão de estudante caso necessário.";
     cout << endl << endl;
     cout << "AVISO: O número de seu cartão é " << tempNumCartao;

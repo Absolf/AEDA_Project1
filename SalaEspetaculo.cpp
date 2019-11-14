@@ -4,10 +4,10 @@
 
 #include "SalaEspetaculo.h"
 
-SalaEspetaculo::SalaEspetaculo(): Atracao() {};
+SalaEspetaculo::SalaEspetaculo() : Atracao() {};
+
 SalaEspetaculo::SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente) :
-    Atracao(nome, capacidadeMaxima, lotacao, endereco, id), aderente(aderente)
-    { };
+        Atracao(nome, capacidadeMaxima, lotacao, endereco, id), aderente(aderente) {};
 
 
 bool SalaEspetaculo::isAderente() const {
@@ -25,11 +25,13 @@ void SalaEspetaculo::venderBilhete() {
 
 // --------------------------------Evento
 
-Evento::Evento() : SalaEspetaculo(){};
+Evento::Evento() : SalaEspetaculo() {};
 
-Evento::Evento(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente, string nomeEvento, Date data, time_t horario) :
-    SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento), data(data), horario(horario)
-    { };
+Evento::Evento(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente,
+               string nomeEvento, Date data, time_t horario) :
+        SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento), data(data),
+        horario(horario) {};
+
 /*
 const SalaEspetaculo& Evento::getSalaEspetaculo() const {
     return *salaEspetaculo;
@@ -47,7 +49,7 @@ void Evento::setNomeEvento(const string &nomeEvento) {
     this->nomeEvento = nomeEvento;
 }
 
-const Date & Evento::getData() const {
+const Date &Evento::getData() const {
     return data;
 }
 
@@ -55,7 +57,7 @@ void Evento::setData(const Date &data) {
     this->data = data;
 }
 
-const time_t & Evento::getHorario() const {
+const time_t &Evento::getHorario() const {
     return horario;
 }
 
