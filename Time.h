@@ -7,17 +7,18 @@
 
 #include <sstream>
 #include <string>
-#include "CartaoAmigo.h"
+#include <vector>
 
 using namespace std;
 
 class Time {
-	CartaoAmigo novo;
-	int hora;
-	int minutos;
-	int segundos;
+    int hora;
+    int minutos;
+    int segundos;
+
 public:
     Time();
+    Time(int hora, int minutos, int segundos);
     int getHora() const;
     void setHora(int hora);
     int getMinutos() const;
@@ -36,16 +37,16 @@ public:
 
     //other methods
     //static string returnTime(Time time); //Displays the date in a string
-    friend ostream &operator<<(ostream &out, const Time &time); //output operator
-    bool operator ==(const Time&t); // comparison operators
+    friend ostream &operator<<(ostream &out,  Time &time); //output operator
+    bool operator ==(Time &t); // comparison operators
     bool operator != (const Time&t);
     bool operator >(const Time&t);
     bool operator <(const Time&t);
 
     //------------------------------//
-    Time operator-(const Time& t);
-    //Time operator+(const Time& t2);
+    Time operator-(Time& t);
+    Time operator+(const Time& t1);
+
 
 };
-
 #endif //AEDA_PROJETO_TIME_H
