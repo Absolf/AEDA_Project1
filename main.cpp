@@ -5,8 +5,8 @@
 
 int main() {
 
-
-    mainMenu();
+    loadEverything();
+    firstOpen();
     /*
 
     CartaoAmigo *p1 = new CartaoAmigoSilver();

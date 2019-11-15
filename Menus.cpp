@@ -150,7 +150,7 @@ int searchForNameById(int usuario) {
 
 
     string newline;
-    ifstream myfile("/Users/rocco/Desktop/ProjetoAEDA/AEDA/clientes.txt");
+    ifstream myfile("../clientes.txt");
     if (myfile.is_open()) {
 
         for (string line; getline(myfile, line);) {
