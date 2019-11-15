@@ -359,9 +359,8 @@ void verificaValidade(int id) {
 void novoCadastro() {
 
 
-    //CRIAR NOVA CLASSE DE CLIENTE AQUI!!!!
-    
 
+    //CRIAR NOVA CLASSE DE CLIENTE AQUI!!!!
 
     //Responsavel por intermediar a criacao do novo usuario recebendo os dados digitados
     string tempHandler;

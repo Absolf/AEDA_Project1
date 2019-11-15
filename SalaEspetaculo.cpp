@@ -9,7 +9,6 @@ SalaEspetaculo::SalaEspetaculo() : Atracao() {};
 SalaEspetaculo::SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente) :
         Atracao(nome, capacidadeMaxima, lotacao, endereco, id), aderente(aderente) {};
 
-
 bool SalaEspetaculo::isAderente() const {
     return aderente;
 }

@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/AEDA_Projeto.dir/Time.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/main.cpp.o"
   "CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o"
+  "CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

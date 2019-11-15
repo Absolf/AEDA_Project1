@@ -18,6 +18,7 @@ class Museum : public Atracao {
 public:
     Museum();
 
+
     void venderBilhete();
 
     void reservarBilhete();

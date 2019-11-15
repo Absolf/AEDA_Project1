@@ -5,27 +5,48 @@
 #ifndef AEDA_PROJETO_ADDRESS_H
 #define AEDA_PROJETO_ADDRESS_H
 using namespace std;
-
+#include "utilitarios.h"
 #include "string"
+#include <iostream>
 
 class Address {
     string rua;
-    int cep;
-    bool isPredio;
+    string freguesia;
+    string distrito;
+    string codpostal;
     int numero;
-    int andar = 0;
+
 public:
 
     Address();
+    Address(string endString);
 
-    const string &getRua() const;
+    string getRua() const;
 
-    void setRua(const string &rua);
+    string getCodpostal() const;
 
-    int getCep() const;
+    int getNumero() const;
 
-    void setCep(int cep);
+    string getFreguesia() const;
+
+    string getDistrito() const;
+    //string getAddressString(); //???
+
+    void setFreguesia(string freg);
+
+    void setDistrito(string distrito);
+
+    void setRua(string rua);
+
+    void setCodpostal(string codpostal);
+
+    void setNumero(int numero);
+
+
+    bool operator==(Address &adr); //faltam estes 2 mas n vai ser preciso
+    bool operator!=(Address &adr);
+
+    friend ostream &operator<<(ostream &out, const Address &adr);
 };
-
 
 #endif //AEDA_PROJETO_ADDRESS_H

@@ -153,6 +153,12 @@
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.cpp">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.h">
+			<Option target="AEDA_Projeto"/>
+		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

@@ -25,7 +25,7 @@ public:
 
     void venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento);
 
-    void addCartaoAmigo() const;
+    void addCliente() const;
 
     void addMuseum() const;
 
@@ -48,7 +48,6 @@ public:
     void readMuseum() const;
 
     void readSalaEspetaculo() const;
-
 
 };
 

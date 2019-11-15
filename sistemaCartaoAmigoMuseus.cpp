@@ -24,3 +24,27 @@ void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete *
 
 }
 
+/*
+string nome;
+int capacidadeMaxima;
+int lotacao;
+string endereco;
+int id;
+ */
+void sistemaCartaoAmigoMuseumPortugal::addSalaEspetaculo() const {
+    SalaEspetaculo newSala;
+    string nome;
+    int cap;
+    int lot;
+    string end;
+    int id;
+
+    cout << "Nome: " << endl;
+    getline(cin, nome);
+    newSala.setNome(nome);
+    cout << "capacidade: " << endl;
+    cin >> cap;
+    newSala.setCapacidadeMaxima(cap);
+    newSala.setLotacao(0);
+
+}

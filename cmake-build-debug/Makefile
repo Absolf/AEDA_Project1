@@ -447,6 +447,33 @@ sistemaCartaoAmigoMuseus.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s
 .PHONY : sistemaCartaoAmigoMuseus.cpp.s
 
+utilitarios.o: utilitarios.cpp.o
+
+.PHONY : utilitarios.o
+
+# target to build an object file
+utilitarios.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.o
+.PHONY : utilitarios.cpp.o
+
+utilitarios.i: utilitarios.cpp.i
+
+.PHONY : utilitarios.i
+
+# target to preprocess a source file
+utilitarios.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.i
+.PHONY : utilitarios.cpp.i
+
+utilitarios.s: utilitarios.cpp.s
+
+.PHONY : utilitarios.s
+
+# target to generate assembly for a file
+utilitarios.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.s
+.PHONY : utilitarios.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -492,6 +519,9 @@ help:
 	@echo "... sistemaCartaoAmigoMuseus.o"
 	@echo "... sistemaCartaoAmigoMuseus.i"
 	@echo "... sistemaCartaoAmigoMuseus.s"
+	@echo "... utilitarios.o"
+	@echo "... utilitarios.i"
+	@echo "... utilitarios.s"
 .PHONY : help
 
 

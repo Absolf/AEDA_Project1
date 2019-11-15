@@ -5,7 +5,6 @@
 #ifndef AEDA_PROJETO_SALAESPETACULO_H
 #define AEDA_PROJETO_SALAESPETACULO_H
 
-#include "Address.h"
 #include "Atracao.h"
 #include "Time.h"
 #include "Date.h"
@@ -25,6 +24,7 @@ public:
 
     void venderBilhete();
 };
+
 
 class Evento : public SalaEspetaculo {
     string nomeEvento;
