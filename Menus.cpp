@@ -360,7 +360,7 @@ void novoCadastro() {
 
 
     //CRIAR NOVA CLASSE DE CLIENTE AQUI!!!!
-
+    
 
 
     //Responsavel por intermediar a criacao do novo usuario recebendo os dados digitados
