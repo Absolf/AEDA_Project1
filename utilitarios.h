@@ -39,5 +39,6 @@ double readDouble(string prompt);
 
 string readString(string input);
 
+void deleteFileToRewrite(string file);
 
 #endif //AEDA_PROJETO_UTILITARIOS_H

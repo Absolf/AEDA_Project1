@@ -61,6 +61,8 @@ public:
     void addBilhete(Bilhete *b);
 
     void aderirCartao();
+
+    friend ostream &operator<<(ostream &out, Cliente &cli);
 };
 
 

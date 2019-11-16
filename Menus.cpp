@@ -13,48 +13,7 @@
 using namespace std;
 
 sistemaCartaoAmigoMuseumPortugal sys;
-int numeroUsuario;
-string NomeUsuario;
 
-//Variaveis utilizadas para busca e para personalizar tratamento do usuário, mostrando mensagens com nome.
-
-/*
-void WriteAllClients(){
-    //Apaga o arquivo do cliente
-    deleteFileToRewrite("../clientes.txt");
-    ofstream clientes("../clientes.txt");
-
-    if(clientes.is_open())
-    {
-        for (int i = 0; i < sys.c; i++) {
-            clientes<<BaseClientes[i].getN_cartao()<< endl;
-            clientes<<BaseClientes[i].getNome()<< endl;
-            clientes<<BaseClientes[i].getNascimento();
-            clientes<<BaseClientes[i].getContacto()<< endl;
-            clientes<<BaseClientes[i].getMorada()<< endl;
-            clientes<<BaseClientes[i].getFreguesia()<< endl;
-            clientes<<BaseClientes[i].getUniversitario()<< endl;
-        }
-        clientes.close();
-    }
-}*/
-
-void loadEverything() {
-
-    string line;
-    ifstream myfile("../instituicoes.txt");
-
-
-    if (myfile.is_open()) {
-        while (getline(myfile, line)) {
-            //  cout << line << '\n';
-        }
-        myfile.close();
-
-        cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
-    } else cout << "Unable to open file";
-
-};
 
 void PrintInstituicoes() {
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
@@ -149,9 +108,9 @@ void PrintEventos() {
 
 };
 
-//Recebe como argumento o ID do usuario e faz uma busca para verificar sua existencia e seu nome
+//Recebe como argumento o nº do cartão do usuario e faz uma busca para verificar sua existencia e seu nome
 
-int searchForNameById(int usuario) {
+int searchForNameById(int usuario, int &index, string &NomeUsuario) {
 
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
     vector<string> lines;
@@ -175,7 +134,7 @@ int searchForNameById(int usuario) {
                 if (stoi(lines[i]) == usuario) {
                     NomeUsuario = lines[i + 1]; //Onde estará o nome
                     //Retorna o index, para ser utilizado futuramente para alteracoes do usuario
-                    return i;
+                    index = i;
                 } else {
                     NomeUsuario = "N_existe";
                 }
@@ -192,12 +151,12 @@ int searchForNameById(int usuario) {
 
     myfile.close();
     //Não existe:
-    return -1;
-
+    index = -1;
 }
 
 //Tela inicial quando o programa é aberto, aparece apenas uma vez.
 void firstOpen() {
+    sys.loadClients();
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
     cout << "POR FAVOR DIGITE O NÚMERO DE SEU CARTÃO PARA INICIAR" << endl;
     cout << "OU DIGITE 0 PARA FAZER O REGISTRO: " << endl;
@@ -206,31 +165,27 @@ void firstOpen() {
         sys.addCliente();
     } else {
         //Procura o usuario para verificar sua existencia e dados
-        searchForNameById(numeroUsuario);
+        searchForNameById(numeroUsuario, index, NomeUsuario);
     }
 
-
     if (NomeUsuario != "N_existe") {
-
         //Printa a saudação e mensagens
         cout << endl << "**********************" << endl;
         cout << "Olá " << NomeUsuario << ", seja bem vindo!" << endl << endl;
+
         cout << "MENSAGENS RELEVANTES :" << endl << endl;
         cout << "**********************" << endl;
-
-
         mainMenu();
-
-    } else {
+    }else {
         //Não encontrou nenhum usuário com este registro! Pode redirecionar para criar um cartão
         string newHandler;
         cout << endl << endl << endl << endl;
         cout << "ATUALMENTE NÃO EXISTE NENHUM USUÁRIO COM ESTE ID!" << endl;
-        cout << "DESEJA FAZER UM REGISTRO? (sim/nao):  ";
-        cin >> newHandler;
+        newHandler = readString("DESEJA FAZER UM REGISTRO? (sim/nao):  ");
 
-        if (newHandler != "sim") {
-
+       if(newHandler == "sim") {
+            sys.addCliente();
+        }else {
             //encerrar
             cout << endl << "**********************" << endl;
             cout << "PROGRAMA FINALIZADO" << endl;
@@ -238,42 +193,17 @@ void firstOpen() {
             cout << "**********************" << endl;
             cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
             exit(0);
-
-        } else {
-            //Fazer novo cadastro interativo
-            sys.addCliente();
         }
     }
 }
 
 
-void mainMenu() {       //Chama o menu principal
-
-    //ESTE CODIGO ABAIXO ESTA SENDO EXECUTADO NA MAIN, APAGAR DA MAIN E DEIXAR AQUI.
-    //CHAMAR APENAS A mainMenu NO MAIN.CPP
-
+void mainMenu(string &NomeUsuario) {       //Chama o menu principal
+    vector<string> menu = {"VER SALAS DE ESPETÁCULO", "BUSCAR EVENTOS POR FREGUESIA", "PRÓXIMOS EVENTOS DISPONÍVEIS", "COMPRAR BILHETES","DADOS PESSOAIS", "MODO EDIÇÃO (ADM)"};
     cout << endl << "**********************" << endl;
     cout << "MENU PRINCIPAL" << endl;
     cout << "**********************" << endl;
-    cout << "DIGITE 1 PARA VER INSTITUICOES" << endl;
-    cout << "DIGITE 2 PARA BUSCAR INSTITUICOES POR FREGUESIA" << endl;
-    cout << "DIGITE 3 PARA VER OS PRÓXIMOS EVENTOS DISPONÍVEIS" << endl;
-    cout << "DIGITE 4 PARA BUSCAR EVENTOS POR FREGUESIA" << endl;
-    cout << "DIGITE 5 PARA RESERVAR BILHETES" << endl;
-    cout << "DIGITE 6 PARA VER DADOS PESSOAIS" << endl;
-    cout << "DIGITE x PARA ENTRAR NO MODO DE EDICAO PARA ADMINISTRADORES" << endl;
-    cout << "DIGITE 0 PARA ENCERRAR" << endl;
-    //  cout << "**********************" << endl;
-    // cout << "CASO QUEIRA ABORTAR ALGUMA OPERACAO DIGITE menu A QUALQUER MOMENTO!" << endl;
-    cout << "**********************" << endl << endl;
-    cout << "OPCAO: ";
-
-    char op;
-    cin >> op;
-    cin.clear();
-    cin.ignore();
-
-
+    int op = readOptions(menu);
     switch (op) {
 
         default:
@@ -289,9 +219,21 @@ void mainMenu() {       //Chama o menu principal
         case '3':
             PrintEventos();
 
-        case '4':
-            cout << "A implementar" << endl;
+        case '4':/*
+            for(size_t i = 0; i < sys.getClientes().size() ; i++){
+                if(sys.getClientes().at(i).getCartao().getN_cartao() == to_string(numeroUsuario)){
+                    cout << "Para qual evento gostaria de comprar seu bilhete ?\n";
+                    string eventName;
+                    getline(cin, eventName);
+                    for(size_t j = 0; j < sys.getEventos().size(); j++){
+                        if(eventName == sys.getEventos().at(j).getNomeEvento()){
+                            sys.venderBilhete()
+                        }
+                    }
 
+                }
+            }
+*/
         case '5':
             cout << "A implementar" << endl;
 

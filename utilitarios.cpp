@@ -88,3 +88,11 @@ string readString(string prompt) // responsible for string data
     throw runtime_error("Unexpected extraction error in readString function\n");
 }
 //ps* all of them help with the ctrl+z issue
+void deleteFileToRewrite(string file){
+    std::ofstream ofs (file, std::ios::out | std::ios::trunc); // clear contents
+    if (ofs.is_open()) {
+
+    }
+
+    ofs.close ();
+}

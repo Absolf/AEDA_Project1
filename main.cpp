@@ -4,7 +4,6 @@
 #include "Menus.h"
 
 int main() {
-
     mainMenu();
     loadEverything();
     firstOpen();

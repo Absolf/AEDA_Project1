@@ -26,6 +26,22 @@ class sistemaCartaoAmigoMuseumPortugal {
 public:
     sistemaCartaoAmigoMuseumPortugal();
 
+    const vector<Cliente> &getClientes() const;
+
+    void setClientes(const vector<Cliente> &clientes);
+
+    const vector<Evento> &getEventos() const;
+
+    void setEventos(const vector<Evento> &eventos);
+
+    const vector<SalaEspetaculo> &getSalas() const;
+
+    void setSalas(const vector<SalaEspetaculo> &salas);
+
+    const vector<Museum> &getMuseu() const;
+
+    void setMuseu(const vector<Museum> &museu);
+
     void venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento);
 
     void addCliente();
@@ -54,7 +70,9 @@ public:
 
     //funções utilitárias
 
-    void loadEverything();
+    void loadClients();
+
+    void WriteAllClients();
 
 };
 

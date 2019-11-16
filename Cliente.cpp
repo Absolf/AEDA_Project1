@@ -126,3 +126,11 @@ void Cliente::printCliente() {
         }
     }
 }
+
+ostream &operator<<(ostream &out, Cliente &cli){
+    out << cli.getN_cartao() << endl;
+    out << cli.getNome() << endl;
+    out << cli.getNascimento() << endl;
+    out << cli.getContacto() << endl;
+    out << cli.getUniversitario() << endl;
+}

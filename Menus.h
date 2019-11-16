@@ -10,6 +10,8 @@
 
 using namespace std;
 
+string NomeUsuario;
+int numeroUsuario, index;
 
 void mainMenu();
 
@@ -27,7 +29,7 @@ void firstOpen();
 
 void deleteFileToRewrite(string file);
 
-int searchForNameById(int usuario);
+int searchForNameById(int usuario, int &index, string &Nome);
 
 void ChangePersonalInfo();
 
