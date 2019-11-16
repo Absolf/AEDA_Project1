@@ -3,12 +3,12 @@
 
 CartaoAmigo::CartaoAmigo() {}
 
-const string &CartaoAmigo::getNif() const {
-    return nif;
+const string &CartaoAmigo::getN_cartao() const {
+    return n_cartao;
 }
 
-void CartaoAmigo::setNif(const string &nif) {
-    this->nif = nif;
+void CartaoAmigo::set_Ncartao(const string &n_cartao) {
+    this->n_cartao = n_cartao;
 }
 
 float CartaoAmigo::getAnuidade() const {
@@ -39,11 +39,11 @@ void CartaoAmigo::setNome(const string &nome) {
     this->nome = nome;
 }
 
-const string &CartaoAmigo::getMorada() const {
+const Address &CartaoAmigo::getMorada() const {
     return morada;
 }
 
-void CartaoAmigo::setMorada(const string &morada) {
+void CartaoAmigo::setMorada(const Address &morada) {
     this->morada = morada;
 }
 
@@ -55,43 +55,59 @@ void CartaoAmigo::setContacto(const string &contacto) {
     this->contacto = contacto;
 }
 
-/*
-CartaoAmigo CartaoAmigo::operator=(const CartaoAmigo &c1) {
-    return CartaoAmigo(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(), this->nome = c1.getNome(), this->morada = c1.getMorada(), this->contacto = c1.getContacto(), this->anuidade = c1.getAnuidade(), this->nif = c1.getNif());
+
+CartaoAmigo CartaoAmigo::operator=(CartaoAmigo &c1) {
+    return CartaoAmigo(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(),
+                       this->nome = c1.getNome(), this->morada = c1.getMorada(), this->contacto = c1.getContacto(),
+                       this->n_cartao = c1.getN_cartao());
 }
-*/
-
-
 
 //---------------------Cartao Amigo uni
-CartaoAmigoUni::CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto,
-                               string nif, float anuidade) :
-        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, nif), anuidade(anuidade) {};
+CartaoAmigoUni::CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto,
+                               string n_cartao, float anuidade) :
+        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, n_cartao), anuidade(anuidade) {};
 
 float CartaoAmigoUni::getAnuidade() const {
     return 32.45;
 }
 
+CartaoAmigoUni CartaoAmigoUni::operator=(CartaoAmigoUni &c1) {
+    return CartaoAmigoUni(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(),
+                          this->nome = c1.getNome(), this->morada = c1.getMorada(), this->contacto = c1.getContacto(),
+                          this->n_cartao = c1.getN_cartao(), this->anuidade = c1.getAnuidade());
+}
 
 //---------------------CartaoAmigo Silver
-CartaoAmigoSilver::CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto,
-                                     string nif, float anuidade) :
-        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, nif), anuidade(anuidade) {};
+CartaoAmigoSilver::CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, Address morada,
+                                     string contacto,
+                                     string n_cartao, float anuidade) :
+        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, n_cartao), anuidade(anuidade) {};
 
 float CartaoAmigoSilver::getAnuidade() const {
     return 30.0;
 }
 
+CartaoAmigoSilver CartaoAmigoSilver::operator=(CartaoAmigoSilver &c1) {
+    return CartaoAmigoSilver(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(),
+                             this->nome = c1.getNome(), this->morada = c1.getMorada(),
+                             this->contacto = c1.getContacto(),
+                             this->n_cartao = c1.getN_cartao(), this->anuidade = c1.getAnuidade());
+}
 
 //---------------------CartaoAmigoIndi
-CartaoAmigoIndi::CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto,
-                                 string nif, float anuidade) :
-        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, nif), anuidade(anuidade) {};
+CartaoAmigoIndi::CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto,
+                                 string n_cartao, float anuidade) :
+        CartaoAmigo(dataAcquisition, nascimento, nome, morada, contacto, n_cartao), anuidade(anuidade) {};
 
 float CartaoAmigoIndi::getAnuidade() const {
     return 54.9;
 }
 
+CartaoAmigoIndi CartaoAmigoIndi::operator=(CartaoAmigoIndi &c1) {
+    return CartaoAmigoIndi(this->dataAcquisition = c1.getDataAcquisition(), this->nascimento = c1.getNascimento(),
+                           this->nome = c1.getNome(), this->morada = c1.getMorada(), this->contacto = c1.getContacto(),
+                           this->n_cartao = c1.getN_cartao(), this->anuidade = c1.getAnuidade());
+}
 
 
 

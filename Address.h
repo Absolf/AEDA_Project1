@@ -21,6 +21,8 @@ public:
 
     Address();
 
+    Address(string rue, int numero, string freguesia, string codpostal, string distrito);
+
     Address(string endString);
 
     string getRua() const;
@@ -47,6 +49,8 @@ public:
 
     bool operator==(Address &adr); //faltam estes 2 mas n vai ser preciso
     bool operator!=(Address &adr);
+
+    Address operator=(const Address &);
 
     friend ostream &operator<<(ostream &out, const Address &adr);
 };

@@ -6,7 +6,6 @@
 #define AEDA_PROJETO_CLIENTE_H
 using namespace std;
 
-#import <string>
 #import "Date.h"
 #import "CartaoAmigo.h"
 #include "Bilhete.h"
@@ -14,12 +13,12 @@ using namespace std;
 class Cliente {
     Date nascimento;
     string nome;
-    string morada;
+    Address morada;
     string contacto;
-    string nif;
+    string n_cartao;
     CartaoAmigo *cartao;
     bool universitario = false;
-    vector<Bilhete *> bilhetes;
+    vector<Bilhete *> bilhetes = {};
 public:
     const vector<Bilhete *> &getBilhetes() const;
 
@@ -35,9 +34,9 @@ public:
 
     void setNome(const string &nome);
 
-    const string &getMorada() const;
+    const Address &getMorada() const;
 
-    void setMorada(const string &morada);
+    void setMorada(const Address &morada);
 
     const string &getContacto() const;
 
@@ -55,9 +54,9 @@ public:
 
     void printCliente();
 
-    const string &getNif() const;
+    const string &getN_cartao() const;
 
-    void setNif(const string &nif);
+    void setN_cartao(const string &N_cartao);
 
     void addBilhete(Bilhete *b);
 

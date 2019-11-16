@@ -51,7 +51,7 @@ void Date::setDay(unsigned int day) {
 }
 
 //Set all the Date atributes individually
-void Date::setDate(unsigned int year, unsigned int month, unsigned int day) {
+void Date::setDate(unsigned int day, unsigned int month, unsigned int year) {
     setYear(year);
     setMonth(month);
     setDay(day);
@@ -66,8 +66,8 @@ void Date::setDateString(string linha) {
     if (dateValidation) {
         linha = regex_replace(linha, regex("/"), " ");
         istringstream teste(linha);
-        teste >> year >> month >> day;
-        setDate(year, month, day);
+        teste >> day >> month >> year;
+        setDate(day, month, year);
     }
 }
 
@@ -76,7 +76,7 @@ string Date::getDateString() {
     string year = to_string(getYear());
     string month = to_string(getMonth());
     string day = to_string(getDay());
-    string oneLine = year + "/" + month + "/" + day; //Creates a string with all the atributes of Date
+    string oneLine = day + "/" + month + "/" + year; //Creates a string with all the atributes of Date
     Date date(oneLine);
     return returnDate(date);
 }
@@ -123,7 +123,7 @@ bool Date::verifyDate(string date) {
     unsigned short day;
     date = regex_replace(date, regex("/"), " "); //Transforms the date into a string
     istringstream teste(date);
-    teste >> year >> month >> day;
+    teste >> day >> month >> year;
     time_t theTime = time(NULL);
     struct tm *aTime = localtime(&theTime); //Determines the current date
     bool isDate = false;
@@ -136,7 +136,7 @@ bool Date::verifyDate(string date) {
         (day <= maxDay && day > 0)) {
         isDate = true;
     } else {
-        cout << "Date limits for year(" << (year - 100) << "-" << (thisYear + 5) << ") month (1-12) day (1-" << maxDay
+        cout << "Date limits are: day(1-" << maxDay << "), month (1-12), year(" << lowLimit << "-" << highLimit
              << ")" << endl;
         isDate = false;
     }
@@ -148,16 +148,16 @@ string Date::returnDate(Date date) {
     stringstream ss;
     string date_output;
     if (date.getMonth() < 10 && date.getDay() < 10) {
-        ss << date.getYear() << "/0" << date.getMonth() << "/0" << date.getDay();
+        ss << "0" << date.getDay() << "/0" << date.getMonth() << "/" << date.getYear();
         date_output = ss.str();
     } else if (date.getMonth() < 10 && date.getDay() >= 10) {
-        ss << date.getYear() << "/0" << date.getMonth() << "/" << date.getDay();
+        ss << date.getDay() << "/0" << date.getMonth() << "/" << date.getYear();
         date_output = ss.str();
     } else if (date.getMonth() >= 10 && date.getDay() < 10) {
-        ss << date.getYear() << "/" << date.getMonth() << "/0" << date.getDay();
+        ss << "0" << date.getDay() << "/" << date.getMonth() << "/" << date.getYear();
         date_output = ss.str();
     } else {
-        ss << date.getYear() << "/" << date.getMonth() << "/" << date.getDay();
+        ss << date.getDay() << "/" << date.getMonth() << "/" << date.getYear();
         date_output = ss.str();
     }
     return date_output;
@@ -170,7 +170,7 @@ ostream &operator<<(ostream &out, const Date &date) {
     } else if (date.month < 10 && date.day >= 10) {
         out << date.day << "/0" << date.month << "/" << date.year;
     } else if (date.month >= 10 && date.day < 10) {
-        out << "0" <<date.day << "/" << date.month<< "/" << date.year;
+        out << "0" << date.day << "/" << date.month << "/" << date.year;
     } else {
         out << date.day << "/" << date.month << "/" << date.year;
     }

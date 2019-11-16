@@ -12,22 +12,32 @@
 
 using namespace std;
 
-/*
-Cout de endl para limpar console:
-void cleanLog(){
-    int i = 0;
-    while (i!=40) {
-        cout << endl;
-        i++;
-    }
-
-}
-*/
-
-
-//Variaveis utilizadas para busca e para personalizar tratamento do usuário, mostrando mensagens com nome.
+sistemaCartaoAmigoMuseumPortugal sys;
 int numeroUsuario;
 string NomeUsuario;
+
+//Variaveis utilizadas para busca e para personalizar tratamento do usuário, mostrando mensagens com nome.
+
+/*
+void WriteAllClients(){
+    //Apaga o arquivo do cliente
+    deleteFileToRewrite("../clientes.txt");
+    ofstream clientes("../clientes.txt");
+
+    if(clientes.is_open())
+    {
+        for (int i = 0; i < sys.c; i++) {
+            clientes<<BaseClientes[i].getN_cartao()<< endl;
+            clientes<<BaseClientes[i].getNome()<< endl;
+            clientes<<BaseClientes[i].getNascimento();
+            clientes<<BaseClientes[i].getContacto()<< endl;
+            clientes<<BaseClientes[i].getMorada()<< endl;
+            clientes<<BaseClientes[i].getFreguesia()<< endl;
+            clientes<<BaseClientes[i].getUniversitario()<< endl;
+        }
+        clientes.close();
+    }
+}*/
 
 void loadEverything() {
 
@@ -45,7 +55,6 @@ void loadEverything() {
     } else cout << "Unable to open file";
 
 };
-
 
 void PrintInstituicoes() {
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
@@ -88,7 +97,6 @@ void PrintInstituicoes() {
 
 
 };
-
 
 void PrintEventos() {
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
@@ -141,8 +149,8 @@ void PrintEventos() {
 
 };
 
-
 //Recebe como argumento o ID do usuario e faz uma busca para verificar sua existencia e seu nome
+
 int searchForNameById(int usuario) {
 
     //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
@@ -188,7 +196,6 @@ int searchForNameById(int usuario) {
 
 }
 
-
 //Tela inicial quando o programa é aberto, aparece apenas uma vez.
 void firstOpen() {
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
@@ -196,8 +203,7 @@ void firstOpen() {
     cout << "OU DIGITE 0 PARA FAZER O REGISTRO: " << endl;
     cin >> numeroUsuario;
     if (numeroUsuario == 0) {
-        //Encaminha para fazer um novo cadastro
-        novoCadastro();
+        sys.addCliente();
     } else {
         //Procura o usuario para verificar sua existencia e dados
         searchForNameById(numeroUsuario);
@@ -235,7 +241,7 @@ void firstOpen() {
 
         } else {
             //Fazer novo cadastro interativo
-            novoCadastro();
+            sys.addCliente();
         }
     }
 }
@@ -274,15 +280,9 @@ void mainMenu() {       //Chama o menu principal
             mainMenu();
             break;
         case '1':
-            subMenuSeeAll();
+            // subMenuSeeAll();
         case '2': {
-            sistemaCartaoAmigoMuseumPortugal sys;
-            sys.addSalaEspetaculo();
-            sys.readSalaEspetaculo();
-           // sys.deleteSalaEspetaculo();
-            //sys.readSalaEspetaculo();
-            sys.updateSalaEspetaculo();
-            sys.readSalaEspetaculo();
+            sys.updateCliente();
             break;
         }
 
@@ -306,194 +306,5 @@ void mainMenu() {       //Chama o menu principal
             cout << "Foi um prazer recebe-lo " << NomeUsuario << "." << endl;
             cout << "**********************" << endl;
             //cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
-            exit(0);
-
     }
-
-
 };
-
-
-void subMenuSeeAll() {
-
-
-    //MOSTRA OS MUSEUS
-    PrintInstituicoes();
-
-    cout << "**********************" << endl;
-    cout << "DIGITE 1 PARA VOLTAR PARA O MENU PRINCIPAL" << endl;
-    cout << "DIGITE 0 PARA ENCERRAR" << endl;
-    cout << "**********************" << endl << endl;
-
-    cout << "OPCAO: ";
-
-    char op;
-    cin >> op;
-    cin.clear();
-    cin.ignore();
-
-
-    switch (op) {
-
-        default:
-            mainMenu();
-            break;
-        case '1':
-            mainMenu();
-
-        case '0':
-            //encerrar
-            cout << endl << "**********************" << endl;
-            cout << "PROGRAMA FINALIZADO" << endl;
-            cout << "Foi um prazer recebe-lo " << NomeUsuario << "." << endl;
-            cout << "**********************" << endl;
-            //cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
-            exit(0);
-            break;
-
-    }
-
-}
-
-
-//Verifica o cartao expira em menos de 30 dias e mostra uma mensagem no inicio! No mesmo local
-//em que são mostradas as mensagens de eventos proximos
-void verificaValidade(int id) {
-    //NECESSITA OVERLOAD DE DATA
-}
-
-
-//Utilizado em qualquer caso que existe um novo usuário que deseja fazer o cadastro para adquirir o cartão.
-void novoCadastro() {
-
-    //CRIAR NOVA CLASSE DE CLIENTE AQUI!!!!
-
-    //Responsavel por intermediar a criacao do novo usuario recebendo os dados digitados
-    string tempHandler;
-    cout << endl << "É um prazer iniciar o seu registro, para prosseguir " << "por favor digite seu nome completo: ";
-    cin.ignore();
-    getline(cin, tempHandler);
-    NomeUsuario = tempHandler;
-    cin.clear();
-    //cin.ignore();
-
-    //SET NAME DO CLIENTE CRIADO
-
-
-
-    cout << endl << "*************************************************************************";
-    cout << endl << NomeUsuario << ", ao completar o cadastro você terá entrada gratuita e ilimitada na " << endl
-         << "Rede Portuguesa de Museus, com acesso total à 156 museus nacionais, assim como " << endl
-         << "descontos exclusivos em eventos. Para dar continuidade vamos precisar de alguns dados: " << endl;
-    cout << "*************************************************************************" << endl << endl;
-    cout << "Por favor informe a data de nascimento (XX/XX/XXXX): ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET DATA DE NASCIMENTO
-    //INTERESSANTE FAZER CATCH PARA CASO O FORMATO DIGITADO SEJA INVALIDO
-    //COMO ALTERNATIVA PODEMOS FAZER 3 CINs, UM PARA DIA, UM PARA MES E UM PARA ANO
-
-    //PRECISAMOS UTILIZAR AQUI O OPERADOR DE DATAS PARA VERIFICAR SE O USUARIO TEM DIREITO AO CARTAO SILVER (+65 anos)
-
-    /*
-    if (dataAtual-ClasseDesteCliente.nascimento >= 65 ){
-     cout << NomeUsuario << "explicar cartao"
-
-     }
-     */
-
-    cout << endl << "Por favor informe o vosso número de telemovel: ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET CONTATO
-
-    cout << endl << "Por favor informe seu NIF: ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET NIF
-
-    cout << endl << "Seu cadastro está quase completo, precisamos apenas dos dados de sua Morada!" << endl;
-    cout << endl << "Por favor digite a Rua (sem número): ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET RUA DA MORADA
-
-    cout << endl << "Por favor o número da Morada: ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET NUMERO DA MORADA
-
-    cout << endl << "Por favor digite o código postal da Morada: ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET CEP
-
-    cout << endl << "Por favor a Freguesia da Morada: ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET FREGUESIA
-
-    cout << endl << "Por favor o Distrito da Morada: ";
-    tempHandler = "";
-    getline(cin, tempHandler);
-    cin.clear();
-    //cin.ignore();
-
-    //SET DISTRITO
-
-
-
-
-
-//GERA NUMERO DO CARTAO
-    string tempNumCartao;
-
-    //Garante que o random vai gerar numeros diferentes:
-    srand(time(NULL));
-    tempNumCartao += to_string(rand() % 99999999);
-
-    //SET NUMERO CARTAO
-
-
-    //AINDA NECESSARIO TRABALHAR TIPO DO CARTAO
-
-    //ADICIONA NOVO CLIENTE PARA O VETOR DE CLIENTES
-    //REESCREVE O CONTEUDO DO VETOR NO ARQUIVO DE TEXTO PARA INCLUIR O CLIENTE
-
-
-    cout << endl << "*************************************************************************" << endl;
-    cout << "Parabéns " << NomeUsuario << ", você acaba de completar seu cadastro com sucesso! " << endl;
-    cout << "Por favor compareca à qualquer Museu da Rede Portuguesa " << endl
-         << "para a emissão do seu cartão, não se esqueca de " << endl;
-    cout << "levar um documento com foto e Cartão de estudante caso necessário.";
-    cout << endl << endl;
-    cout << "AVISO: O número de seu cartão é " << tempNumCartao;
-    cout << endl << "*************************************************************************" << endl << endl << endl;
-
-
-
-
-    //Faz a abertura inicial novamente!
-    firstOpen();
-}

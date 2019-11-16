@@ -35,8 +35,6 @@ vector
 -
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
-string
--
 Date.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 CartaoAmigo.h
@@ -53,26 +51,6 @@ regex
 -
 ctime
 -
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.cpp
-Menus.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
-iostream
--
-fstream
--
-cstdlib
--
-ctime
--
-time.h
--
-
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Menus.h
-vector
--
-sistemaCartaoAmigoMuseus.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
 string
@@ -102,6 +80,10 @@ string
 vector
 -
 
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp
+sistemaCartaoAmigoMuseus.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h
+
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h
 SalaEspetaculo.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
@@ -113,6 +95,10 @@ vector
 -
 Cliente.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
+ctime
+-
+time.h
+-
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.h
 string

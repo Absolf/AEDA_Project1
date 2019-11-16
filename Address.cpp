@@ -12,6 +12,12 @@ Address::Address() {
     numero = 0;
 }
 
+Address::Address(string rua, int numero, string freguesia, string codpostal, string distrito) : rua(rua),
+                                                                                                numero(numero),
+                                                                                                freguesia(freguesia),
+                                                                                                codpostal(codpostal),
+                                                                                                distrito(distrito) {};
+
 Address::Address(string handler) {
     vector<string> addres_vec;
     tokenize(handler, '/', addres_vec); //Creates a vector with the attributes of an address (through a string)
@@ -58,5 +64,16 @@ void Address::setFreguesia(string freg) { this->freguesia = freg; }
 //------------------other methods
 ostream &operator<<(ostream &out, const Address &adr) {
     out << adr.rua << " Nº " << adr.numero << ", " << adr.freguesia << ", "
-        << adr.codpostal <<" - " << adr.distrito << endl;
+        << adr.codpostal << " - " << adr.distrito << endl;
+}
+
+/*
+Date Date::operator=(const Date &d2) {
+    return Date(this->day = d2.getDay(), this->month = d2.getMonth(), this->year = d2.getYear());
+}
+ */
+
+Address Address::operator=(const Address &adr) {
+    return Address(this->rua = adr.getRua(), this->numero = adr.getNumero(), this->freguesia = adr.getFreguesia(),
+                   this->codpostal = adr.getCodpostal(), this->distrito = adr.getDistrito());
 }

@@ -6,12 +6,12 @@
 
 Cliente::Cliente() {}
 
-const string &Cliente::getNif() const {
-    return nif;
+const string &Cliente::getN_cartao() const {
+    return n_cartao;
 }
 
-void Cliente::setNif(const string &nif) {
-    this->nif = nif;
+void Cliente::setN_cartao(const string &n_cartao) {
+    this->n_cartao = n_cartao;
 }
 
 const Date &Cliente::getNascimento() const {
@@ -30,11 +30,11 @@ void Cliente::setNome(const string &nome) {
     this->nome = nome;
 }
 
-const string &Cliente::getMorada() const {
+const Address &Cliente::getMorada() const {
     return morada;
 }
 
-void Cliente::setMorada(const string &morada) {
+void Cliente::setMorada(const Address &morada) {
     this->morada = morada;
 }
 
@@ -78,20 +78,23 @@ void Cliente::addBilhete(Bilhete *b) {
 }
 
 void Cliente::aderirCartao() {
+    cout << "Cartão sendo gerado\n";
     Date acq;
     acq.actualDate();
-    if ((acq.getYear() - getNascimento().getYear()) > 65)
+    if ((acq.getYear() - this->nascimento.getYear()) > 65)
         cartao = new CartaoAmigoSilver();
-    else if ((universitario) && (acq.getYear() - nascimento.getYear()) <= 65)
+    else if ((universitario) && (acq.getYear() - this->nascimento.getYear()) <= 65)
         cartao = new CartaoAmigoUni();
     else
         cartao = new CartaoAmigoIndi();
     cartao->setDataAcquisition(acq);
     cartao->setNome(nome);
+    cartao->set_Ncartao(n_cartao);
     cartao->setNascimento(nascimento);
     cartao->setContacto(contacto);
     cartao->setMorada(morada);
-    cartao->setNif(nif);
+
+    cout << "Cartao gerado com sucesso!\n";
 }
 
 const vector<Bilhete *> &Cliente::getBilhetes() const {
@@ -106,18 +109,20 @@ void Cliente::setBilhetes(const vector<Bilhete *> bilhetes) {
 void Cliente::printCliente() {
     cout << " Apresentando função printCliente() \n------------Cliente------------- \n";
     cout << "Nome: " << this->getNome() << endl;
-    cout << "Data de Nascimento: " << this->getNascimento();
-    cout << "Nif: " << this->getNif() << endl;
+    cout << "Numero do Cartao: " << n_cartao << endl;
+    cout << "Data de Nascimento: " << this->getNascimento() << endl;
     cout << "Contacto Telemóvel: " << this->getContacto() << endl;
-    cout << "Morada: " << this->getMorada() << endl;
+    cout << "Morada: " << this->getMorada();
     cout << "É membro de universidade? ";
     if (getUniversitario())
         cout << " Sim" << endl;
     else
         cout << "Não" << endl;
-    for (int i = 0; i < this->getBilhetes().size(); i++) {
-        cout << endl;
-        this->getBilhetes()[i]->printBilhete();
-        cout << endl;
+    if (this->getBilhetes().size() != 0) {
+        for (int i = 0; i < this->getBilhetes().size(); i++) {
+            cout << endl;
+            this->getBilhetes()[i]->printBilhete();
+            cout << endl;
+        }
     }
 }

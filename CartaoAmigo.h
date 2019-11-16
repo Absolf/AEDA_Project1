@@ -12,18 +12,19 @@
 
 
 class CartaoAmigo {
-    Date dataAcquisition;
+protected:
     Date nascimento;
     string nome;
-    string morada;
+    Address morada;
     string contacto;
-    string nif;
+    string n_cartao;
+    Date dataAcquisition;
 public:
     CartaoAmigo();
 
-    CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif)
+    CartaoAmigo(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto, string n_cartao)
             : dataAcquisition(dataAcquisition), nascimento(nascimento), nome(nome), morada(morada), contacto(contacto),
-              nif(nif) {};
+              n_cartao(n_cartao) {};
 
     virtual float getAnuidade() const;
 
@@ -39,19 +40,19 @@ public:
 
     void setNome(const string &nome);
 
-    const string &getMorada() const;
+    const Address &getMorada() const;
 
-    void setMorada(const string &morada);
+    void setMorada(const Address &morada);
 
     const string &getContacto() const;
 
     void setContacto(const string &contacto);
 
-    const string &getNif() const;
+    const string &getN_cartao() const;
 
-    void setNif(const string &nif);
+    void set_Ncartao(const string &n_cartao);
 
-    CartaoAmigo operator=(const CartaoAmigo &);
+    CartaoAmigo operator=(CartaoAmigo &);
 
     friend ostream &operator<<(ostream &out, const CartaoAmigo &cliente);
 
@@ -63,12 +64,14 @@ class CartaoAmigoUni : public CartaoAmigo {
 public:
     CartaoAmigoUni() {};
 
-    CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif,
+    CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto, string n_cartao,
                    float anuidade);
 
-    CartaoAmigoUni operator=(const CartaoAmigo &);
-
     float getAnuidade() const;
+
+    CartaoAmigoUni operator=(CartaoAmigoUni &);
+
+    friend ostream &operator<<(ostream &out, const CartaoAmigoUni &cliente);
 
 };
 
@@ -77,12 +80,15 @@ class CartaoAmigoSilver : public CartaoAmigo {
 public:
     CartaoAmigoSilver() {};
 
-    CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif,
+    CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto,
+                      string n_cartao,
                       float anuidade);
 
-    CartaoAmigoSilver operator=(const CartaoAmigo &);
-
     float getAnuidade() const;
+
+    CartaoAmigoSilver operator=(CartaoAmigoSilver &);
+
+    friend ostream &operator<<(ostream &out, const CartaoAmigoSilver &cliente);
 };
 
 class CartaoAmigoIndi : public CartaoAmigo {
@@ -90,12 +96,15 @@ class CartaoAmigoIndi : public CartaoAmigo {
 public:
     CartaoAmigoIndi() {};
 
-    CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, string morada, string contacto, string nif,
+    CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto,
+                    string n_cartao,
                     float anuidade);
 
-    CartaoAmigoSilver operator=(const CartaoAmigo &);
-
     float getAnuidade() const;
+
+    CartaoAmigoIndi operator=(CartaoAmigoIndi &);
+
+    friend ostream &operator<<(ostream &out, const CartaoAmigoIndi &cliente);
 
 };
 

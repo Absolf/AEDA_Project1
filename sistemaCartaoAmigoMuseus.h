@@ -10,6 +10,8 @@
 #include "Cliente.h"
 #include <vector>
 #include "Cliente.h"
+#include <ctime>
+#include <time.h>
 
 
 using namespace std;
@@ -17,38 +19,42 @@ using namespace std;
 
 class sistemaCartaoAmigoMuseumPortugal {
 
-    vector<Cliente> *clientes;
+    vector<Cliente> clientes;
     vector<Evento> eventos;
     vector<SalaEspetaculo> salas;
-    vector<Museum *> museu;
+    vector<Museum> museu;
 public:
     sistemaCartaoAmigoMuseumPortugal();
 
     void venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento);
 
-    void addCliente() const;
+    void addCliente();
 
-    void addMuseum() const;
+    void addMuseum();
 
     void addSalaEspetaculo();
 
-    void updateCartaoAmigo() const;
+    void updateCliente();
 
     void updateMuseum() const;
 
     void updateSalaEspetaculo();
 
-    void deleteCartaoAmigo() const;
+    void deleteCliente();
 
-    void deleteMuseum() const;
+    void deleteMuseum();
 
     void deleteSalaEspetaculo();
 
-    void readCartaoAmigo() const;
+    void readCliente();
 
-    void readMuseum() const;
+    void readMuseum();
 
-    void readSalaEspetaculo() const;
+    void readSalaEspetaculo();
+
+    //funções utilitárias
+
+    void loadEverything();
 
 };
 

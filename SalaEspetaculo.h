@@ -21,6 +21,7 @@ public:
     bool isAderente() const;
 
     SalaEspetaculo &operator=(const SalaEspetaculo &espetaculo);
+
     void setAderente(bool aderente);
 
 };

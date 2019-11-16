@@ -26,44 +26,41 @@ void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete *
 
 void sistemaCartaoAmigoMuseumPortugal::addSalaEspetaculo() {
     SalaEspetaculo newSala;
-    string nome;
+    string handler;
     cout << "Nome: ";
-    getline(cin, nome);
-    newSala.setNome(nome);
+    getline(cin, handler);
+    newSala.setNome(handler);
     newSala.setCapacidadeMaxima(readInteger("capacidade: "));
     newSala.setLotacao(0);
-    string address;
+    cin.clear();
     cout << "\n *No formato Rua / Nº Porta / Freguesia / Código-Postal / Distrito* \nEndereço: " << endl;
-    getline(cin, address);
-    Address endereco(address);
+    getline(cin, handler);
+    Address endereco(handler);
     newSala.setEndereco(endereco);
     newSala.setAderente(readInteger("0 pra falso e 1 para verdadeiro \n aderente: "));
     newSala.setId(readInteger("Id"));
     salas.push_back(newSala);
 }
 
-void sistemaCartaoAmigoMuseumPortugal::readSalaEspetaculo() const {
-    if (salas.size() == NULL){
+void sistemaCartaoAmigoMuseumPortugal::readSalaEspetaculo() {
+    if (salas.size() == NULL) {
         cout << "Não há salas de espetáculo!\n";
-    }
-    else {
-        for (auto it = salas.begin(); it != salas.end(); it++)
-        {
+    } else {
+        for (auto it = salas.begin(); it != salas.end(); it++) {
             cout << (*it) << "\n";
         }
     }
 }
 
-void  sistemaCartaoAmigoMuseumPortugal::deleteSalaEspetaculo() {
+void sistemaCartaoAmigoMuseumPortugal::deleteSalaEspetaculo() {
     if (salas.size() == 0) {
         cout << "Não há salas de espetáculo!\n";
-    }else
-    {
+    } else {
         string name;
         cout << "Type the name to remove: ";
         getline(cin, name);
-        for(auto it = salas.begin(); it == salas.end(); it++){
-            if((*it).getNome() == name){
+        for (auto it = salas.begin(); it == salas.end(); it++) {
+            if ((*it).getNome() == name) {
                 cout << "Sala de espetáculo encontrada!" << endl;
                 cout << salas.size();
                 salas.erase(it);
@@ -73,38 +70,37 @@ void  sistemaCartaoAmigoMuseumPortugal::deleteSalaEspetaculo() {
     }
 }
 
-void sistemaCartaoAmigoMuseumPortugal::updateSalaEspetaculo(){
-    if(salas.size() == 0){
+void sistemaCartaoAmigoMuseumPortugal::updateSalaEspetaculo() {
+    if (salas.size() == 0) {
         cout << "Não há salas de espetáculo para atualizar! " << endl;
-    }else
-    {
+    } else {
         string line, text;
         cout << "Type the name to update: ";
         getline(cin, text);
-        vector<string> menu = {"Nome: ", "Capacidade: ", "Endereco: " , "Aderente: "};
+        vector<string> menu = {"Nome: ", "Capacidade: ", "Endereco: ", "Aderente: "};
         cout << endl;
-        for(size_t i = 0; i < salas.size(); i++){
-            if(salas[i].getNome() == text) {
+        for (size_t i = 0; i < salas.size(); i++) {
+            if (salas[i].getNome() == text) {
                 int op = readOptions(menu);
-                if (op == 1){
+                if (op == 1) {
                     cout << "Novo nome da sala: ";
                     getline(cin, line);
                     salas[i].setNome(line);
                 }
-                if( op == 2){
+                if (op == 2) {
                     salas[i].setCapacidadeMaxima(readInteger("Nova Capacidade: "));
                 }
 
-                if (op == 3){
+                if (op == 3) {
                     cout << "Novo Endereço: ";
                     getline(cin, line);
                     Address aux(line);
                     salas[i].setEndereco(aux);
                 }
-                if (op == 4){
+                if (op == 4) {
                     salas[i].setAderente(readInteger("Aderente: "));
                 }
-                if (op == 5){
+                if (op == 5) {
                     salas[i].setId(readInteger("Aderente: "));
                 }
             }
@@ -114,5 +110,190 @@ void sistemaCartaoAmigoMuseumPortugal::updateSalaEspetaculo(){
     cout << "Sala de Espetaculo atualizada com sucesso! \n";
 }
 
+void sistemaCartaoAmigoMuseumPortugal::addCliente() {
+    cin.ignore();
+    Cliente newClient;
+    Date thisYear;
+    thisYear.actualDate();
+    srand(time(NULL));
+    string handler = to_string(thisYear.getYear()) + "00" + to_string(rand() % 9999);
+    newClient.setN_cartao(handler);
+    cin.clear();
+    cout << endl << "--- Criando novo cliente ---\npor favor digite seu nome completo: ";
+    getline(cin, handler);
+    newClient.setNome(handler);
+
+    handler = readString("\n dia/mes/ano\nData de Nascimento: ");
+    Date nascimento;
+    cin.clear();
+    bool isDate = nascimento.verifyDate(handler); // verify if the input is actualy a date
+    while (isDate == false) {
+        cin.clear();
+        handler = readString("Data de Nascimento: ");
+        isDate = nascimento.verifyDate(handler);
+    }
+    nascimento.setDateString(handler);
+    newClient.setNascimento(nascimento);
+    newClient.setContacto(readString("Contacto: "));
+    cout << "\n *No formato Rua / Nº Porta / Freguesia / Código-Postal / Distrito* \nEndereço: " << endl;
+    getline(cin, handler);
+    Address end(handler);
+    newClient.setMorada(end);
+
+    handler = readString("É membro de uma universidadae (aluno/professor)? ");
+    if (handler == "sim")
+        newClient.setUniversitario(true);
+    cin.clear();
+    newClient.aderirCartao();
+    newClient.printCliente();
+    clientes.push_back(newClient);
+    cout << "cliente novo adicionado!";
+    cout << endl << "*************************************************************************" << endl;
+    cout << "Parabéns " << newClient.getNome() << ", você acaba de completar seu cadastro com sucesso! " << endl;
+    cout << "AVISO: O número de seu cartão é " << newClient.getN_cartao() << endl;
+    cout << "Por favor compareca à qualquer Museu da Rede Portuguesa " << endl
+         << "para a emissão do seu cartão, não se esqueca de " << endl;
+    cout << "levar um documento com foto e Cartão de estudante caso necessário.";
+    cout << endl << endl;
+    cout << endl << "*************************************************************************" << endl << endl << endl;
+}
+
+void sistemaCartaoAmigoMuseumPortugal::readCliente() {}
+
+void sistemaCartaoAmigoMuseumPortugal::deleteCliente() {}
+
+void sistemaCartaoAmigoMuseumPortugal::updateCliente() {
+    if (clientes.size() == 0) {
+        cout << "Não há clientes" << endl;
+    } else {
+        int card = readInteger("Type your card number: ");
+        string line;
+        vector<string> menu = {"Endereco: ", "Contacto: ", "Vínculo universitário: "};
+        for (size_t i = 0; i < clientes.size(); i++) {
+            Date oldDate(clientes[i].getCartao().getDataAcquisition());
+            if (clientes[i].getN_cartao() == to_string(card)) {
+                int op = readOptions(menu);
+                if (op == 1) {
+
+                    cout << "Novo Endereço: ";
+                    getline(cin, line);
+                    Address aux(line);
+                    clientes[i].setMorada(aux);
+                    clientes[i].aderirCartao();
+                    CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(clientes[i].getCartao()));
+                    novo->setDataAcquisition(oldDate);
+                    clientes[i].setCartao(novo);
+                }
+                if (op == 2) {
+                    cout << "Novo contacto: ";
+                    getline(cin, line);
+                    clientes[i].setContacto(line);
+                    clientes[i].aderirCartao();
+                }
+                if (op == 3) {
+                    if (clientes[i].getUniversitario() == true) {
+                        cout
+                                << "Deseja alterar seu status de membro académico? \nAtualmente você tem um vínculo com uma universidade\n";
+                        cout << "Valor atual da anuidade: " << clientes[i].getCartao().getAnuidade() << endl;
+                        line = readString("S = sim /N = não");
+                        if (line == "S") {
+                            clientes[i].setUniversitario(false);
+                            clientes[i].aderirCartao();
+                            CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(clientes[i].getCartao()));
+                            novo->setDataAcquisition(oldDate);
+                            clientes[i].setCartao(novo);
+                            cout << "Nova anuidade: " << clientes[i].getCartao().getAnuidade();
+                        }
+                    } else {
+                        cout
+                                << "Deseja alterar seu status de membro académico? \nAtualmente você tem nao possui um vínculo com uma universidade\n";
+                        cout << "Valor atual da anuidade: " << clientes[i].getCartao().getAnuidade() << endl;
+                        line = readString("S = sim /N = não");
+                        if (line == "S") {
+                            clientes[i].setUniversitario(false);
+                            clientes[i].aderirCartao();
+                            CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(clientes[i].getCartao()));
+                            novo->setDataAcquisition(oldDate);
+                            clientes[i].setCartao(novo);
+                            cout << "Nova anuidade: " << clientes[i].getCartao().getAnuidade();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 
+void sistemaCartaoAmigoMuseumPortugal::loadEverything() {
+    vector<string> lines;
+    string newline;
+    ifstream myfile("../clientes.txt");
+    if (myfile.is_open()) {
+
+        for (string line; getline(myfile, line);) {
+
+            lines.push_back(line);
+
+        }
+
+        for (int i = 0; i < lines.size(); i++) {
+            Cliente user;
+
+            user.setN_cartao(lines[i]);
+            i++;
+            user.setNome(lines[i]);
+            i++;
+            Date tempNascimento;
+            tempNascimento.setDateString(lines[i]);
+            user.setNascimento(tempNascimento);
+            i++;
+            user.setContacto(lines[i]);
+            i++;
+            user.setMorada(lines[i]);
+            i++;
+            if (lines[i] == "0") {
+                user.setUniversitario(true);
+            } else {
+                user.setUniversitario(false);
+            }
+            //Adere cartao com as informacoes:
+            user.aderirCartao();
+
+            clientes.push_back(user);
+        }
+        myfile.close();
+        cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
+    } else {
+        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS" << endl << endl;
+    }
+};
+
+/*
+void sistemaCartaoAmigoMuseumPortugal::searchForNameById(int ncard, string &nome, Cliente client) {
+
+
+    for (int i = 0; i < clientes.size(); i++) {
+
+        try {
+            if (stoi(clientes[i].getN_cartao()) == ncard) {
+
+                indexUsuarioLocal = i;
+
+                client = clientes[i];
+
+                nome = clientes[i].getNome();
+                break;
+
+
+            } else {
+                NomeUsuario = "N_existe";
+            }
+
+        } catch (std::invalid_argument &e) {
+            //Caso o numero nao puder ser convertido para inteiro para verificar, este catch impede que o programa seja finalizado.
+        };
+
+    }
+}
+*/

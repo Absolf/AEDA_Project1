@@ -22,6 +22,7 @@ SalaEspetaculo &SalaEspetaculo::operator=(const SalaEspetaculo &espetaculo) {
     Atracao::operator=(espetaculo);
     this->aderente = espetaculo.aderente;
 }
+
 /*
 SalaEspetaculo newSala;
 newSala.setNome(readString("Nome: "));
@@ -50,10 +51,12 @@ vector<string> Handler(vector<string> vec) {
             new_sala.push_back(to_string(readInteger(vec[i])));
         }
         if (i == 2) // for adddress;
-        {   line = vec[i];
+        {
+            line = vec[i];
             getline(cin, line);
             new_sala.push_back(line);
-        }if (i == 3) // for Aderente;
+        }
+        if (i == 3) // for Aderente;
         {
             new_sala.push_back(to_string(readInteger(vec[i])));
         }
