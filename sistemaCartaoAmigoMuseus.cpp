@@ -158,19 +158,18 @@ void sistemaCartaoAmigoMuseumPortugal::addCliente() {
     cout << endl << "*************************************************************************" << endl << endl << endl;
 }
 
-void sistemaCartaoAmigoMuseumPortugal::readCliente() {}
+void sistemaCartaoAmigoMuseumPortugal::readCliente(string card) {}
 
-void sistemaCartaoAmigoMuseumPortugal::deleteCliente() {}
+void sistemaCartaoAmigoMuseumPortugal::deleteCliente(string card) {}
 
-void sistemaCartaoAmigoMuseumPortugal::updateCliente() {
+void sistemaCartaoAmigoMuseumPortugal::updateCliente(string card) {
     if (clientes.size() == 0) {
         cout << "Não há clientes" << endl;
     } else {
-        int card = readInteger("Type your card number: ");
         string line;
         vector<string> menu = {"Endereco: ", "Contacto: ", "Vínculo universitário: "};
         for (size_t i = 0; i < clientes.size(); i++) {
-            if (clientes[i].getN_cartao() == to_string(card)) {
+            if (clientes[i].getN_cartao() == card) {
                 Date oldDate(clientes[i].getCartao().getDataAcquisition());
                 int op = readOptions(menu);
                 if (op == 1) {
@@ -224,63 +223,17 @@ void sistemaCartaoAmigoMuseumPortugal::updateCliente() {
     }
 }
 
-void sistemaCartaoAmigoMuseumPortugal::loadClients() {
-    vector<string> lines;
-    string newline;
-    ifstream myfile("../clientes.txt");
-    if (myfile.is_open()) {
-
-        for (string line; getline(myfile, line);) {
-
-            lines.push_back(line);
-
-        }
-
-        for (int i = 0; i < lines.size(); i++) {
-            Cliente user;
-
-            user.setN_cartao(lines[i]);
-            i++;
-            user.setNome(lines[i]);
-            i++;
-            Date tempNascimento;
-            tempNascimento.setDateString(lines[i]);
-            user.setNascimento(tempNascimento);
-            i++;
-            user.setContacto(lines[i]);
-            i++;
-            user.setMorada(lines[i]);
-            i++;
-            if (lines[i] == "1") {
-                user.setUniversitario(true);
-            } else {
-                user.setUniversitario(false);
-            }
-            //Adere cartao com as informacoes:
-            Date oldDate(user.getCartao().getDataAcquisition());
-            user.aderirCartao();
-            CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(user.getCartao()));
-            novo->setDataAcquisition(oldDate);
-            user.setCartao(novo);
-            clientes.push_back(user);
-        }
-        myfile.close();
-        cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
-    } else {
-        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS" << endl << endl;
-    }
-};
-
-
-void sistemaCartaoAmigoMuseumPortugal::WriteAllClients(){
+void sistemaCartaoAmigoMuseumPortugal::WriteAllClients() {
     //Apaga o arquivo do cliente
     deleteFileToRewrite("../clientes.txt");
     ofstream outClients("../clientes.txt");
 
-    if(outClients.is_open())
-    {
+    if (outClients.is_open()) {
         for (size_t i = 0; i < clientes.size(); i++) {
-            outClients << clientes[i] << endl;
+            if(i==3 && clientes[i].getN_cartao() != clientes[i-1].getN_cartao())
+                outClients << clientes[i].getCartao().getDataAcquisition();
+            else
+                outClients << clientes[i];
         }
         outClients.close();
     }
@@ -290,8 +243,8 @@ const vector<Cliente> &sistemaCartaoAmigoMuseumPortugal::getClientes() const {
     return clientes;
 }
 
-void sistemaCartaoAmigoMuseumPortugal::setClientes(const vector<Cliente> &clientes) {
-    sistemaCartaoAmigoMuseumPortugal::clientes = clientes;
+void sistemaCartaoAmigoMuseumPortugal::setClientes(const Cliente &cliente) {
+   this->clientes.push_back(cliente);
 }
 
 const vector<Evento> &sistemaCartaoAmigoMuseumPortugal::getEventos() const {

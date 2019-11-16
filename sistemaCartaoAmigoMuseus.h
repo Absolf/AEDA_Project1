@@ -28,7 +28,7 @@ public:
 
     const vector<Cliente> &getClientes() const;
 
-    void setClientes(const vector<Cliente> &clientes);
+    void setClientes(const Cliente &clientes);
 
     const vector<Evento> &getEventos() const;
 
@@ -50,19 +50,19 @@ public:
 
     void addSalaEspetaculo();
 
-    void updateCliente();
+    void updateCliente(string card);
 
     void updateMuseum() const;
 
     void updateSalaEspetaculo();
 
-    void deleteCliente();
+    void deleteCliente(string card);
 
     void deleteMuseum();
 
     void deleteSalaEspetaculo();
 
-    void readCliente();
+    void readCliente(string card);
 
     void readMuseum();
 

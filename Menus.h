@@ -10,38 +10,15 @@
 
 using namespace std;
 
-string NomeUsuario;
-int numeroUsuario, index;
 
 void mainMenu();
 
-void loadEverything();
-
-void subMenuSeeAll();
-
-void PrintInstituicoes();
-
-void PrintEventos();
-
-void WriteAllClients();
-
-void firstOpen();
+void loadClients();
 
 void deleteFileToRewrite(string file);
 
-int searchForNameById(int usuario, int &index, string &Nome);
-
-void ChangePersonalInfo();
-
-void novoCadastro();
-
-void printClientes();
-
-void VerInformacoesClienteSubmenu();
-
-void fillClient();
-
-void verificaValidade(int id);
+int searchUser(string card);
+int auxMenu(int idx);
 
 //void cleanLog();
 #endif //AEDA_PROJETO_MENUS_H

@@ -63,8 +63,9 @@ void Address::setFreguesia(string freg) { this->freguesia = freg; }
 
 //------------------other methods
 ostream &operator<<(ostream &out, const Address &adr) {
-    out << adr.rua << " Nº " << adr.numero << ", " << adr.freguesia << ", "
-        << adr.codpostal << " - " << adr.distrito << endl;
+    out << adr.rua << "/" << adr.numero << "/" << adr.freguesia << "/"
+        << adr.codpostal << "/" << adr.distrito;
+    return out;
 }
 
 /*

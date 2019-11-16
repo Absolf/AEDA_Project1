@@ -78,7 +78,6 @@ void Cliente::addBilhete(Bilhete *b) {
 }
 
 void Cliente::aderirCartao() {
-    cout << "Cartão sendo gerado\n";
     Date acq;
     acq.actualDate();
     if ((acq.getYear() - this->nascimento.getYear()) > 65)
@@ -93,8 +92,6 @@ void Cliente::aderirCartao() {
     cartao->setNascimento(nascimento);
     cartao->setContacto(contacto);
     cartao->setMorada(morada);
-
-    cout << "Cartao gerado com sucesso!\n";
 }
 
 const vector<Bilhete *> &Cliente::getBilhetes() const {
@@ -127,10 +124,13 @@ void Cliente::printCliente() {
     }
 }
 
-ostream &operator<<(ostream &out, Cliente &cli){
+ostream &operator<<(ostream &out, Cliente &cli) {
     out << cli.getN_cartao() << endl;
     out << cli.getNome() << endl;
     out << cli.getNascimento() << endl;
+    out << cli.getCartao().getDataAcquisition() <<endl;
     out << cli.getContacto() << endl;
+    out << cli.getMorada()<< endl;
     out << cli.getUniversitario() << endl;
+    return out;
 }

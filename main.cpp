@@ -4,10 +4,8 @@
 #include "Menus.h"
 
 int main() {
+    loadClients();
     mainMenu();
-    loadEverything();
-    firstOpen();
     //firstOpen();
-
     return 0;
 }
