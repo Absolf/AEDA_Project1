@@ -6,7 +6,7 @@
 #define AEDA_PROJETO_MENUS_H
 
 #include <vector>
-
+#include "sistemaCartaoAmigoMuseus.h"
 
 using namespace std;
 

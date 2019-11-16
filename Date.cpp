@@ -165,7 +165,15 @@ string Date::returnDate(Date date) {
 
 //Comparison operators
 ostream &operator<<(ostream &out, const Date &date) {
-    out << date.day << "/" << date.month << "/" << date.year << endl;
+    if (date.month < 10 && date.day < 10) {
+        out << "0" << date.day << "/0" << date.month << "/" << date.year;
+    } else if (date.month < 10 && date.day >= 10) {
+        out << date.day << "/0" << date.month << "/" << date.year;
+    } else if (date.month >= 10 && date.day < 10) {
+        out << "0" <<date.day << "/" << date.month<< "/" << date.year;
+    } else {
+        out << date.day << "/" << date.month << "/" << date.year;
+    }
     return out;
 }
 

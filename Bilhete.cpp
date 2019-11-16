@@ -24,9 +24,22 @@ void Bilhete::printBilhete() {
     cout << " Apresentando função printBilhete() \n------------Bilhete------------- \n";
     cout << "Sala de Espetáculo: " << evento->getNome() << endl;
     cout << "Evento: " << evento->getNomeEvento() << endl;
-    cout << "Valor: $" << valor << endl;
+    cout << "Valor: $" << this->valor << endl;
     cout << "Data: " << evento->getData() << endl;
     cout << "Horário: " << evento->getHorario();
     cout << "Lotacao: " << evento->getLotacao() << endl;
+}
 
+ostream &operator<<(ostream &out, const Bilhete &bilhete) {
+    //cout << " Apresentando função printBilhete() \n------------Bilhete------------- \n";
+    cout << "Sala de Espetáculo: " << bilhete.evento->getNome() << endl;
+    cout << "Evento: " << bilhete.evento->getNomeEvento() << endl;
+    cout << "Valor: $" << bilhete.valor << endl;
+    cout << "Data: " << bilhete.evento->getData() << endl;
+    cout << "Horário: " << bilhete.evento->getHorario();
+}
+
+void teste() {
+    Bilhete bilhete;
+    cout << bilhete;
 }

@@ -22,6 +22,8 @@ public:
     void setEvento(Evento *evento);
 
     void printBilhete();
+
+    friend ostream &operator<<(ostream &out, const Bilhete &bilhete);
 };
 
 

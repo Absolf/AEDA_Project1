@@ -17,8 +17,9 @@ using namespace std;
 
 class sistemaCartaoAmigoMuseumPortugal {
 
-    vector<Cliente *> clientes;
-    vector<Evento *> eventos;
+    vector<Cliente> *clientes;
+    vector<Evento> eventos;
+    vector<SalaEspetaculo> salas;
     vector<Museum *> museu;
 public:
     sistemaCartaoAmigoMuseumPortugal();
@@ -29,19 +30,19 @@ public:
 
     void addMuseum() const;
 
-    void addSalaEspetaculo() const;
+    void addSalaEspetaculo();
 
     void updateCartaoAmigo() const;
 
     void updateMuseum() const;
 
-    void updateSalaEspetaculo() const;
+    void updateSalaEspetaculo();
 
     void deleteCartaoAmigo() const;
 
     void deleteMuseum() const;
 
-    void deleteSalaEspetaculo() const;
+    void deleteSalaEspetaculo();
 
     void readCartaoAmigo() const;
 

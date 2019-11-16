@@ -16,13 +16,13 @@ public:
 
     SalaEspetaculo();
 
-    SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente);
+    SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente);
 
     bool isAderente() const;
 
+    SalaEspetaculo &operator=(const SalaEspetaculo &espetaculo);
     void setAderente(bool aderente);
 
-    void venderBilhete();
 };
 
 
@@ -33,7 +33,7 @@ class Evento : public SalaEspetaculo {
 public:
     Evento();
 
-    Evento(string nome, int capacidadeMaxima, int lotacao, string endereco, int id, bool aderente, string nomeEvento,
+    Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente, string nomeEvento,
            Date data, time_t horario);
 
     /*
@@ -51,6 +51,8 @@ public:
     const time_t &getHorario() const;
 
     void setHorario(const time_t &horario);
+
+    SalaEspetaculo &operator=(const SalaEspetaculo &espetaculo);
 };
 
 

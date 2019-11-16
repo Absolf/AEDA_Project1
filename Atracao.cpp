@@ -7,12 +7,12 @@
 Atracao::Atracao() {}
 
 
-Atracao::Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id) : nome(nome),
-                                                                                            capacidadeMaxima(
-                                                                                                    capacidadeMaxima),
-                                                                                            lotacao(lotacao),
-                                                                                            endereco(endereco),
-                                                                                            id(id) {};
+Atracao::Atracao(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id) : nome(nome),
+                                                                                             capacidadeMaxima(
+                                                                                                     capacidadeMaxima),
+                                                                                             lotacao(lotacao),
+                                                                                             endereco(endereco),
+                                                                                             id(id) {};
 
 const string &Atracao::getNome() const {
     return nome;
@@ -38,11 +38,11 @@ void Atracao::setLotacao(const int &lotacao) {
     this->lotacao = lotacao;
 }
 
-const string &Atracao::getEndereco() const {
+const Address &Atracao::getEndereco() const {
     return endereco;
 }
 
-void Atracao::setEndereco(const string &endereco) {
+void Atracao::setEndereco(const Address &endereco) {
     this->endereco = endereco;
 }
 
@@ -54,6 +54,16 @@ void Atracao::setId(int id) {
     this->id = id;
 }
 
-void Atracao::venderBilhete() {
-    this->lotacao++;
+ostream &operator<<(ostream &out, const Atracao &atracao) {
+    out << "\nid: " << atracao.id << "\nNome: " << atracao.nome << "\nCapacidade Máxima: " << atracao.capacidadeMaxima
+        << "\nLotação: " << atracao.lotacao << "\nEndereco: " << atracao.endereco << endl;
 }
+
+Atracao &Atracao::operator=(const Atracao &atracao) {
+    this->nome = atracao.nome;
+    this->capacidadeMaxima = atracao.capacidadeMaxima;
+    this->lotacao = atracao.lotacao;
+    this->endereco = atracao.endereco;
+    this->id = atracao.id;
+}
+

@@ -12,15 +12,12 @@ class Atracao {
     string nome;
     int capacidadeMaxima;
     int lotacao;
-    string endereco;
+    Address endereco;
     int id;
 public:
     Atracao();
 
-    Atracao(string nome, int capacidadeMaxima, int lotacao, string endereco, int id);
-
-    virtual void venderBilhete();
-    //virtual void reservarBilhete();
+    Atracao(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id);
 
     const string &getNome() const;
 
@@ -34,13 +31,17 @@ public:
 
     void setLotacao(const int &lotacao);
 
-    const string &getEndereco() const;
+    const Address &getEndereco() const;
 
-    void setEndereco(const string &endereco);
+    void setEndereco(const Address &endereco);
 
     int getId() const;
 
     void setId(int id);
+
+    virtual Atracao &operator=(const Atracao &atracao);
+
+    friend ostream &operator<<(ostream &out, const Atracao &atracao);
 };
 
 

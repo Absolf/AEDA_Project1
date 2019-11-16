@@ -275,8 +275,16 @@ void mainMenu() {       //Chama o menu principal
             break;
         case '1':
             subMenuSeeAll();
-        case '2':
-
+        case '2': {
+            sistemaCartaoAmigoMuseumPortugal sys;
+            sys.addSalaEspetaculo();
+            sys.readSalaEspetaculo();
+           // sys.deleteSalaEspetaculo();
+            //sys.readSalaEspetaculo();
+            sys.updateSalaEspetaculo();
+            sys.readSalaEspetaculo();
+            break;
+        }
 
         case '3':
             PrintEventos();
@@ -357,8 +365,6 @@ void verificaValidade(int id) {
 
 //Utilizado em qualquer caso que existe um novo usuário que deseja fazer o cadastro para adquirir o cartão.
 void novoCadastro() {
-
-
 
     //CRIAR NOVA CLASSE DE CLIENTE AQUI!!!!
 

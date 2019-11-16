@@ -5,6 +5,7 @@
 #ifndef AEDA_PROJETO_ADDRESS_H
 #define AEDA_PROJETO_ADDRESS_H
 using namespace std;
+
 #include "utilitarios.h"
 #include "string"
 #include <iostream>
@@ -19,6 +20,7 @@ class Address {
 public:
 
     Address();
+
     Address(string endString);
 
     string getRua() const;
