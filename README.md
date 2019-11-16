@@ -26,4 +26,4 @@ Implemente também outras funcionalidades que considere relevantes, para além d
 - Cliente consegue aderir diferentes tipos de assinaturas de cartão.
 - vender bilhete para um cliente.
 
-<img src="https://github.com/Absolf/AEDA_Project1/diagrama.jpeg" alt="alt text" width="350" height="175">
+<img src="https://github.com/Absolf/AEDA_Project1/blob/victor/diagrama.jpeg" alt="alt text" width="350" height="175">
