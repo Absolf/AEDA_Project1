@@ -16,8 +16,8 @@ const Evento &Bilhete::getEvento() const {
     return *evento;
 }
 
-void Bilhete::setEvento(Evento *evento) {
-    this->evento = evento;
+void Bilhete::setEvento(Evento evento) {
+    this->evento = &evento;
 }
 
 void Bilhete::printBilhete() {
@@ -36,6 +36,8 @@ ostream &operator<<(ostream &out, const Bilhete &bilhete) {
     cout << "Evento: " << bilhete.evento->getNomeEvento() << endl;
     cout << "Valor: $" << bilhete.valor << endl;
     cout << "Data: " << bilhete.evento->getData() << endl;
+    cout << bilhete.evento->getCapacidadeMaxima();
+    cout <<  bilhete.evento->getEndereco();
     //cout << "Horário: " << bilhete.evento->getHorario();
 }
 

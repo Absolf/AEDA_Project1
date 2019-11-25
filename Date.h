@@ -32,7 +32,7 @@ public:
 
     unsigned int getDay() const;
 
-    string getDateString(); // returns the date in format "yyyy/mm/dd"
+    string getDateString() const; // returns the date in format "yyyy/mm/dd"
     bool valid() const;
 
     // SET methods

@@ -13,19 +13,10 @@ using namespace std;
 
 void mainMenu();
 
-void loadClients();
-
-void loadEventos();
-
 void loadBilhetes();
-
-void loadSalaEspetaculos();
 
 void deleteFileToRewrite(string file);
 
-int searchUser(string card);
-int searchSalaEspetaculo(string nome);
-int searchEvento(string nome);
 int auxMenu(int idx);
 
 //void cleanLog();

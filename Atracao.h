@@ -19,6 +19,7 @@ public:
 
     Atracao(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id);
 
+    Atracao(const Atracao& at1);
     const string &getNome() const;
 
     void setNome(const string &nome);
@@ -40,6 +41,7 @@ public:
     void setId(int id);
 
     virtual Atracao &operator=(const Atracao &atracao);
+
 
     friend ostream &operator<<(ostream &out, const Atracao &atracao);
 };

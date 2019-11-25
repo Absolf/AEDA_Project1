@@ -111,150 +111,6 @@ void PrintEventos() {
 
 //Recebe como argumento o nº do cartão do usuario e faz uma busca para verificar sua existencia e seu nome
 */
-int searchUser(string card) {
-    for(size_t i = 0; i < sys.getClientes().size(); i++){
-        if (card == sys.getClientes().at(i).getN_cartao()){
-            return i;
-        }
-    }
-    return 0;
-}
-
-int searchSalaEspetaculo(string nome) {
-    for(size_t i = 0; i < sys.getSalas().size(); i++){
-        if (nome == sys.getSalas().at(i).getNome()){
-            return i;
-        }
-    }
-    return 0;
-}
-
-int searchEvento(string nome) {
-    for(size_t i = 0; i < sys.getEventos().size(); i++){
-        if (nome == sys.getSalas().at(i).getNome()){
-            return i;
-        }
-    }
-    return 0;
-}
-
-//Tela inicial quando o programa é aberto, aparece apenas uma vez.
-void loadClients() {
-    vector<string> lines;
-    string newline;
-    ifstream myfile("../clientes.txt");
-    if (myfile.is_open()) {
-        for (string line; getline(myfile, line);) {
-            lines.push_back(line);
-        }
-        for (int i = 0; i < lines.size(); i++) {
-            Cliente user;
-
-            user.setN_cartao(lines[i]);
-            i++;
-            user.setNome(lines[i]);
-            i++;
-            Date tempNascimento;
-            tempNascimento.setDateString(lines[i]);
-            user.setNascimento(tempNascimento);
-            i++;
-            Date oldDate;
-            oldDate.setDateString(lines[i]);
-            i++;
-            user.setContacto(lines[i]);
-            i++;
-            user.setMorada(lines[i]);
-            i++;
-            if (lines[i] == "1") {
-                user.setUniversitario(true);
-            } else {
-                user.setUniversitario(false);
-            }
-            user.aderirCartao();
-            CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(user.getCartao()));
-            novo->setDataAcquisition(oldDate);
-            user.setCartao(novo);
-            sys.setClientes(user);
-
-        }
-        myfile.close();
-        cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
-    } else {
-        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS" << endl << endl;
-    }
-};
-
-
-void loadSalaEspetaculos() {
-    vector<string> lines;
-    string newline;
-    ifstream myfile("../salaEspetaculo.txt");
-    if (myfile.is_open()) {
-        for (string line; getline(myfile, line);) {
-            lines.push_back(line);
-        }
-        for (int i = 0; i < lines.size(); i++) {
-            SalaEspetaculo newSala;
-
-            newSala.setNome(lines[i]);
-            i++;
-            istringstream cap(lines[i]);
-            int capAux;
-            cap >> capAux;
-            newSala.setCapacidadeMaxima(capAux);
-            i++;
-            istringstream lot(lines[i]);
-            int lotAux;
-            lot >> lotAux;
-            newSala.setLotacao(lotAux);
-            i++;
-            Address novoEnd(lines[i]);
-            newSala.setEndereco(novoEnd);
-            i++;
-            istringstream id(lines[i]);
-            int idAux;
-            id >> idAux;
-            newSala.setId(idAux);
-            i++;
-            if (lines[i] == "1") {
-                newSala.setAderente(true);
-            } else {
-                newSala.setAderente(false);
-            }
-            sys.setSalas(newSala);
-        }
-        myfile.close();
-        cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
-    } else {
-        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS" << endl << endl;
-    }
-}
-
-void loadEventos(){
-    vector<string> lines;
-    string newline;
-    ifstream myfile("../eventos.txt");
-    int sala;
-    if (myfile.is_open()) {
-        for (string line; getline(myfile, line);) {
-            lines.push_back(line);
-        }
-        for (int i = 0; i < lines.size(); i++) {
-            sala = searchSalaEspetaculo(lines[i]);
-            i++;
-            Date eventDate;
-            i++;
-            eventDate.setDateString(lines[i]);
-            Evento newEvento(sys.getSalas().at(sala).getNome(), sys.getSalas().at(sala).getCapacidadeMaxima(), sys.getSalas().at(sala).getLotacao(), sys.getSalas().at(sala).getEndereco(), sys.getSalas().at(sala).getId(), sys.getSalas().at(sala).isAderente(),lines[sala+1], eventDate);
-            sys.setEventos(newEvento);
-        }
-
-        myfile.close();
-        cout << endl << "DADOS CARREGADOS COM SUCESSO" << endl << endl;
-    } else {
-        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS" << endl << endl;
-    }
-}
 
 void loadBilhetes(){
 
@@ -263,13 +119,14 @@ void loadBilhetes(){
 
 
 void mainMenu() {       //Chama o menu principal
-    loadClients();
-    loadSalaEspetaculos();
+    sys.loadClients();
+    sys.loadSalaEspetaculos();
+    sys.loadEventos();
     string card;
     int idx = 0;
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
     card = readString("POR FAVOR DIGITE O NÚMERO DE SEU CARTÃO PARA INICIAR \n:");
-    idx = searchUser(card);
+    idx = sys.searchUser(card);
     if (idx == 0) {
         cout << "ATUALMENTE NÃO EXISTE NENHUM USUÁRIO COM ESTE CARTÃO!" << endl;
         string newHandler = readString("DESEJA FAZER UM REGISTRO? (sim/nao):  ");
@@ -306,28 +163,46 @@ void mainMenu() {       //Chama o menu principal
 };
 
 int auxMenu(int idx){
-    vector<string> menu = {"CRIAR SALA ESPETACULO", "DELETAR SALA ESPETACULO",
-                           "ATUALIZAR SALA ESPETACULO",
-                           "CRIAR BILHETE", "VENDER BILHETE", "ATUALIZAR CLIENTE)"};
+    vector<string> menu = {"COMPRAR BILHETE", "ATUALIZAR INFORMAÇÕES"};
     int op = 1;
     while (op != 0) {
         op = readOptions(menu);
         if (op == 1) {
-            sys.addSalaEspetaculo();
+            vector<string> eventos = {};
+            for(auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++){
+                string opt = (*it).getNomeEvento() + " - " + (*it).getData().getDateString();
+                eventos.push_back(opt);
+            }
+            op = readOptions((eventos));
+            for(int i = 0; i < eventos.size(); i++){
+                if(op-1 == i){
+                    Bilhete b1;
+                    b1.setValor(120.0);
+                    b1.setEvento(sys.getEventos().at(i));
+                    sys.venderBilhete(const_cast<Cliente *>(&sys.getClientes()[idx]), &b1,
+                                      const_cast<Evento *>(&sys.getEventos().at(i)));
+
+                    b1.printBilhete();
+
+                }
+            }
+
         }
         if (op == 2) {
-            sys.deleteSalaEspetaculo();
+            sys.updateCliente(sys.getClientes().at(idx).getCartao().getN_cartao());
         }
         if (op == 3) {
             sys.updateSalaEspetaculo();
         }
-        if (op == 4) {
+        if (op == 4) {/*
             Bilhete bil;
-            bil.setValor("10");
-            bil.setEvento(sys.getEventos().at(0));
+            bil.setValor(10.0);
+            Evento *event(sys.getEventos()[idx]);
+            bil.setEvento(event);
+            */
         }
         if (op == 6) {
-            sys.updateCliente(sys.getClientes().at(idx).getCartao().getN_cartao());
+
         }
         op = readInteger("\n1 - VOLTAR \n0 - ENCERRAR");
     }

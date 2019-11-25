@@ -6,13 +6,17 @@
 
 Atracao::Atracao() {}
 
-
 Atracao::Atracao(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id) : nome(nome),
                                                                                              capacidadeMaxima(
                                                                                                      capacidadeMaxima),
-                                                                                             lotacao(lotacao),
-                                                                                             endereco(endereco),
-                                                                                             id(id) {};
+                                                                                             lotacao(lotacao),endereco(endereco),id(id) {};
+Atracao::Atracao(const Atracao& at1){
+    this->nome = at1.getNome();
+    this->capacidadeMaxima = at1.getCapacidadeMaxima();
+    this->lotacao = at1.getLotacao();
+    this->endereco = at1.endereco;
+    this->id = at1.getId();
+};
 
 const string &Atracao::getNome() const {
     return nome;

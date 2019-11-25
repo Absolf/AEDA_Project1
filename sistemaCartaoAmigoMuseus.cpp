@@ -5,7 +5,8 @@
 #include "sistemaCartaoAmigoMuseus.h"
 //-----------------------
 
-sistemaCartaoAmigoMuseumPortugal::sistemaCartaoAmigoMuseumPortugal() {};
+sistemaCartaoAmigoMuseumPortugal::sistemaCartaoAmigoMuseumPortugal() {
+};
 
 void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento) {
     float newPrice;
@@ -21,7 +22,6 @@ void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete *
         } else
             cout << "Lotação máxima atingida" << endl;
     }
-
 }
 
 void sistemaCartaoAmigoMuseumPortugal::addSalaEspetaculo() {
@@ -46,7 +46,7 @@ void sistemaCartaoAmigoMuseumPortugal::readSalaEspetaculo() {
     if (salas.size() == NULL) {
         cout << "Não há salas de espetáculo!\n";
     } else {
-        for (auto it = salas.begin(); it != salas.end(); it++) {
+        for (auto it = this->salas.begin(); it != this->salas.end(); it++) {
             cout << (*it) << "\n";
         }
     }
@@ -238,6 +238,176 @@ void sistemaCartaoAmigoMuseumPortugal::WriteAllClients() {
         outClients.close();
     }
 }
+int sistemaCartaoAmigoMuseumPortugal::searchUser(string card) {
+    for(size_t i = 0; i < getClientes().size(); i++){
+        if (card == getClientes().at(i).getN_cartao()){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int sistemaCartaoAmigoMuseumPortugal::searchSalaEspetaculo(string nome) {
+    for(size_t i = 0; i < getSalas().size(); i++){
+        if (nome == getSalas().at(i).getNome()){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int sistemaCartaoAmigoMuseumPortugal::searchEvento(string nome) {
+    for(size_t i = 0; i < getEventos().size(); i++){
+        if (nome == getEventos().at(i).getNome()){
+            return i;
+        }
+    }
+    return -1;
+}
+
+//Tela inicial quando o programa é aberto, aparece apenas uma vez.
+void sistemaCartaoAmigoMuseumPortugal::loadClients() {
+    vector<string> lines;
+    string newline;
+    ifstream myfile("../clientes.txt");
+    if (myfile.is_open()) {
+        for (string line; getline(myfile, line);) {
+            lines.push_back(line);
+        }
+        for (int i = 0; i < lines.size(); i++) {
+            Cliente user;
+
+            user.setN_cartao(lines[i]);
+            i++;
+            user.setNome(lines[i]);
+            i++;
+            Date tempNascimento;
+            tempNascimento.setDateString(lines[i]);
+            user.setNascimento(tempNascimento);
+            i++;
+            Date oldDate;
+            oldDate.setDateString(lines[i]);
+            i++;
+            user.setContacto(lines[i]);
+            i++;
+            user.setMorada(lines[i]);
+            i++;
+            if (lines[i] == "1") {
+                user.setUniversitario(true);
+            } else {
+                user.setUniversitario(false);
+            }
+            user.aderirCartao();
+            CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(user.getCartao()));
+            novo->setDataAcquisition(oldDate);
+            user.setCartao(novo);
+            setClientes(user);
+
+        }
+        myfile.close();
+        cout << endl << "DADOS CLIENTES CARREGADOS COM SUCESSO" << endl << endl;
+    } else {
+        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS DE CLIENTES" << endl << endl;
+    }
+};
+
+
+void sistemaCartaoAmigoMuseumPortugal::loadSalaEspetaculos() {
+    vector<string> temp_espec;
+    string lines;
+    ifstream myfile;
+    myfile.open("../salaEspetaculos.txt");
+    if(myfile.is_open()) {
+
+        while (getline(myfile, lines, '\n')) // Cycles trough the file
+        {
+            if (lines == "::::::::::") {
+                SalaEspetaculo newSala;
+                newSala.setNome(temp_espec[0]);
+                istringstream cap(temp_espec[1]);
+                int capAux;
+                cap >> capAux;
+                newSala.setCapacidadeMaxima(capAux);
+                istringstream lot(temp_espec[2]);
+                int lotAux;
+                lot >> lotAux;
+                newSala.setLotacao(lotAux);
+                Address novoEnd(temp_espec[3]);
+                newSala.setEndereco(novoEnd);
+                istringstream id(temp_espec[4]);
+                int idAux;
+                id >> idAux;
+                newSala.setId(idAux);
+                if (temp_espec[5] == "1") {
+                    newSala.setAderente(true);
+                } else {
+                    newSala.setAderente(false);
+                }
+                this->salas.push_back(newSala);
+                temp_espec.clear();
+            } else {
+                temp_espec.push_back(lines);
+            }
+
+        }
+        SalaEspetaculo lastSala;
+        lastSala.setNome(temp_espec[0]);
+        istringstream cap(temp_espec[1]);
+        int capAux;
+        cap >> capAux;
+        lastSala.setCapacidadeMaxima(capAux);
+        istringstream lot(temp_espec[2]);
+        int lotAux;
+        lot >> lotAux;
+        lastSala.setLotacao(lotAux);
+        Address novoEnd(temp_espec[3]);
+        lastSala.setEndereco(novoEnd);
+        istringstream id(temp_espec[4]);
+        int idAux;
+        id >> idAux;
+        lastSala.setId(idAux);
+        if (temp_espec[5] == "1") {
+            lastSala.setAderente(true);
+        } else {
+            lastSala.setAderente(false);
+        }
+        this->salas.push_back(lastSala);
+
+        myfile.close();
+        cout << endl << "DADOS DE SALAS DE ESPETACULO CARREGADOS COM SUCESSO" << endl << endl;
+    }else {
+        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS DAS SALAS DE ESPETACULO" << endl << endl;
+    }
+}
+
+void sistemaCartaoAmigoMuseumPortugal::loadEventos(){
+    vector<string> lines;
+    string newline;
+    ifstream myfile("../eventos.txt");
+    int sala;
+    if (myfile.is_open()) {
+        for (string line; getline(myfile, line);) {
+            lines.push_back(line);
+        }
+        for (int i = 0; i < lines.size(); i++) {
+            sala = searchSalaEspetaculo(lines[i]);
+            if(sala !=-1){
+                i++;
+                string eventName = lines[i];
+                i++;
+                Date eventDate;
+                eventDate.setDateString(lines[i]);
+                Evento newEvent(getSalas()[sala].getNome(), getSalas()[sala].getCapacidadeMaxima(), getSalas()[sala].getLotacao(), getSalas()[sala].getEndereco(), getSalas()[sala].getId(), getSalas()[sala].isAderente(), eventName, eventDate);
+                eventos.push_back(newEvent);
+            }
+        }
+
+        myfile.close();
+        cout << endl << "DADOS DE EVENTOS CARREGADOS COM SUCESSO" << endl << endl;
+    } else {
+        cout << endl << "PROBLEMA NO CARREGAMENTO DE BASE DE DADOS DOS EVENTOS" << endl << endl;
+    }
+}
 
 const vector<Cliente> &sistemaCartaoAmigoMuseumPortugal::getClientes() const {
     return clientes;
@@ -259,7 +429,7 @@ const vector<SalaEspetaculo> &sistemaCartaoAmigoMuseumPortugal::getSalas() const
     return salas;
 }
 
-void sistemaCartaoAmigoMuseumPortugal::setSalas(const SalaEspetaculo &sala) {
+void sistemaCartaoAmigoMuseumPortugal::setSalas(SalaEspetaculo sala) {
     this->salas.push_back(sala);
 }
 
@@ -270,3 +440,7 @@ const vector<Museum> &sistemaCartaoAmigoMuseumPortugal::getMuseu() const {
 void sistemaCartaoAmigoMuseumPortugal::setMuseu(const Museum &museu) {
     this->museus.push_back(museu);
 }
+
+sistemaCartaoAmigoMuseumPortugal::sistemaCartaoAmigoMuseumPortugal(const vector<SalaEspetaculo> &salas){
+}
+

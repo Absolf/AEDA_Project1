@@ -72,7 +72,7 @@ void Date::setDateString(string linha) {
 }
 
 //Retrives the Date in a form of a string
-string Date::getDateString() {
+string Date::getDateString() const {
     string year = to_string(getYear());
     string month = to_string(getMonth());
     string day = to_string(getDay());
