@@ -42,7 +42,8 @@ void mainMenu() {       //Chama o menu principal
     }
     cout << endl << "**********************" << endl;
     cout << "Olá " << sys.getClientes().at(idx).getNome() << ", seja bem vindo!" << endl << endl;
-    cout << "MENSAGENS RELEVANTES :" << endl << endl;
+    messageSilver(idx);
+    cout << endl << endl;
     cout << "**********************" << endl;
     cout << "Pressione 1 para começar a gerenciar a sua conta! \n";
     int aux = readInteger("\n1 - GERENCIAR CONTA \n0 - SAIR \n");
@@ -91,4 +92,23 @@ int auxMenu(int idx){
         op = readInteger("\n1 - VOLTAR \n0 - ENCERRAR");
     }
     return op;
+}
+
+
+void messageSilver(int idx){
+    Cliente *cli = new Cliente(sys.getClientes().at(idx));
+    if(sys.getEventos().size() != NULL){
+
+        for(auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++){
+            Evento *ev = new Evento((*it));
+            if(cli->temCartao() && cli->getIdade() >=65 && ev->isAderente()){
+                Bilhete b1;
+                b1.setEvento(ev);
+                sys.createTicket(cli,b1,ev);
+                b1.setValor(0.0);
+                cout << ev->getNomeEvento() << " Acontecerá no dia " << ev->getData().getDateString() << "\n e por seres membro Silver do Cartão Amigo dos Museus de Portugal tens entrada a borla!\n";
+                cout << "Bilhetes por " << b1.getValor() << " Euros não podes perder! "<< endl;
+            }
+        }
+    }
 }

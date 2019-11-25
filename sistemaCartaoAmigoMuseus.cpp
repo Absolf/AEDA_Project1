@@ -85,7 +85,7 @@ void sistemaCartaoAmigoMuseumPortugal::deleteSalaEspetaculo() {
         cout << "Não há salas de espetáculo!\n";
     } else {
         string name;
-        cout << "Type the name to remove: ";
+        cout << "Nome da sala para remover: ";
         getline(cin, name);
         for (auto it = salas.begin(); it == salas.end(); it++) {
             if ((*it).getNome() == name) {
@@ -103,7 +103,7 @@ void sistemaCartaoAmigoMuseumPortugal::updateSalaEspetaculo() {
         cout << "Não há salas de espetáculo para atualizar! " << endl;
     } else {
         string line, text;
-        cout << "Type the name to update: ";
+        cout << "Nome da sala que deseja atualizar: ";
         getline(cin, text);
         vector<string> menu = {"Nome: ", "Capacidade: ", "Endereco: ", "Aderente: "};
         cout << endl;
@@ -346,7 +346,6 @@ void sistemaCartaoAmigoMuseumPortugal::loadSalaEspetaculos() {
     ifstream myfile;
     myfile.open("../salaEspetaculos.txt");
     if(myfile.is_open()) {
-
         while (getline(myfile, lines, '\n')) // Cycles trough the file
         {
             if (lines == "::::::::::") {
@@ -376,7 +375,6 @@ void sistemaCartaoAmigoMuseumPortugal::loadSalaEspetaculos() {
             } else {
                 temp_espec.push_back(lines);
             }
-
         }
         SalaEspetaculo lastSala;
         lastSala.setNome(temp_espec[0]);
@@ -429,7 +427,6 @@ void sistemaCartaoAmigoMuseumPortugal::loadEventos(){
                 eventos.push_back(newEvent);
             }
         }
-
         myfile.close();
         cout << endl << "DADOS DE EVENTOS CARREGADOS COM SUCESSO" << endl << endl;
     } else {

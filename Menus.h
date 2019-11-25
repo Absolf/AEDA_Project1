@@ -18,6 +18,7 @@ void loadBilhetes();
 void deleteFileToRewrite(string file);
 
 int auxMenu(int idx);
+void messageSilver(int idx);
 
 //void cleanLog();
 #endif //AEDA_PROJETO_MENUS_H
