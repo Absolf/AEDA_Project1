@@ -29,7 +29,7 @@ public:
 
     int getLotacao() const;
 
-    void setLotacao(int lotacao);
+    void setLotacao(const int &lotacao);
 
     const Address &getEndereco() const;
 

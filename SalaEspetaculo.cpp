@@ -60,8 +60,8 @@ int SalaEspetaculo::getLotacao() const {
     return lotacao;
 }
 
-void SalaEspetaculo::setLotacao(int lotacao) {
-    SalaEspetaculo::lotacao = lotacao;
+void SalaEspetaculo::setLotacao(const int &lotacao){
+    this->lotacao = lotacao;
 }
 
 const Address &SalaEspetaculo::getEndereco() const {

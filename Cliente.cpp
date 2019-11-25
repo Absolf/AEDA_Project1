@@ -94,6 +94,28 @@ void Cliente::aderirCartao() {
     cartao->setMorada(morada);
 }
 
+int Cliente::getIdade() {
+    Date acq;
+    acq.actualDate();
+    int currentDay = acq.getDay();
+    int currentMonth = acq.getMonth();
+    int currentYear = acq.getYear();
+    if(this->nascimento.getDay() > acq.getDay()){
+        currentDay+= this->nascimento.daysMonth(this->nascimento.getMonth(), this->nascimento.getYear());
+        currentMonth -=1;
+    }
+    if(this->nascimento.getMonth() > currentMonth){
+        currentYear -=1;
+        currentMonth +=12;
+    }
+
+    currentDay -= this->nascimento.getDay();
+    currentMonth -= this->nascimento.getMonth();
+    currentYear -= this->nascimento.getYear();
+
+    return currentYear;
+}
+
 const vector<Bilhete *> &Cliente::getBilhetes() const {
     return bilhetes;
 }

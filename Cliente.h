@@ -62,6 +62,8 @@ public:
 
     void aderirCartao();
 
+    int getIdade();
+
     friend ostream &operator<<(ostream &out, Cliente &cli);
 };
 

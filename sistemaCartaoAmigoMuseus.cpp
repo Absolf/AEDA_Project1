@@ -4,36 +4,53 @@
 
 #include "sistemaCartaoAmigoMuseus.h"
 //-----------------------
-void::sistemaCartaoAmigoMuseumPortugal::vendAumentLot(Cliente *cliente, Bilhete &b, Evento *evento){
+sistemaCartaoAmigoMuseumPortugal::sistemaCartaoAmigoMuseumPortugal() {
+};
+
+void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) {
     int lot;
     if (evento->getLotacao() < evento->getCapacidadeMaxima()) {
-        cout << "Lotação é menor que a capacidade máxima";
         cliente->addBilhete(b);
         lot = evento->getLotacao() + 1;
         evento->setLotacao(lot);
     } else
         cout << "Lotação máxima atingida" << endl;
+    int i = 0;
+    i = searchSalaEspetaculo(evento->getNome());
+    salas[i].setLotacao(evento->getLotacao());
+    i = searchEvento(evento->getNome());
+    eventos[i].setLotacao(evento->getLotacao());
 }
-sistemaCartaoAmigoMuseumPortugal::sistemaCartaoAmigoMuseumPortugal() {
-};
 
-void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) {
-    cout << "Vendendo bilhete" << endl;
-    float newPrice;
-    int lot = 0;
-    if (cliente->temCartao() && evento->isAderente() == true) {
-        newPrice = b.getValor() - (b.getValor() * 0.25);
-        b.setValor(newPrice);
-        vendAumentLot(cliente, b, evento);
+void sistemaCartaoAmigoMuseumPortugal::createTicket(Cliente *cliente,Bilhete &b, Evento *ev){
+    float basePrice= 45.9;
+    if(ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.20) && ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente())))
+        b.setValor(basePrice);
+    if(ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.60) && ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))){
+        basePrice += (basePrice*0.20);
+        b.setValor(basePrice);
     }
-    else{
-        vendAumentLot(cliente, b, evento);
+    if(ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.80) && ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))){
+        basePrice += (basePrice*0.40);
+        b.setValor(basePrice);
     }
-    cout << cliente->getN_cartao() << endl;
-    cout << "Bilhete vendido!"<< endl;
-    cout << lot << endl;
-    cout << evento->getLotacao() << endl;
+    if (ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.90) && ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))){
+        basePrice += (basePrice*0.50);
+        b.setValor(basePrice);
+    }if(ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.1) && ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))){
+        basePrice += (basePrice*0.60);
+        b.setValor(basePrice);
+    }/* Protótipo para se o cliente é silver ! :)
+    if((ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.50)) && cliente->getIdade() >= 65 && cliente->temCartao() == true ){
+        basePrice = 0;
+        b.setValor(basePrice);
+    }*/
+    if (cliente->temCartao() && ev->isAderente() && cliente->getIdade() < 65) {
+        basePrice -= (basePrice *0.25);
+        b.setValor(basePrice);
+    }
 }
+
 
 void sistemaCartaoAmigoMuseumPortugal::addSalaEspetaculo() {
     SalaEspetaculo newSala;

@@ -15,109 +15,6 @@ using namespace std;
 
 sistemaCartaoAmigoMuseumPortugal sys;
 
-/*
-void PrintInstituicoes() {
-    //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
-    vector<string> lines;
-
-
-    string newline;
-
-
-    ifstream myfile("../instituicoes.txt");
-    if (myfile.is_open()) {
-
-        for (string line; getline(myfile, line);) {
-
-            lines.push_back(line);
-
-        }
-
-        for (int i = 0; i < lines.size(); i++) {
-
-
-            cout << "ID: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Instituicao: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Endereco: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Aderente: ";
-            cout << lines[i] << endl << endl;
-
-
-        }
-
-
-        myfile.close();
-    }
-
-
-};
-
-void PrintEventos() {
-    //Vetor responsável por armazenar temporariamente as linhas de algum arquivo para facilitar a leitura
-    vector<string> lines;
-
-    string newline;
-    ifstream myfile("../eventos.txt");
-    if (myfile.is_open()) {
-
-        for (string line; getline(myfile, line);) {
-
-            lines.push_back(line);
-
-        }
-
-
-        for (int i = 0; i < lines.size(); i++) {
-
-            cout << "ID: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Evento: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Instituição: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Localizacao: ";
-            cout << lines[i] << endl;
-            i++;
-            cout << "Aderente: ";
-            cout << lines[i] << endl;
-            i++;
-            i++;
-            cout << "Ingressos Disponíveis Agora: ";
-            cout << lines[i] << endl;
-            i++;
-            i++;
-            i++;
-            cout << "Data e Hora: ";
-            cout << lines[i] << endl << endl;
-        }
-
-
-        myfile.close();
-
-        mainMenu();
-    }
-
-
-};
-
-//Recebe como argumento o nº do cartão do usuario e faz uma busca para verificar sua existencia e seu nome
-*/
-
-void loadBilhetes(){
-
-}
-
-
-
 void mainMenu() {       //Chama o menu principal
     sys.loadClients();
     sys.loadSalaEspetaculos();
@@ -178,32 +75,18 @@ int auxMenu(int idx){
             for(int i = 0; i < eventos.size(); i++){
                 if(op-1 == i){
                     Bilhete b1;
-                    b1.setValor(120.0);
                     Evento *ev = new Evento(sys.getEventos().at(i));
                     b1.setEvento(ev);
                     Cliente *cli = new Cliente(sys.getClientes().at(idx));
+                    sys.createTicket(cli,b1,ev);
                     sys.venderBilhete(cli,b1,ev);
                     b1.printBilhete();
+                    cout << sys.getEventos()[i].getLotacao() << endl;
+                    cout << ev->getLotacao() << endl;
 
+                    sys.readSalaEspetaculo();
                 }
             }
-
-        }
-        if (op == 2) {
-            sys.updateCliente(sys.getClientes().at(idx).getCartao().getN_cartao());
-        }
-        if (op == 3) {
-            sys.updateSalaEspetaculo();
-        }
-        if (op == 4) {/*
-            Bilhete bil;
-            bil.setValor(10.0);
-            Evento *event(sys.getEventos()[idx]);
-            bil.setEvento(event);
-            */
-        }
-        if (op == 6) {
-
         }
         op = readInteger("\n1 - VOLTAR \n0 - ENCERRAR");
     }
