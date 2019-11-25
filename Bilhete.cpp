@@ -16,8 +16,8 @@ const Evento &Bilhete::getEvento() const {
     return *evento;
 }
 
-void Bilhete::setEvento(Evento evento) {
-    this->evento = &evento;
+void Bilhete::setEvento(Evento *evento) {
+    this->evento = evento;
 }
 
 void Bilhete::printBilhete() {

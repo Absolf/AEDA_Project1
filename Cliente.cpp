@@ -73,8 +73,8 @@ void Cliente::setCartao(CartaoAmigo *cartao) {
     this->cartao = cartao;
 }
 
-void Cliente::addBilhete(Bilhete *b) {
-    bilhetes.push_back(b);
+void Cliente::addBilhete(Bilhete &b) {
+    bilhetes.push_back(&b);
 }
 
 void Cliente::aderirCartao() {

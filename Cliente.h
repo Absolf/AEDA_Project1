@@ -58,7 +58,7 @@ public:
 
     void setN_cartao(const string &N_cartao);
 
-    void addBilhete(Bilhete *b);
+    void addBilhete(Bilhete &b);
 
     void aderirCartao();
 

@@ -170,6 +170,7 @@ int auxMenu(int idx){
         if (op == 1) {
             vector<string> eventos = {};
             for(auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++){
+                cout << (*it) << endl;
                 string opt = (*it).getNomeEvento() + " - " + (*it).getData().getDateString();
                 eventos.push_back(opt);
             }
@@ -178,10 +179,10 @@ int auxMenu(int idx){
                 if(op-1 == i){
                     Bilhete b1;
                     b1.setValor(120.0);
-                    b1.setEvento(sys.getEventos().at(i));
-                    sys.venderBilhete(const_cast<Cliente *>(&sys.getClientes()[idx]), &b1,
-                                      const_cast<Evento *>(&sys.getEventos().at(i)));
-
+                    Evento *ev = new Evento(sys.getEventos().at(i));
+                    b1.setEvento(ev);
+                    Cliente *cli = new Cliente(sys.getClientes().at(idx));
+                    sys.venderBilhete(cli,b1,ev);
                     b1.printBilhete();
 
                 }

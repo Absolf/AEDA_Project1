@@ -9,6 +9,7 @@ SalaEspetaculo::SalaEspetaculo(){};
 SalaEspetaculo::SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente)
         :
         nome(nome), capacidadeMaxima(capacidadeMaxima), lotacao(lotacao), endereco(endereco), id(id), aderente(aderente) {};
+
 SalaEspetaculo::SalaEspetaculo(const SalaEspetaculo& s1) {
     this->nome = s1.getNome();
     this->capacidadeMaxima = s1.getCapacidadeMaxima();
@@ -113,13 +114,9 @@ vector<string> Handler(vector<string> vec) {
 
 Evento::Evento() : SalaEspetaculo() {};
 
-Evento::Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente,
-               string nomeEvento, Date data) :
-        SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento), data(data){};
-Evento::Evento(const Evento& e1){
-    nomeEvento= e1.getNomeEvento();
-    data = e1.getData();
-}
+Evento::Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente, string nomeEvento, Date data)
+        : SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento), data(data){};
+
 const string &Evento::getNomeEvento() const {
     return nomeEvento;
 }
@@ -135,18 +132,24 @@ const Date Evento::getData() const {
 void Evento::setData(const Date &data) {
     this->data = data;
 }
-/*
-const time_t &Evento::getHorario() const {
-    return horario;
+
+
+Evento::Evento(const Evento& ev) {
+    this->nome = ev.getNome();
+    this->capacidadeMaxima = ev.getCapacidadeMaxima();
+    this->lotacao = ev.getLotacao();
+    this->endereco = ev.getEndereco();
+    this->id = ev.getId();
+    this->aderente = ev.isAderente();
+    this->nomeEvento = ev.getNomeEvento();
+    this->data = ev.getData();
 }
-*/
-/*
-void Evento::setHorario(const time_t &horario) {
-    this->horario = horario;
-}*/
+Evento Evento::operator=(Evento &ev) {
+    return Evento(this->nome = ev.getNome(),this->capacidadeMaxima = ev.getCapacidadeMaxima(), this->lotacao = ev.getLotacao(), this->endereco = ev.getEndereco(), this->id = ev.getId(), this->aderente = ev.isAderente(), this->nomeEvento = ev.getNomeEvento(), this->data = ev.getData());
+}
 
 ostream &operator<<(ostream &out, const Evento &evento){
-    cout << evento.nomeEvento;
+    cout << evento.nomeEvento << endl << evento.nome << endl << evento.data<< endl<< evento.capacidadeMaxima << endl <<  evento.lotacao << endl << evento.endereco << endl << evento.id<< endl << evento.aderente;
 }
 
 

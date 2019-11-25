@@ -4,24 +4,35 @@
 
 #include "sistemaCartaoAmigoMuseus.h"
 //-----------------------
-
+void::sistemaCartaoAmigoMuseumPortugal::vendAumentLot(Cliente *cliente, Bilhete &b, Evento *evento){
+    int lot;
+    if (evento->getLotacao() < evento->getCapacidadeMaxima()) {
+        cout << "Lotação é menor que a capacidade máxima";
+        cliente->addBilhete(b);
+        lot = evento->getLotacao() + 1;
+        evento->setLotacao(lot);
+    } else
+        cout << "Lotação máxima atingida" << endl;
+}
 sistemaCartaoAmigoMuseumPortugal::sistemaCartaoAmigoMuseumPortugal() {
 };
 
-void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento) {
+void sistemaCartaoAmigoMuseumPortugal::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) {
+    cout << "Vendendo bilhete" << endl;
     float newPrice;
-    cout << evento->getLotacao() << endl;
+    int lot = 0;
     if (cliente->temCartao() && evento->isAderente() == true) {
-        newPrice = b->getValor() - (b->getValor() * 0.25);
-        b->setValor(newPrice);
-        if (evento->getLotacao() < evento->getCapacidadeMaxima()) {
-            cliente->addBilhete(b);
-            int lot = evento->getLotacao() + 1;
-            evento->setLotacao(lot);
-            cout << evento->getLotacao() << endl;
-        } else
-            cout << "Lotação máxima atingida" << endl;
+        newPrice = b.getValor() - (b.getValor() * 0.25);
+        b.setValor(newPrice);
+        vendAumentLot(cliente, b, evento);
     }
+    else{
+        vendAumentLot(cliente, b, evento);
+    }
+    cout << cliente->getN_cartao() << endl;
+    cout << "Bilhete vendido!"<< endl;
+    cout << lot << endl;
+    cout << evento->getLotacao() << endl;
 }
 
 void sistemaCartaoAmigoMuseumPortugal::addSalaEspetaculo() {

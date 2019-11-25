@@ -11,12 +11,13 @@
 
 
 class SalaEspetaculo {
-    string nome;
+protected:
     int capacidadeMaxima;
     int lotacao;
     Address endereco;
     int id;
     bool aderente = false;
+    string nome;
 public:
     const string &getNome() const;
 
@@ -82,7 +83,7 @@ public:
 
     void setHorario(const time_t &horario);
 
-    SalaEspetaculo &operator=(const SalaEspetaculo &espetaculo);
+    Evento operator=(Evento &ev);
     friend ostream &operator<<(ostream &out, const Evento &evento);
 };
 

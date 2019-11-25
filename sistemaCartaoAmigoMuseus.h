@@ -44,8 +44,8 @@ public:
     const vector<Museum> &getMuseu() const;
 
     void setMuseu(const Museum &museu);
-
-    void venderBilhete(Cliente *cliente, Bilhete *b, Evento *evento);
+    void vendAumentLot(Cliente *cliente, Bilhete &b, Evento *evento);
+    void venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento);
 
     void addCliente();
 
