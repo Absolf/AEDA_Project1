@@ -21,5 +21,9 @@ Implemente também outras funcionalidades que considere relevantes, para além d
 
 # Progresso:
 
-**v0.1 - 23/10/2019** 
-Construção de classes necessárias iniciada.
+- CRUD salaEspetáculo é possível.
+- add & update algumas informações dos clientes é possível.
+- Cliente consegue aderir diferentes tipos de assinaturas de cartão.
+- vender bilhete para um cliente.
+
+<img src="https://github.com/Absolf/AEDA_Project1/blob/victor/diagrama.jpeg" alt="alt text" width="750" height="750">
