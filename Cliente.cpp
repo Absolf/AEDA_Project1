@@ -4,7 +4,7 @@
 
 #include "Cliente.h"
 
-Cliente::Cliente() {}
+Cliente::Cliente() {this->universitario = false;}
 
 const string &Cliente::getN_cartao() const {
     return n_cartao;

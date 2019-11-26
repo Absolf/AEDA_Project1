@@ -139,7 +139,6 @@ void sistemaCartaoAmigoMuseumPortugal::updateSalaEspetaculo() {
 }
 
 void sistemaCartaoAmigoMuseumPortugal::addCliente() {
-    cin.ignore();
     Cliente newClient;
     Date thisYear;
     thisYear.actualDate();
@@ -168,13 +167,14 @@ void sistemaCartaoAmigoMuseumPortugal::addCliente() {
     Address end(handler);
     newClient.setMorada(end);
 
-    handler = readString("É membro de uma universidadae (aluno/professor)? ");
-    if (handler == "sim")
+    int univ = readInteger("\nÉ universitário?\n1- SIM\n0-NÃO");
+    if (univ == 1)
         newClient.setUniversitario(true);
     cin.clear();
     newClient.aderirCartao();
     newClient.printCliente();
     clientes.push_back(newClient);
+
     cout << "cliente novo adicionado!";
     cout << endl << "*************************************************************************" << endl;
     cout << "Parabéns " << newClient.getNome() << ", você acaba de completar seu cadastro com sucesso! " << endl;
@@ -253,18 +253,19 @@ void sistemaCartaoAmigoMuseumPortugal::updateCliente(string card) {
 
 void sistemaCartaoAmigoMuseumPortugal::WriteAllClients() {
     //Apaga o arquivo do cliente
+    cout << "entrei em Write All \n";
     deleteFileToRewrite("../clientes.txt");
     ofstream outClients("../clientes.txt");
 
     if (outClients.is_open()) {
-        for (size_t i = 0; i < clientes.size(); i++) {
-            if(i==3 && clientes[i].getN_cartao() != clientes[i-1].getN_cartao())
-                outClients << clientes[i].getCartao().getDataAcquisition();
-            else
-                outClients << clientes[i];
+        for (auto it = clientes.begin(); it !=clientes.end(); it++) {
+                outClients << (*it);
         }
+        cout << "fechando arquivo de clientes \n";
         outClients.close();
+
     }
+    cout << "sai de write all \n";
 }
 int sistemaCartaoAmigoMuseumPortugal::searchUser(string card) {
     for(size_t i = 0; i < getClientes().size(); i++){
@@ -304,7 +305,6 @@ void sistemaCartaoAmigoMuseumPortugal::loadClients() {
         }
         for (int i = 0; i < lines.size(); i++) {
             Cliente user;
-
             user.setN_cartao(lines[i]);
             i++;
             user.setNome(lines[i]);
@@ -325,12 +325,13 @@ void sistemaCartaoAmigoMuseumPortugal::loadClients() {
             } else {
                 user.setUniversitario(false);
             }
+            cout << i-6 << endl;
             user.aderirCartao();
+            cout << user.getN_cartao() << endl;
             CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(user.getCartao()));
             novo->setDataAcquisition(oldDate);
             user.setCartao(novo);
             setClientes(user);
-
         }
         myfile.close();
         cout << endl << "DADOS CLIENTES CARREGADOS COM SUCESSO" << endl << endl;

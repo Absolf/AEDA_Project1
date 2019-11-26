@@ -24,40 +24,24 @@ void mainMenu() {       //Chama o menu principal
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
     card = readString("POR FAVOR DIGITE O NÚMERO DE SEU CARTÃO PARA INICIAR \n:");
     idx = sys.searchUser(card);
-    if (idx == 0) {
+    if (idx == -1) {
         cout << "ATUALMENTE NÃO EXISTE NENHUM USUÁRIO COM ESTE CARTÃO!" << endl;
-        string newHandler = readString("DESEJA FAZER UM REGISTRO? (sim/nao):  ");
-        if (newHandler == "sim") {
+        int aux = readInteger("\n\"DESEJA FAZER UM REGISTRO?\n1 - SIM\n0 - NÃO \n");
+        if (aux == 1) {
             sys.addCliente();
             sys.WriteAllClients();
+            idx = sys.searchUser(sys.getClientes()[sys.getClientes().size()-1].getN_cartao());
+            aux = readInteger("\n1 - GERENCIAR CONTA \n0 - SAIR \n");
+            if(aux == 1)
+                goto LblMenu;
+            else
+                leaving();
         } else {
-            //encerrar
-            cout << endl << "**********************" << endl;
-            cout << "PROGRAMA FINALIZADO" << endl;
-            cout << "Foi um prazer recebe-lo " << sys.getClientes().at(idx).getNome() << "." << endl;
-            cout << "**********************" << endl;
-            cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
-            exit(0);
+            leaving();
         }
     }
-    cout << endl << "**********************" << endl;
-    cout << "Olá " << sys.getClientes().at(idx).getNome() << ", seja bem vindo!" << endl << endl;
-    messageSilver(idx);
-    cout << endl << endl;
-    cout << "**********************" << endl;
-    cout << "Pressione 1 para começar a gerenciar a sua conta! \n";
-    int aux = readInteger("\n1 - GERENCIAR CONTA \n0 - SAIR \n");
-    if(aux == 1) {
-        aux = auxMenu(idx);
-    }else {
-        cout << endl << "**********************" << endl;
-        cout << "PROGRAMA FINALIZADO" << endl;
-        cout << "Foi um prazer recebe-lo " << endl;
-        cout << "**********************" << endl;
-        cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
-        sys.WriteAllClients();
-        exit(0);
-    }
+    LblMenu:
+        firstMenu(idx);
 };
 
 int auxMenu(int idx){
@@ -94,6 +78,28 @@ int auxMenu(int idx){
     return op;
 }
 
+void firstMenu(int &idx){
+    cout << endl << "**********************" << endl;
+    cout << "Olá " << sys.getClientes().at(idx).getNome() << ", seja bem vindo!" << endl << endl;
+    messageSilver(idx);
+    cout << endl << endl;
+    cout << "**********************" << endl;
+    cout << "Dica: Pressione 1 para começar a gerenciar a sua conta! \n";
+    int aux = readInteger("\n1 - GERENCIAR CONTA \n0 - SAIR \n");
+    while(aux !=0){
+        if (aux == 1)
+            aux = auxMenu(idx);
+    }
+    leaving();
+}
+void leaving(){
+    cout << endl << "**********************" << endl;
+    cout << "PROGRAMA FINALIZADO" << endl;
+    cout << "Foi um prazer recebe-lo." << endl;
+    cout << "**********************" << endl;
+    cout << "Por: Gabriel Augusto Rocco e Victor Laureano" << endl;
+    exit(0);
+}
 
 void messageSilver(int idx){
     Cliente *cli = new Cliente(sys.getClientes().at(idx));

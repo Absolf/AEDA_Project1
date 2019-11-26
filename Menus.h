@@ -19,6 +19,8 @@ void deleteFileToRewrite(string file);
 
 int auxMenu(int idx);
 void messageSilver(int idx);
+void firstMenu(int &idx);
+void leaving();
 
 //void cleanLog();
 #endif //AEDA_PROJETO_MENUS_H

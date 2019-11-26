@@ -22,7 +22,7 @@ int readOptions(const vector<string> &menu) // This functions take a string vect
     for (size_t i = 0; i < menu.size(); i++) {
         cout << i + 1 << " - " << menu.at(i) << endl;
     }
-    cout << "0 - SAIR" << endl;
+    cout << "0 - VOLTAR" << endl;
     option = readInteger(" : ");
     return option;
 }
@@ -39,7 +39,6 @@ istream &getInput(string prompt, T &input) // this template of function help's m
 
 int readInteger(string prompt) //responsible to readIntData
 {
-    cin.clear();
     string input;
     while (getInput(prompt, input) || cin.eof()) {
         istringstream is(input);
