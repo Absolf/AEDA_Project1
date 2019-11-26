@@ -31,7 +31,7 @@ void mainMenu() {       //Chama o menu principal
             sys.addCliente();
             sys.WriteAllClients();
             idx = sys.searchUser(sys.getClientes()[sys.getClientes().size()-1].getN_cartao());
-            aux = readInteger("\n1 - GERENCIAR CONTA \n0 - SAIR \n");
+            aux = readInteger("IR PARA GENRENCIAMENTO DE CONTA?\n1 - SIM \n0 - NÃO\n");
             if(aux == 1)
                 goto LblMenu;
             else
@@ -52,7 +52,6 @@ int auxMenu(int idx){
         if (op == 1) {
             vector<string> eventos = {};
             for(auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++){
-                cout << (*it) << endl;
                 string opt = (*it).getNomeEvento() + " - " + (*it).getData().getDateString();
                 eventos.push_back(opt);
             }
@@ -66,10 +65,6 @@ int auxMenu(int idx){
                     sys.createTicket(cli,b1,ev);
                     sys.venderBilhete(cli,b1,ev);
                     b1.printBilhete();
-                    cout << sys.getEventos()[i].getLotacao() << endl;
-                    cout << ev->getLotacao() << endl;
-
-                    sys.readSalaEspetaculo();
                 }
             }
         }

@@ -253,19 +253,15 @@ void sistemaCartaoAmigoMuseumPortugal::updateCliente(string card) {
 
 void sistemaCartaoAmigoMuseumPortugal::WriteAllClients() {
     //Apaga o arquivo do cliente
-    cout << "entrei em Write All \n";
     deleteFileToRewrite("../clientes.txt");
     ofstream outClients("../clientes.txt");
-
     if (outClients.is_open()) {
         for (auto it = clientes.begin(); it !=clientes.end(); it++) {
                 outClients << (*it);
         }
-        cout << "fechando arquivo de clientes \n";
         outClients.close();
 
     }
-    cout << "sai de write all \n";
 }
 int sistemaCartaoAmigoMuseumPortugal::searchUser(string card) {
     for(size_t i = 0; i < getClientes().size(); i++){
