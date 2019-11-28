@@ -13,7 +13,6 @@
 class SalaEspetaculo {
 protected:
     int capacidadeMaxima;
-    int lotacao;
     Address endereco;
     int id;
     bool aderente = false;
@@ -27,10 +26,6 @@ public:
 
     void setCapacidadeMaxima(int capacidadeMaxima);
 
-    int getLotacao() const;
-
-    void setLotacao(const int &lotacao);
-
     const Address &getEndereco() const;
 
     void setEndereco(const Address &endereco);
@@ -41,7 +36,7 @@ public:
 
     SalaEspetaculo();
 
-    SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente);
+    SalaEspetaculo(string nome, int capacidadeMaxima, Address endereco, int id, bool aderente);
 
     SalaEspetaculo(const SalaEspetaculo &s1);
 
@@ -54,20 +49,29 @@ public:
 
     friend ostream &operator<<(ostream &out, const SalaEspetaculo &espetaculo);
 
+    bool operator<(const SalaEspetaculo &s1);
+
 };
 
 
 class Evento : public SalaEspetaculo {
     string nomeEvento;
+    int lotacao;
     Date data;
     Time horario;
 public:
     Evento();
 
-    Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente, string nomeEvento,
+    Evento(string nome, int capacidadeMaxima, Address endereco, int id, bool aderente, string nomeEvento, int lotacao,
            Date data, Time horario);
 
     Evento(const Evento &e1);
+
+    Evento(const SalaEspetaculo &s1);
+
+    int getLotacao() const;
+
+    void setLotacao(const int &lotacao);
 
     /*
     const SalaEspetaculo& getSalaEspetaculo() const;
@@ -85,7 +89,9 @@ public:
 
     void setHorario(const Time &horario);
 
-    Evento operator=(Evento &ev);
+    Evento operator=(const Evento &ev);
+
+    bool operator<(const Evento &e1);
 
     friend ostream &operator<<(ostream &out, const Evento &evento);
 };

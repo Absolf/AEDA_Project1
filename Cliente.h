@@ -6,7 +6,6 @@
 #define AEDA_PROJETO_CLIENTE_H
 using namespace std;
 
-#import "Date.h"
 #import "CartaoAmigo.h"
 #include "Bilhete.h"
 
@@ -63,6 +62,8 @@ public:
     void aderirCartao();
 
     int getIdade();
+
+    bool operator<(const Cliente &c1);
 
     friend ostream &operator<<(ostream &out, Cliente &cli);
 };

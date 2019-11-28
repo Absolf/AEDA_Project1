@@ -156,6 +156,10 @@ ostream &operator<<(ostream &out, Cliente &cli) {
     out << cli.getContacto() << endl;
     out << cli.getMorada() << endl;
     out << cli.getUniversitario() << endl;
-    out << cli.cartao->getSubscription();
+    out << cli.cartao->getSubscription() << endl;
     return out;
+}
+
+bool Cliente::operator<(const Cliente &c1) {
+    return this->nome < c1.getNome();
 }

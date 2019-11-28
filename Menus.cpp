@@ -47,6 +47,7 @@ void mainMenu() {       //Chama o menu principal
         int aux = readInteger("\n\"DESEJA FAZER UM REGISTRO?\n1 - SIM\n0 - NÃO \n");
         if (aux == 1) {
             sys.addCliente();
+            sys.sortClients();
             sys.WriteAllClients();
             idx = sys.searchUser(sys.getClientes()[sys.getClientes().size() - 1].getN_cartao());
             aux = readInteger("IR PARA GENRENCIAMENTO DE CONTA?\n1 - SIM \n0 - NÃO\n");
@@ -86,10 +87,12 @@ int auxMenu(int idx) {
                     b1.printBilhete();
                 }
             }
+            sys.sortSalas();
             sys.WriteAllSalas();
         }
         if (op == 2) {
             sys.updateCliente(sys.getClientes()[idx].getN_cartao());
+            sys.sortClients();
             sys.WriteAllClients();
         }
         op = readInteger("\n1 - VOLTAR \n0 - ENCERRAR");
@@ -123,7 +126,7 @@ void leaving() {
 
 void messageSilver(int idx) {
     Cliente *cli = new Cliente(sys.getClientes().at(idx));
-    if (sys.getEventos().size() != NULL) {
+    if (sys.getEventos().size() != 0) {
 
         for (auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++) {
             Evento *ev = new Evento((*it));
@@ -145,8 +148,9 @@ int AdminMode() {
     cout << "MODO ADMINISTRADOR" << endl;
     cout << "**********************" << endl;
     int op = 1;
+    adminStart:
     while (op != 0) {
-        adminStart:
+
         op = readOptions({"SALAS DE ESPETACULO", "EVENTOS", "CLIENTES"});
         if (op == 1) {
             while (op != 0) {
@@ -156,16 +160,19 @@ int AdminMode() {
                          "VER SALAS DE ESPETACULO"});
                 if (op == 1) {
                     sys.addSalaEspetaculo();
+                    sys.sortSalas();
                     sys.WriteAllSalas();
                     goto salasAdm;
                 }
                 if (op == 2) {
                     sys.updateSalaEspetaculo();
+                    sys.sortSalas();
                     sys.WriteAllSalas();
                     goto salasAdm;
                 }
                 if (op == 3) {
-                    sys.updateSalaEspetaculo();
+                    sys.deleteSalaEspetaculo();
+                    sys.sortSalas();
                     sys.WriteAllSalas();
                     goto salasAdm;
                 }
@@ -184,6 +191,40 @@ int AdminMode() {
         }
         if (op == 2) {
             while (op != 0) {
+                eventosAdm:
+                op = readOptions(
+                        {"ADICIONAR NOVA EVENTO", "EDITAR EVENTO", "EXCLUIR EVENTOS",
+                         "VER EVENTOS DISPONÍVEIS"});
+                if (op == 1) {
+                    sys.addEvento();
+                    sys.sortEventos();
+                    sys.WriteAllEventos();
+                    goto eventosAdm;
+                }
+                if (op == 2) {/*
+                    sys.updateEvento();
+                    sys.sortEventos();
+                    sys.WriteAllEventos();*/
+                    goto eventosAdm;
+                }
+                if (op == 3) {/*
+                    sys.deleteEvento();
+                    sys.sortEventos();
+                    sys.WriteAllEventos();*/
+                    goto eventosAdm;
+                }
+                if (op == 4) {/*
+                    op = readOptions({"TODAS AS SALAS DE ESPETACULO", "SALA DE ESPETÁCULO ESPECÍFICA"});
+                    if (op == 1) {
+                        sys.readSalaEspetaculo();
+                    }
+                    if (op == 2) {
+                        sys.readSala();
+                    }*/
+                    goto eventosAdm;
+                } else
+                    goto adminStart;
+
             }
         }
         if (op == 3) {
@@ -193,16 +234,19 @@ int AdminMode() {
                                   "VER DADOS CLIENTES"});
                 if (op == 1) {
                     sys.addCliente();
+                    sys.sortClients();
                     sys.WriteAllClients();
                     goto clientesAdm;
                 }
                 if (op == 2) {
                     sys.updateClienteAdm();
+                    sys.sortClients();
                     sys.WriteAllClients();
                     goto clientesAdm;
                 }
                 if (op == 3) {
                     sys.deleteCliente();
+                    sys.sortClients();
                     sys.WriteAllClients();
                     goto clientesAdm;
                 }
@@ -221,7 +265,10 @@ int AdminMode() {
         }
         cout << "GOSTARIA DE REINICIAR O SISTEMA?\n";
         op = readOptions({"SIM", "NÃO"});
-        if (op == 2 || op == 0 || op != 1) {
+        if (op==1) {
+            return op;
+        }
+        else if(op == 2 || op==0){
             leaving();
         }
 

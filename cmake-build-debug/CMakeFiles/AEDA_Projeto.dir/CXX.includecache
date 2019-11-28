@@ -6,6 +6,40 @@
 
 #IncludeRegexTransform: 
 
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+utilitarios.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.h
+string
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
+iostream
+-
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+string
+-
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
+SalaEspetaculo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+SalaEspetaculo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+vector
+-
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
+CartaoAmigo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/CartaoAmigo.h
+Bilhete.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Bilhete.h
+
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 time.h
 -
@@ -16,9 +50,25 @@ regex
 ctime
 -
 
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.cpp
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
+string
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
+Address.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
+Atracao.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
+Cliente.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
+vector
+-
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+Atracao.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
 Time.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
+Date.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Date.h
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Time.h
 sstream
@@ -29,6 +79,26 @@ vector
 -
 utilitarios.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.h
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.cpp
+sistemaCartao.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.h
+
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.h
+SalaEspetaculo.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/SalaEspetaculo.h
+Museum.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
+Cliente.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
+vector
+-
+Cliente.h
+/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
+ctime
+-
+time.h
+-
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.h
 string

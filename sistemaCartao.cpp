@@ -17,8 +17,6 @@ void sistemaCartao::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) 
     } else
         cout << "Lotação máxima atingida" << endl;
     int i = 0;
-    i = searchSalaEspetaculo(evento->getNome());
-    salas[i].setLotacao(evento->getLotacao());
     i = searchEvento(evento->getNome());
     eventos[i].setLotacao(evento->getLotacao());
 
@@ -49,7 +47,8 @@ void sistemaCartao::createTicket(Cliente *cliente, Bilhete &b, Evento *ev) {
         basePrice += (basePrice * 0.60);
         b.setValor(basePrice);
     } //Protótipo para se o cliente é silver ! :)
-    if((ev->getLotacao() <= (ev->getCapacidadeMaxima()*0.50)) && cliente->getIdade() >= 65 && cliente->temCartao() == true ){
+    if ((ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.50)) && cliente->getIdade() >= 65 &&
+        cliente->temCartao() == true) {
         basePrice = 0;
         b.setValor(basePrice);
     }
@@ -67,19 +66,18 @@ void sistemaCartao::addSalaEspetaculo() {
     getline(cin, handler);
     newSala.setNome(handler);
     newSala.setCapacidadeMaxima(readInteger("capacidade: "));
-    newSala.setLotacao(0);
     cin.clear();
     cout << "\n *No formato Rua / Nº Porta / Freguesia / Código-Postal / Distrito* \nEndereço: " << endl;
     getline(cin, handler);
     Address endereco(handler);
     newSala.setEndereco(endereco);
     newSala.setAderente(readInteger("0 pra falso e 1 para verdadeiro \n aderente: "));
-    newSala.setId(salas[salas.size()-1].getId()+1);
+    newSala.setId(salas[salas.size() - 1].getId() + 1);
     salas.push_back(newSala);
 }
 
 void sistemaCartao::readSalaEspetaculo() {
-    if (salas.size() == NULL) {
+    if (salas.size() == 0) {
         cout << "Não há salas de espetáculo!\n";
     } else {
         for (auto it = this->salas.begin(); it != this->salas.end(); it++) {
@@ -89,7 +87,7 @@ void sistemaCartao::readSalaEspetaculo() {
 }
 
 void sistemaCartao::readSala() {
-    if (salas.size() == NULL) {
+    if (salas.size() == 0) {
         cout << "Não há salas de espetáculo!\n";
     } else {
         string sala;
@@ -243,7 +241,6 @@ void sistemaCartao::deleteCliente() {
     }
 }
 
-
 void sistemaCartao::updateCliente(string card) {
     if (clientes.size() == 0) {
         cout << "Não há clientes" << endl;
@@ -376,6 +373,50 @@ void sistemaCartao::updateClienteAdm() {
     }
 }
 
+void sistemaCartao::addEvento() {
+    if (salas.size() == 0) {
+        cout << "Não há salas disponíveis!" << endl;
+    } else {
+        cout << "SALAS DE ESPETÁCULOS DISPONÍVEIS \n";
+        vector<string> salasOpt = {};
+        for (auto it = salas.begin(); it != salas.end(); it++) {
+            string opt = (*it).getNome();
+            salasOpt.push_back(opt);
+        }
+        int op = readOptions(salasOpt);
+        if (op != 0) {
+            Evento evento(salas.at(op - 1));
+            string handler;
+            cout << "Digite o nome do evento \n";
+            getline(cin, handler);
+            evento.setNomeEvento(handler);
+            cout << "Digite a Data do evento: ";
+            getline(cin,handler);
+            Date newDate(handler);
+            evento.setData(newDate);
+            cout << "Digite o horário no formato xx:xx:xx(horas:minutos:segundos) \n";
+            getline(cin, handler);
+            Time t;
+            t.setTimeString(handler);
+            evento.setHorario(t);
+            eventos.push_back(evento);
+        }
+    }
+}
+
+
+void sistemaCartao::deleteEvento() {}
+
+void sistemaCartao::updateEvento() {}
+
+void sistemaCartao::readEvento() {
+
+}
+
+void sistemaCartao::readEventos() {
+
+}
+
 void sistemaCartao::WriteAllClients() {
     //Apaga o arquivo do cliente
     deleteFileToRewrite("../clientes.txt");
@@ -408,7 +449,7 @@ void sistemaCartao::WriteAllEventos() {
     ofstream outEventos("../eventos.txt");
     if (outEventos.is_open()) {
         for (auto it = eventos.begin(); it != eventos.end(); it++) {
-            outEventos << (*it).getNomeEvento() << endl << (*it).getNome() << (*it).getData() << endl;
+            outEventos << (*it);
         }
         outEventos.close();
     }
@@ -454,7 +495,9 @@ void sistemaCartao::loadClients() {
     ifstream myfile("../clientes.txt");
     if (myfile.is_open()) {
         for (string line; getline(myfile, line);) {
-            lines.push_back(line);
+            if(line != "" || line !=" "){
+                lines.push_back(line);
+            }
         }
         for (int i = 0; i < lines.size(); i++) {
             Cliente user;
@@ -493,14 +536,15 @@ void sistemaCartao::loadClients() {
     }
 };
 
-
 void sistemaCartao::loadSalaEspetaculos() {
     vector<string> lines;
     string newline;
     ifstream myfile("../salaEspetaculos.txt");
     if (myfile.is_open()) {
         for (string line; getline(myfile, line);) {
-            lines.push_back(line);
+            if(line != "" || line !=" "){
+                lines.push_back(line);
+            }
         }
         for (int i = 0; i < lines.size(); i++) {
             SalaEspetaculo newSala;
@@ -510,11 +554,6 @@ void sistemaCartao::loadSalaEspetaculos() {
             int capAux;
             cap >> capAux;
             newSala.setCapacidadeMaxima(capAux);
-            i++;
-            istringstream lot(lines[i]);
-            int lotAux;
-            lot >> lotAux;
-            newSala.setLotacao(lotAux);
             i++;
             Address novoEnd(lines[i]);
             newSala.setEndereco(novoEnd);
@@ -545,7 +584,9 @@ void sistemaCartao::loadEventos() {
     int sala;
     if (myfile.is_open()) {
         for (string line; getline(myfile, line);) {
-            lines.push_back(line);
+            if(line != "" || line !=" "){
+                lines.push_back(line);
+            }
         }
         for (int i = 0; i < lines.size(); i++) {
             sala = searchSalaEspetaculo(lines[i]);
@@ -553,14 +594,24 @@ void sistemaCartao::loadEventos() {
                 i++;
                 string eventName = lines[i];
                 i++;
+                istringstream lot(lines[i]);
+                int lotAux;
+                lot >> lotAux;
+                i++;
                 Date eventDate;
                 eventDate.setDateString(lines[i]);
+                //cout << eventDate << endl;
                 i++;
                 Time eventTime;
                 eventTime.setTimeString(lines[i]);
-                Evento newEvent(getSalas()[sala].getNome(), getSalas()[sala].getCapacidadeMaxima(),
-                                getSalas()[sala].getLotacao(), getSalas()[sala].getEndereco(), getSalas()[sala].getId(),
-                                getSalas()[sala].isAderente(), eventName, eventDate,eventTime);
+                //cout << eventTime.getHora() << endl << eventTime.getMinutos() << endl << eventTime.getSegundos() << endl;
+                Evento newEvent(getSalas()[sala]);
+                newEvent.setData(eventDate);
+                newEvent.setNomeEvento(eventName);
+                newEvent.setLotacao(lotAux);
+                newEvent.setHorario(eventTime);
+                //cout << newEvent.getData() << endl;
+                //cout << newEvent.getHorario() << endl;
                 eventos.push_back(newEvent);
             }
         }
@@ -599,10 +650,22 @@ const vector<Museum> &sistemaCartao::getMuseu() const {
     return museus;
 }
 
+
 void sistemaCartao::setMuseu(const Museum &museu) {
     this->museus.push_back(museu);
 }
 
-sistemaCartao::sistemaCartao(const vector<SalaEspetaculo> &salas) {
+void sistemaCartao::sortClients() {
+    sort(clientes.begin(), clientes.end());
 }
+
+void sistemaCartao::sortSalas() {
+    sort(salas.begin(), salas.end());
+}
+
+void sistemaCartao::sortEventos(){
+    sort(eventos.begin(),eventos.end());
+}
+
+
 

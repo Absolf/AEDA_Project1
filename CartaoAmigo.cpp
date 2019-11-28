@@ -14,9 +14,11 @@ void CartaoAmigo::set_Ncartao(const string &n_cartao) {
 float CartaoAmigo::getAnuidade() const {
     return 0.0;
 }
+
 string CartaoAmigo::getSubscription() const {
     return "";
 }
+
 const Date &CartaoAmigo::getDataAcquisition() const {
     return dataAcquisition;
 }

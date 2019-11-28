@@ -24,9 +24,6 @@ class sistemaCartao {
     vector<SalaEspetaculo> salas;
     vector<Museum> museus;
 public:
-    sistemaCartao(const vector<SalaEspetaculo> &salas);
-
-public:
     sistemaCartao();
 
     const vector<Cliente> &getClientes() const;
@@ -55,6 +52,8 @@ public:
 
     void addSalaEspetaculo();
 
+    void addEvento();
+
     void updateCliente(string card);
 
     void updateClienteAdm();
@@ -63,17 +62,31 @@ public:
 
     void updateSalaEspetaculo();
 
+    void updateEvento();
+
     void deleteCliente();
 
     void deleteMuseum();
 
     void deleteSalaEspetaculo();
 
+    void deleteEvento();
+
     void readClients();
 
     void readClient();
 
     void readMuseum();
+
+    void readEvento();
+
+    void readEventos();
+
+    void sortClients();
+
+    void sortSalas();
+
+    void sortEventos();
 
     void readSalaEspetaculo();
 

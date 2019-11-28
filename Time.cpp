@@ -48,7 +48,7 @@ void Time::setTimeString(string linha) {
     //a stringg tem de vir no formato x:x:xx ou xx:x:xx ou xx:xx:xx ou x:xx:xx
     string temp;
     vector<string> tempz;
-    tokenize(linha,':',tempz);
+    tokenize(linha, ':', tempz);
     //verificar e blabla
     //cout << tempz[0] << ":" << tempz[1] << ":" << tempz[2];
     int hour = stoi(tempz[0]);
@@ -76,7 +76,7 @@ string Time::getTimeString() {//É PRECISO VALIDAR????? ---------- bool verifyTi
     return returnTime(time);
 }
 
-string Time::returnTime(Time &time){
+string Time::returnTime(Time &time) {
     stringstream ss;
     string time_output;
     ss << time;
@@ -85,26 +85,30 @@ string Time::returnTime(Time &time){
 }
 
 ostream &operator<<(ostream &out, const Time &time) {
-    if (time.getHora() >=10 &&time.getMinutos() < 10 && time.getSegundos() < 10) {
-        out << time.hora << ":0" << time.minutos << ":0" << time.segundos;
+    if (time.getHora() >= 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() >0)) {
+        out << time.hora << ":0" << time.minutos << ":0"<<time.segundos;
     }
-    if (time.getHora() >=10 && time.minutos < 10 && time.segundos >= 10) {
-        out << time.hora << ":0" << time.minutos << ":" << time.segundos;
+    if (time.getHora() >= 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)) {
+        out << time.hora << ":0" << time.minutos << ":00";
     }
-    if (time.getHora() >=10 &&time.getMinutos() >=10 && time.getSegundos() < 10) {
-        out << time.hora << ":" << time.minutos << ":" <<"0" << time.segundos;
+    if (time.getHora() >= 10 && time.minutos >= 10 && (time.getSegundos() < 10 && time.getSegundos() >0)){
+        out << time.hora << ":" << time.minutos << ":0" <<time.segundos;
     }
-    if(time.getHora() < 10 && time.getMinutos() < 10 && time.getSegundos() >=10){
-        out <<"0"<<time.hora << ":0" << time.minutos << ":" << time.segundos;
+    if (time.getHora() >= 10 && time.minutos >= 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)){
+        out << time.hora << ":" << time.minutos << ":00";
     }
-    if(time.getHora() < 10 && time.getMinutos() >=10 && time.getSegundos() <10){
-        out <<"0"<<time.hora << ":" << time.minutos << ":0" << time.segundos;
+    if (time.getHora() < 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() >0)) {
+        out << "0" << time.hora << ":0" << time.minutos << ":0"<<time.segundos;
     }
-    if(time.getHora() < 10 && time.getMinutos() < 10 && time.getSegundos() <10){
-        out <<"0"<<time.hora << ":0" << time.minutos << ":0" << time.segundos;
+    if (time.getHora() < 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)) {
+        out << "0" << time.hora << ":0" << time.minutos << ":00";
+        cout << "4\n";
     }
-    else {
-        out << time.hora << ":" << time.minutos << ":" << time.segundos;
+    if (time.getHora() < 10 && time.getMinutos() >= 10 && (time.getSegundos() < 10 && time.getSegundos() >0)) {
+        out << "0" << time.hora << ":" << time.minutos << ":0"<< time.segundos;
+    }
+    if (time.getHora() < 10 && time.getMinutos() >= 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)) {
+        out << "0" << time.hora << ":" << time.minutos << ":00";
     }
     return out;
 }
