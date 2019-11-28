@@ -147,10 +147,10 @@
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/main.cpp">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
-		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp">
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.cpp">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
-		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.h">
+		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.h">
 			<Option target="AEDA_Projeto"/>
 		</Unit>
 		<Unit filename="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.cpp">

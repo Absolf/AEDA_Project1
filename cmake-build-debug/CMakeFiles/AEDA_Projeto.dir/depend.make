@@ -55,7 +55,7 @@ CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Menus.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Museum.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../SalaEspetaculo.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../Time.h
-CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../sistemaCartaoAmigoMuseus.h
+CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../sistemaCartao.h
 CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o: ../utilitarios.h
 
 CMakeFiles/AEDA_Projeto.dir/Museum.cpp.o: ../Address.h
@@ -78,8 +78,10 @@ CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o: ../SalaEspetaculo.h
 CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o: ../Time.h
 CMakeFiles/AEDA_Projeto.dir/SalaEspetaculo.cpp.o: ../utilitarios.h
 
+CMakeFiles/AEDA_Projeto.dir/Time.cpp.o: ../Date.h
 CMakeFiles/AEDA_Projeto.dir/Time.cpp.o: ../Time.cpp
 CMakeFiles/AEDA_Projeto.dir/Time.cpp.o: ../Time.h
+CMakeFiles/AEDA_Projeto.dir/Time.cpp.o: ../utilitarios.h
 
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../Address.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../Atracao.h
@@ -92,21 +94,21 @@ CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../Museum.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../SalaEspetaculo.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../Time.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../main.cpp
-CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../sistemaCartaoAmigoMuseus.h
+CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../sistemaCartao.h
 CMakeFiles/AEDA_Projeto.dir/main.cpp.o: ../utilitarios.h
 
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Address.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Atracao.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Bilhete.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../CartaoAmigo.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Cliente.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Date.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Museum.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../SalaEspetaculo.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../Time.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../sistemaCartaoAmigoMuseus.cpp
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../sistemaCartaoAmigoMuseus.h
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../utilitarios.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Address.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Atracao.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Bilhete.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../CartaoAmigo.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Cliente.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Date.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Museum.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../SalaEspetaculo.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../Time.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../sistemaCartao.cpp
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../sistemaCartao.h
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../utilitarios.h
 
 CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.o: ../Date.h
 CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.o: ../utilitarios.cpp

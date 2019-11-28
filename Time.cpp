@@ -46,16 +46,9 @@ void Time::setTime(int hora, int minutos, int segundos) {
 
 void Time::setTimeString(string linha) {
     //a stringg tem de vir no formato x:x:xx ou xx:x:xx ou xx:xx:xx ou x:xx:xx
-    istringstream ss(linha);
     string temp;
     vector<string> tempz;
-
-
-    for (int i = 0; i <= 2; i++) {
-        getline((ss), temp, ':');
-
-        tempz.push_back(temp);
-    }
+    tokenize(linha,':',tempz);
     //verificar e blabla
     //cout << tempz[0] << ":" << tempz[1] << ":" << tempz[2];
     int hour = stoi(tempz[0]);
@@ -73,51 +66,51 @@ void Time::setTimeString(string linha) {
     }
 }
 
-
 string Time::getTimeString() {//É PRECISO VALIDAR????? ---------- bool verifyTime(string time)??
     string hour = to_string(getHora());
     string minuto = to_string(getMinutos());
     string segundo = to_string(getSegundos());
-    string zero = "0";
-    if (hour.size() == 1) {
-        hour = zero + hour;
-    }
-    if (minuto.size() == 1) {
-        minuto = zero + minuto;
-    }
-    if (segundo.size() == 1) {
-        segundo = zero + segundo;
-    }
-    string oneline = hora + ":" + minuto + ":" + segundo;
-
-    return oneline;
+    string oneline = hour + ":" + minuto + ":" + segundo;
+    Time time;
+    time.setTimeString(oneline);
+    return returnTime(time);
 }
 
-ostream &operator<<(ostream &out, Time &time) {
+string Time::returnTime(Time &time){
+    stringstream ss;
+    string time_output;
+    ss << time;
+    time_output = ss.str();
+    return time_output;
+}
 
-    string hour = to_string(time.getHora());
-    string minuto = to_string(time.getMinutos());
-    string segundo = to_string(time.getSegundos());
-    string zero = "0";
-
-    if (hour.size() == 1) {
-        hour = zero + hour;
+ostream &operator<<(ostream &out, const Time &time) {
+    if (time.getHora() >=10 &&time.getMinutos() < 10 && time.getSegundos() < 10) {
+        out << time.hora << ":0" << time.minutos << ":0" << time.segundos;
     }
-    if (minuto.size() == 1) {
-        minuto = zero + minuto;
+    if (time.getHora() >=10 && time.minutos < 10 && time.segundos >= 10) {
+        out << time.hora << ":0" << time.minutos << ":" << time.segundos;
     }
-    if (segundo.size() == 1) {
-        segundo = zero + segundo;
+    if (time.getHora() >=10 &&time.getMinutos() >=10 && time.getSegundos() < 10) {
+        out << time.hora << ":" << time.minutos << ":" <<"0" << time.segundos;
     }
-
-    out << hour << ":" << minuto << ":" << segundo;
+    if(time.getHora() < 10 && time.getMinutos() < 10 && time.getSegundos() >=10){
+        out <<"0"<<time.hora << ":0" << time.minutos << ":" << time.segundos;
+    }
+    if(time.getHora() < 10 && time.getMinutos() >=10 && time.getSegundos() <10){
+        out <<"0"<<time.hora << ":" << time.minutos << ":0" << time.segundos;
+    }
+    if(time.getHora() < 10 && time.getMinutos() < 10 && time.getSegundos() <10){
+        out <<"0"<<time.hora << ":0" << time.minutos << ":0" << time.segundos;
+    }
+    else {
+        out << time.hora << ":" << time.minutos << ":" << time.segundos;
+    }
     return out;
 }
 
-
 bool Time::operator==(Time &t) {
     if (!t.valid()) { return false; }
-
     if ((this->hora == t.getHora()) && (this->minutos == t.getMinutos()) && (this->segundos == t.getSegundos())) {
         return true;
     };
@@ -170,7 +163,6 @@ bool Time::operator<(const Time &t) {
 Time Time::operator-(Time &t) {//----------------------------------------
     //Podia fazer com matematica mas isto veio-me a cabeça primeiro...
     // fazer com % divisao e com abs()
-
     int hora = this->hora - t.getHora();
     int minuto = this->minutos - t.getMinutos();
     int segundo = this->segundos - t.getSegundos();
@@ -217,8 +209,6 @@ Time Time::operator+(const Time &t) {
     // voltar a fazer ... secalhar
 
     //pelos resultados isto está a trabalhar com somas de strings.
-
-
     int hour = this->hora + t.getHora();
     int minuto = this->minutos + t.getMinutos();
     int segundo = this->segundos + t.getSegundos();

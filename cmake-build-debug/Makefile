@@ -420,32 +420,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-sistemaCartaoAmigoMuseus.o: sistemaCartaoAmigoMuseus.cpp.o
+sistemaCartao.o: sistemaCartao.cpp.o
 
-.PHONY : sistemaCartaoAmigoMuseus.o
+.PHONY : sistemaCartao.o
 
 # target to build an object file
-sistemaCartaoAmigoMuseus.cpp.o:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o
-.PHONY : sistemaCartaoAmigoMuseus.cpp.o
+sistemaCartao.cpp.o:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o
+.PHONY : sistemaCartao.cpp.o
 
-sistemaCartaoAmigoMuseus.i: sistemaCartaoAmigoMuseus.cpp.i
+sistemaCartao.i: sistemaCartao.cpp.i
 
-.PHONY : sistemaCartaoAmigoMuseus.i
+.PHONY : sistemaCartao.i
 
 # target to preprocess a source file
-sistemaCartaoAmigoMuseus.cpp.i:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i
-.PHONY : sistemaCartaoAmigoMuseus.cpp.i
+sistemaCartao.cpp.i:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.i
+.PHONY : sistemaCartao.cpp.i
 
-sistemaCartaoAmigoMuseus.s: sistemaCartaoAmigoMuseus.cpp.s
+sistemaCartao.s: sistemaCartao.cpp.s
 
-.PHONY : sistemaCartaoAmigoMuseus.s
+.PHONY : sistemaCartao.s
 
 # target to generate assembly for a file
-sistemaCartaoAmigoMuseus.cpp.s:
-	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s
-.PHONY : sistemaCartaoAmigoMuseus.cpp.s
+sistemaCartao.cpp.s:
+	$(MAKE) -f CMakeFiles/AEDA_Projeto.dir/build.make CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.s
+.PHONY : sistemaCartao.cpp.s
 
 utilitarios.o: utilitarios.cpp.o
 
@@ -516,9 +516,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... sistemaCartaoAmigoMuseus.o"
-	@echo "... sistemaCartaoAmigoMuseus.i"
-	@echo "... sistemaCartaoAmigoMuseus.s"
+	@echo "... sistemaCartao.o"
+	@echo "... sistemaCartao.i"
+	@echo "... sistemaCartao.s"
 	@echo "... utilitarios.o"
 	@echo "... utilitarios.i"
 	@echo "... utilitarios.s"

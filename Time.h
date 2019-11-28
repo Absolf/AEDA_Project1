@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include "utilitarios.h"
 
 using namespace std;
 
@@ -45,13 +46,15 @@ public:
 
     //other methods
     //static string returnTime(Time time); //Displays the date in a string
-    friend ostream &operator<<(ostream &out, Time &time); //output operator
+    friend ostream &operator<<(ostream &out,const Time &time); //output operator
     bool operator==(Time &t); // comparison operators
     bool operator!=(const Time &t);
 
     bool operator>(const Time &t);
 
     bool operator<(const Time &t);
+
+    string returnTime(Time &time);
 
     //------------------------------//
     Time operator-(Time &t);

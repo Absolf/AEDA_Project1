@@ -4,13 +4,14 @@
 
 #include "SalaEspetaculo.h"
 
-SalaEspetaculo::SalaEspetaculo(){};
+SalaEspetaculo::SalaEspetaculo() {};
 
 SalaEspetaculo::SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente)
         :
-        nome(nome), capacidadeMaxima(capacidadeMaxima), lotacao(lotacao), endereco(endereco), id(id), aderente(aderente) {};
+        nome(nome), capacidadeMaxima(capacidadeMaxima), lotacao(lotacao), endereco(endereco), id(id),
+        aderente(aderente) {};
 
-SalaEspetaculo::SalaEspetaculo(const SalaEspetaculo& s1) {
+SalaEspetaculo::SalaEspetaculo(const SalaEspetaculo &s1) {
     this->nome = s1.getNome();
     this->capacidadeMaxima = s1.getCapacidadeMaxima();
     this->lotacao = s1.getLotacao();
@@ -37,7 +38,9 @@ SalaEspetaculo &SalaEspetaculo::operator=(const SalaEspetaculo &espetaculo) {
 }
 
 ostream &operator<<(ostream &out, const SalaEspetaculo &espetaculo) {
-    cout <<espetaculo.nome << endl << espetaculo.capacidadeMaxima << endl <<  espetaculo.lotacao << endl << espetaculo.endereco << endl << espetaculo.id<< endl << espetaculo.aderente << endl;
+    out << espetaculo.nome << endl << espetaculo.capacidadeMaxima << endl << espetaculo.lotacao << endl
+        << espetaculo.endereco << endl << espetaculo.id << endl << espetaculo.aderente << endl;
+    return out;
 }
 
 const string &SalaEspetaculo::getNome() const {
@@ -45,7 +48,7 @@ const string &SalaEspetaculo::getNome() const {
 }
 
 void SalaEspetaculo::setNome(const string &nome) {
-    SalaEspetaculo::nome = nome;
+    this->nome = nome;
 }
 
 int SalaEspetaculo::getCapacidadeMaxima() const {
@@ -53,14 +56,14 @@ int SalaEspetaculo::getCapacidadeMaxima() const {
 }
 
 void SalaEspetaculo::setCapacidadeMaxima(int capacidadeMaxima) {
-    SalaEspetaculo::capacidadeMaxima = capacidadeMaxima;
+    this->capacidadeMaxima = capacidadeMaxima;
 }
 
 int SalaEspetaculo::getLotacao() const {
     return lotacao;
 }
 
-void SalaEspetaculo::setLotacao(const int &lotacao){
+void SalaEspetaculo::setLotacao(const int &lotacao) {
     this->lotacao = lotacao;
 }
 
@@ -80,42 +83,14 @@ void SalaEspetaculo::setId(int id) {
     SalaEspetaculo::id = id;
 }
 
-vector<string> Handler(vector<string> vec) {
-    string line;
-    vector<string> new_sala;
-    cout << "::::::::::::::" << endl;
-    cin.ignore();
-    for (size_t i = 0; i < vec.size(); i++) {
-        if (i == 0) //for sala name
-        {
-            line = vec[i];
-            getline(cin, line);
-            new_sala.push_back(line);
-        }
-        if (i == 1) // for max capacity;
-        {
-            new_sala.push_back(to_string(readInteger(vec[i])));
-        }
-        if (i == 2) // for adddress;
-        {
-            line = vec[i];
-            getline(cin, line);
-            new_sala.push_back(line);
-        }
-        if (i == 3) // for Aderente;
-        {
-            new_sala.push_back(to_string(readInteger(vec[i])));
-        }
-    }
-
-    return new_sala;
-}
 // --------------------------------Evento
 
 Evento::Evento() : SalaEspetaculo() {};
 
-Evento::Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente, string nomeEvento, Date data)
-        : SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento), data(data){};
+Evento::Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente,
+               string nomeEvento, Date data, Time horario)
+        : SalaEspetaculo(nome, capacidadeMaxima, lotacao, endereco, id, aderente), nomeEvento(nomeEvento),
+          data(data), horario(horario){};
 
 const string &Evento::getNomeEvento() const {
     return nomeEvento;
@@ -133,8 +108,15 @@ void Evento::setData(const Date &data) {
     this->data = data;
 }
 
+const Time Evento::getHorario() const {
+    return horario;
+}
 
-Evento::Evento(const Evento& ev) {
+void Evento::setHorario(const Time &horario) {
+    this->horario = horario;
+}
+
+Evento::Evento(const Evento &ev) {
     this->nome = ev.getNome();
     this->capacidadeMaxima = ev.getCapacidadeMaxima();
     this->lotacao = ev.getLotacao();
@@ -143,13 +125,19 @@ Evento::Evento(const Evento& ev) {
     this->aderente = ev.isAderente();
     this->nomeEvento = ev.getNomeEvento();
     this->data = ev.getData();
-}
-Evento Evento::operator=(Evento &ev) {
-    return Evento(this->nome = ev.getNome(),this->capacidadeMaxima = ev.getCapacidadeMaxima(), this->lotacao = ev.getLotacao(), this->endereco = ev.getEndereco(), this->id = ev.getId(), this->aderente = ev.isAderente(), this->nomeEvento = ev.getNomeEvento(), this->data = ev.getData());
+    this->horario = ev.getHorario();
 }
 
-ostream &operator<<(ostream &out, const Evento &evento){
-    cout << evento.nomeEvento << endl << evento.nome << endl << evento.data<< endl<< evento.capacidadeMaxima << endl <<  evento.lotacao << endl << evento.endereco << endl << evento.id<< endl << evento.aderente;
+Evento Evento::operator=(Evento &ev) {
+    return Evento(this->nome = ev.getNome(), this->capacidadeMaxima = ev.getCapacidadeMaxima(),
+                  this->lotacao = ev.getLotacao(), this->endereco = ev.getEndereco(), this->id = ev.getId(),
+                  this->aderente = ev.isAderente(), this->nomeEvento = ev.getNomeEvento(), this->data = ev.getData(), this->horario = ev.getHorario());
+}
+
+ostream &operator<<(ostream &out, const Evento &evento) {
+    out << evento.nomeEvento << endl << evento.nome << endl << evento.data << endl << evento.capacidadeMaxima << endl
+        << evento.lotacao << endl << evento.endereco << endl << evento.id << endl << evento.aderente << endl << evento.horario << endl;
+    return out;
 }
 
 

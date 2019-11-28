@@ -13,7 +13,8 @@ void tokenize(string const &str, char delim, vector<string> &out) {
 }
 
 //Read options of all my menus/moment of choices
-int readOptions(const vector<string> &menu) // This functions take a string vector wich each position is an option then return this option
+int readOptions(
+        const vector<string> &menu) // This functions take a string vector wich each position is an option then return this option
 {
     int option;
     cout << ":::::::::::::::::::::::::::::::::::" << endl;
@@ -29,7 +30,8 @@ int readOptions(const vector<string> &menu) // This functions take a string vect
 
 
 template<typename T>
-istream &getInput(string prompt, T &input) // this template of function help's me to get the information that i want showing a certain string (usualy a question)
+istream &getInput(string prompt,
+                  T &input) // this template of function help's me to get the information that i want showing a certain string (usualy a question)
 {
     cin.clear();
     cout << prompt;
@@ -85,13 +87,11 @@ string readString(string prompt) // responsible for string data
     // and we ran into eof, for example.  Let's consider it exceptional.
     throw runtime_error("Unexpected extraction error in readString function\n");
 }
-
 //ps* all of them help with the ctrl+z issue
+
 void deleteFileToRewrite(string file) {
     std::ofstream ofs(file, std::ios::out | std::ios::trunc); // clear contents
     if (ofs.is_open()) {
-
     }
-
     ofs.close();
 }

@@ -2,8 +2,8 @@
 // Created by Gabriel Rocco on 23/10/2019.
 //
 
-#ifndef AEDA_PROJETO_SISTEMACARTAOAMIGOMUSEUS_H
-#define AEDA_PROJETO_SISTEMACARTAOAMIGOMUSEUS_H
+#ifndef AEDA_PROJETO_SISTEMACARTAO_H
+#define AEDA_PROJETO_SISTEMACARTAO_H
 
 #include "SalaEspetaculo.h"
 #include "Museum.h"
@@ -17,17 +17,17 @@
 using namespace std;
 
 
-class sistemaCartaoAmigoMuseumPortugal {
+class sistemaCartao {
 
     vector<Cliente> clientes;
     vector<Evento> eventos;
-    vector<SalaEspetaculo> salas = {};
+    vector<SalaEspetaculo> salas;
     vector<Museum> museus;
 public:
-    sistemaCartaoAmigoMuseumPortugal(const vector<SalaEspetaculo> &salas);
+    sistemaCartao(const vector<SalaEspetaculo> &salas);
 
 public:
-    sistemaCartaoAmigoMuseumPortugal();
+    sistemaCartao();
 
     const vector<Cliente> &getClientes() const;
 
@@ -44,7 +44,9 @@ public:
     const vector<Museum> &getMuseu() const;
 
     void setMuseu(const Museum &museu);
+
     void venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento);
+
     void createTicket(Cliente *cliente, Bilhete &b, Evento *ev);
 
     void addCliente();
@@ -55,36 +57,52 @@ public:
 
     void updateCliente(string card);
 
+    void updateClienteAdm();
+
     void updateMuseum() const;
 
     void updateSalaEspetaculo();
 
-    void deleteCliente(string card);
+    void deleteCliente();
 
     void deleteMuseum();
 
     void deleteSalaEspetaculo();
 
-    void readCliente(string card);
+    void readClients();
+
+    void readClient();
 
     void readMuseum();
 
     void readSalaEspetaculo();
 
+    void readSala();
+
     //funções utilitárias
 
     void WriteAllClients();
+
+    void WriteAllSalas();
+
+    void WriteAllEventos();
+
     int searchUser(string card);
+
     int searchSalaEspetaculo(string nome);
+
     int searchEvento(string nome);
+
     void loadClients();
+
     void loadSalaEspetaculos();
+
     void loadEventos();
 
 };
 
 
-#endif //AEDA_PROJETO_SISTEMACARTAOAMIGOMUSEUS_H
+#endif //AEDA_PROJETO_SISTEMACARTAO_H
 
 
 

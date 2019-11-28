@@ -43,7 +43,7 @@ public:
 
     SalaEspetaculo(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente);
 
-    SalaEspetaculo(const SalaEspetaculo& s1);
+    SalaEspetaculo(const SalaEspetaculo &s1);
 
 
     bool isAderente() const;
@@ -51,6 +51,7 @@ public:
     SalaEspetaculo &operator=(const SalaEspetaculo &espetaculo);
 
     void setAderente(bool aderente);
+
     friend ostream &operator<<(ostream &out, const SalaEspetaculo &espetaculo);
 
 };
@@ -59,13 +60,14 @@ public:
 class Evento : public SalaEspetaculo {
     string nomeEvento;
     Date data;
-    //time_t horario;
+    Time horario;
 public:
     Evento();
 
     Evento(string nome, int capacidadeMaxima, int lotacao, Address endereco, int id, bool aderente, string nomeEvento,
-           Date data);
-    Evento(const Evento& e1);
+           Date data, Time horario);
+
+    Evento(const Evento &e1);
 
     /*
     const SalaEspetaculo& getSalaEspetaculo() const;
@@ -79,11 +81,12 @@ public:
 
     void setData(const Date &data);
 
-    const time_t &getHorario() const;
+    const Time getHorario() const;
 
-    void setHorario(const time_t &horario);
+    void setHorario(const Time &horario);
 
     Evento operator=(Evento &ev);
+
     friend ostream &operator<<(ostream &out, const Evento &evento);
 };
 

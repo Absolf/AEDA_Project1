@@ -54,6 +54,8 @@ public:
 
     CartaoAmigo operator=(CartaoAmigo &);
 
+    virtual string getSubscription() const;
+
     friend ostream &operator<<(ostream &out, const CartaoAmigo &cliente);
 
 
@@ -61,15 +63,18 @@ public:
 
 class CartaoAmigoUni : public CartaoAmigo {
     float anuidade;
+    string subscription;
 public:
     CartaoAmigoUni() {};
 
     CartaoAmigoUni(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto, string n_cartao,
-                   float anuidade);
+                   float anuidade, string subscription);
 
     float getAnuidade() const;
 
     CartaoAmigoUni operator=(CartaoAmigoUni &);
+
+    string getSubscription() const;
 
     friend ostream &operator<<(ostream &out, const CartaoAmigoUni &cliente);
 
@@ -77,32 +82,38 @@ public:
 
 class CartaoAmigoSilver : public CartaoAmigo {
     float anuidade;
+    string subscription;
 public:
     CartaoAmigoSilver() {};
 
     CartaoAmigoSilver(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto,
                       string n_cartao,
-                      float anuidade);
+                      float anuidade, string subscription);
 
     float getAnuidade() const;
 
     CartaoAmigoSilver operator=(CartaoAmigoSilver &);
+
+    string getSubscription() const;
 
     friend ostream &operator<<(ostream &out, const CartaoAmigoSilver &cliente);
 };
 
 class CartaoAmigoIndi : public CartaoAmigo {
     float anuidade;
+    string subscription;
 public:
     CartaoAmigoIndi() {};
 
     CartaoAmigoIndi(Date dataAcquisition, Date nascimento, string nome, Address morada, string contacto,
                     string n_cartao,
-                    float anuidade);
+                    float anuidade, string subscription);
 
     float getAnuidade() const;
 
     CartaoAmigoIndi operator=(CartaoAmigoIndi &);
+
+    string getSubscription() const;
 
     friend ostream &operator<<(ostream &out, const CartaoAmigoIndi &cliente);
 

@@ -37,7 +37,7 @@ ostream &operator<<(ostream &out, const Bilhete &bilhete) {
     cout << "Valor: $" << bilhete.valor << endl;
     cout << "Data: " << bilhete.evento->getData() << endl;
     cout << bilhete.evento->getCapacidadeMaxima();
-    cout <<  bilhete.evento->getEndereco();
+    cout << bilhete.evento->getEndereco();
     //cout << "Horário: " << bilhete.evento->getHorario();
 }
 

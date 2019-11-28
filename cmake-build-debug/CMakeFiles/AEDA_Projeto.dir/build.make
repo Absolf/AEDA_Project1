@@ -70,18 +70,18 @@ CMakeFiles/AEDA_Projeto.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/main.cpp" -o CMakeFiles/AEDA_Projeto.dir/main.cpp.s
 
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o: ../sistemaCartaoAmigoMuseus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp"
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o: ../sistemaCartao.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o -c "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.cpp"
 
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp" > CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.i
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.cpp" > CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.i
 
-CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartaoAmigoMuseus.cpp" -o CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.s
+CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.cpp" -o CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.s
 
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: CMakeFiles/AEDA_Projeto.dir/flags.make
 CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o: ../CartaoAmigo.cpp
@@ -229,7 +229,7 @@ CMakeFiles/AEDA_Projeto.dir/utilitarios.cpp.s: cmake_force
 # Object files for target AEDA_Projeto
 AEDA_Projeto_OBJECTS = \
 "CMakeFiles/AEDA_Projeto.dir/main.cpp.o" \
-"CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o" \
+"CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o" \
 "CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o" \
 "CMakeFiles/AEDA_Projeto.dir/Date.cpp.o" \
 "CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o" \
@@ -246,7 +246,7 @@ AEDA_Projeto_OBJECTS = \
 AEDA_Projeto_EXTERNAL_OBJECTS =
 
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/main.cpp.o
-AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/sistemaCartaoAmigoMuseus.cpp.o
+AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/sistemaCartao.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/CartaoAmigo.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Date.cpp.o
 AEDA_Projeto: CMakeFiles/AEDA_Projeto.dir/Menus.cpp.o

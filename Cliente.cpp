@@ -4,7 +4,7 @@
 
 #include "Cliente.h"
 
-Cliente::Cliente() {this->universitario = false;}
+Cliente::Cliente() { this->universitario = false; }
 
 const string &Cliente::getN_cartao() const {
     return n_cartao;
@@ -92,6 +92,7 @@ void Cliente::aderirCartao() {
     cartao->setNascimento(nascimento);
     cartao->setContacto(contacto);
     cartao->setMorada(morada);
+
 }
 
 int Cliente::getIdade() {
@@ -100,13 +101,13 @@ int Cliente::getIdade() {
     int currentDay = acq.getDay();
     int currentMonth = acq.getMonth();
     int currentYear = acq.getYear();
-    if(this->nascimento.getDay() > acq.getDay()){
-        currentDay+= this->nascimento.daysMonth(this->nascimento.getMonth(), this->nascimento.getYear());
-        currentMonth -=1;
+    if (this->nascimento.getDay() > acq.getDay()) {
+        currentDay += this->nascimento.daysMonth(this->nascimento.getMonth(), this->nascimento.getYear());
+        currentMonth -= 1;
     }
-    if(this->nascimento.getMonth() > currentMonth){
-        currentYear -=1;
-        currentMonth +=12;
+    if (this->nascimento.getMonth() > currentMonth) {
+        currentYear -= 1;
+        currentMonth += 12;
     }
 
     currentDay -= this->nascimento.getDay();
@@ -131,7 +132,7 @@ void Cliente::printCliente() {
     cout << "Numero do Cartao: " << n_cartao << endl;
     cout << "Data de Nascimento: " << this->getNascimento() << endl;
     cout << "Contacto Telemóvel: " << this->getContacto() << endl;
-    cout << "Morada: " << this->getMorada();
+    cout << "Morada: " << this->getMorada() << endl;
     cout << "É membro de universidade? ";
     if (getUniversitario())
         cout << " Sim" << endl;
@@ -144,15 +145,17 @@ void Cliente::printCliente() {
             cout << endl;
         }
     }
+    cout << "Tipo de Assinatura: " << this->cartao->getSubscription() << endl;
 }
 
 ostream &operator<<(ostream &out, Cliente &cli) {
     out << cli.getN_cartao() << endl;
     out << cli.getNome() << endl;
     out << cli.getNascimento() << endl;
-    out << cli.getCartao().getDataAcquisition() <<endl;
+    out << cli.getCartao().getDataAcquisition() << endl;
     out << cli.getContacto() << endl;
-    out << cli.getMorada()<< endl;
+    out << cli.getMorada() << endl;
     out << cli.getUniversitario() << endl;
+    out << cli.cartao->getSubscription();
     return out;
 }
