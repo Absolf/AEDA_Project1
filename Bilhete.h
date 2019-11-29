@@ -13,6 +13,8 @@ class Bilhete {
 public:
     Bilhete();
 
+    Bilhete (const Bilhete &b);
+
     float getValor() const;
 
     void setValor(float valor);

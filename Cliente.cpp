@@ -6,6 +6,14 @@
 
 Cliente::Cliente() { this->universitario = false; }
 
+Cliente::Cliente(const Cliente &cli){
+    this->nome = cli.getNome();
+    this->nascimento = cli.getNascimento();
+    this->contacto = cli.getContacto();
+    this->morada = cli.morada;
+    this->universitario = cli.universitario;
+}
+
 const string &Cliente::getN_cartao() const {
     return n_cartao;
 }
@@ -121,15 +129,10 @@ const vector<Bilhete *> &Cliente::getBilhetes() const {
     return bilhetes;
 }
 
-void Cliente::setBilhetes(const vector<Bilhete *> bilhetes) {
-    Cliente::bilhetes = bilhetes;
-}
-
-
 void Cliente::printCliente() {
     cout << " Apresentando função printCliente() \n------------Cliente------------- \n";
     cout << "Nome: " << this->getNome() << endl;
-    cout << "Numero do Cartao: " << n_cartao << endl;
+    cout << "Numero do Cartao: " << this->getN_cartao() << endl;
     cout << "Data de Nascimento: " << this->getNascimento() << endl;
     cout << "Contacto Telemóvel: " << this->getContacto() << endl;
     cout << "Morada: " << this->getMorada() << endl;
@@ -138,14 +141,16 @@ void Cliente::printCliente() {
         cout << " Sim" << endl;
     else
         cout << "Não" << endl;
-    if (this->getBilhetes().size() != 0) {
+    if (bilhetes.size() != 0) {
+        cout << "CHECKING TICKETS CREATED \n";
         for (int i = 0; i < this->getBilhetes().size(); i++) {
             cout << endl;
             this->getBilhetes()[i]->printBilhete();
             cout << endl;
         }
     }
-    cout << "Tipo de Assinatura: " << this->cartao->getSubscription() << endl;
+
+    cout << "Tipo de Assinatura: " << "this->cartao->getSubscription()" << endl;
 }
 
 ostream &operator<<(ostream &out, Cliente &cli) {
@@ -156,20 +161,17 @@ ostream &operator<<(ostream &out, Cliente &cli) {
     out << cli.getContacto() << endl;
     out << cli.getMorada() << endl;
     out << cli.getUniversitario() << endl;
+    stringstream aux;
+    for(auto it = cli.getBilhetes().begin(); it != cli.getBilhetes().end(); it++){
+        aux << (*it)->getEvento().getId()<<";";
+    }
+    string eventsId = aux.str();
+    eventsId = eventsId.substr(0, eventsId.size()-1);
+    out << eventsId <<endl;
     out << cli.cartao->getSubscription() << endl;
     return out;
 }
 
-void Cliente::clientsEvents(string line, vector<int> &aux)
-{
-    line = regex_replace(line, regex(";"), " "); //Returns the clients packs as a string
-    istringstream test(line);
-    int i;
-    while (test >> i)
-    {
-        aux.push_back(i);
-    }
-}
 
 bool Cliente::operator<(const Cliente &c1) {
     return this->nome < c1.getNome();

@@ -21,9 +21,11 @@ class Cliente {
 public:
     const vector<Bilhete *> &getBilhetes() const;
 
-    void setBilhetes(const vector<Bilhete *> bilhetes);
+    void setBilhetes(Bilhete *bilhete);
 
     Cliente();
+
+    Cliente(const Cliente &cli);
 
     const Date &getNascimento() const;
 

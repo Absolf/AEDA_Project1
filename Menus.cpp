@@ -17,9 +17,9 @@ sistemaCartao sys;
 
 void mainMenu() {       //Chama o menu principal
     start:
-    sys.loadClients();
     sys.loadSalaEspetaculos();
     sys.loadEventos();
+    sys.loadClients();
     string card;
     int idx = 0;
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
@@ -65,7 +65,7 @@ void mainMenu() {       //Chama o menu principal
 int auxMenu(int idx) {
     vector<string> menu = {"COMPRAR BILHETE", "ATUALIZAR INFORMAÇÕES"};
     int op = 1;
-    Cliente *cli = new Cliente(sys.getClientes().at(idx));
+    Cliente cli(sys.getClientes().at(idx));
     Bilhete b1;
     while (op != 0) {
         op = readOptions(menu);
@@ -73,7 +73,7 @@ int auxMenu(int idx) {
             sys.comprarBilhete(cli, b1);
         }
         if (op == 2) {
-            sys.updateCliente(sys.getClientes()[idx].getN_cartao());
+            sys.updateCliente(cli.getN_cartao());
 
         }
         op = readInteger("\n1 - VOLTAR \n0 - ENCERRAR");

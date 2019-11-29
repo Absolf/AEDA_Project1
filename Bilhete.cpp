@@ -6,6 +6,10 @@
 
 Bilhete::Bilhete() {this->valor = 45.9;}
 
+Bilhete::Bilhete(const Bilhete &b){
+    this->evento = b.evento;
+}
+
 float Bilhete::getValor() const {
     return valor;
 }

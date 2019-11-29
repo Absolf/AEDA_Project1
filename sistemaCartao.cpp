@@ -405,8 +405,10 @@ void sistemaCartao::WriteAllEventos() {
 
 
 int sistemaCartao::searchUser(string card) {
-    for (size_t i = 0; i < getClientes().size(); i++) {
-        if (card == getClientes().at(i).getN_cartao()) {
+    for (size_t i = 0; i < clientes.size(); i++) {
+        cout << "hi" << endl;
+        cout << clientes.at(i).getN_cartao() << endl;
+        if (card == clientes.at(i).getN_cartao()) {
             return i;
         }
     }
@@ -435,6 +437,14 @@ int sistemaCartao::searchEvento(string nome) {
     }
     return -1;
 }
+int sistemaCartao::searchEventoById(int id) {
+    for (size_t i = 0; i < eventos.size(); i++) {
+        if (id == eventos.at(i).getId()) {
+           return i;
+        }
+    }
+}
+
 
 //Tela inicial quando o programa é aberto, aparece apenas uma vez.
 void sistemaCartao::loadClients() {
@@ -469,6 +479,7 @@ void sistemaCartao::loadClients() {
             } else {
                 user.setUniversitario(false);
             }
+            i++;
             i++;
             user.aderirCartao();
             cout << user.getN_cartao() << endl;
@@ -616,10 +627,10 @@ void sistemaCartao::sortEventos(){
 }
 
 
-void sistemaCartao::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) {
+void sistemaCartao::venderBilhete(Cliente &cliente, Bilhete &b, Evento *evento) {
     int lot;
     if (evento->getLotacao() < evento->getCapacidadeMaxima()) {
-        cliente->addBilhete(b);
+        cliente.addBilhete(b);
         lot = evento->getLotacao() + 1;
         evento->setLotacao(lot);
     } else
@@ -629,7 +640,7 @@ void sistemaCartao::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) 
     eventos[i].setLotacao(evento->getLotacao());
 }
 
-void sistemaCartao::comprarBilhete(Cliente *cli, Bilhete &bi){
+void sistemaCartao::comprarBilhete(Cliente &cli, Bilhete &bi){
     cout << "Eventos disponíveis:\n";
     vector<string> evt = {};
     Date act;
@@ -668,9 +679,9 @@ void sistemaCartao::comprarBilhete(Cliente *cli, Bilhete &bi){
     }
 }
 
-void sistemaCartao::createTicket(Cliente *cliente, Bilhete &b, Evento *ev) {
+void sistemaCartao::createTicket(Cliente &cliente, Bilhete &b, Evento *ev) {
     float basePrice = 45.90;
-    if (ev->isAderente() && cliente->temCartao()){
+    if (ev->isAderente() && cliente.temCartao()){
         basePrice -= (basePrice * 0.25);
         b.setValor(basePrice);
     }else{
@@ -679,20 +690,20 @@ void sistemaCartao::createTicket(Cliente *cliente, Bilhete &b, Evento *ev) {
 
 }
 
-void sistemaCartao::createTicketSilver(Cliente *cliente, Bilhete &b, Evento *ev) {
+void sistemaCartao::createTicketSilver(Cliente &cliente, Bilhete &b, Evento *ev) {
     float basePrice = 0;
     if((metricaSilver(cliente,b,ev)))
         b.setValor(basePrice);
 }
 
-bool sistemaCartao::metricaSilver(Cliente *cliente, Bilhete &b, Evento *ev){
+bool sistemaCartao::metricaSilver(Cliente &cliente, Bilhete &b, Evento *ev){
     float lot = ev->getCapacidadeMaxima()* 0.50;
     Date dat(ev->getData());
     Date act;
     act.actualDate();
     if (act == dat) {
-        return (cliente->getCartao().getSubscription() == "CartaoAmigoSilver" && horasParaEvento(ev) &&
-                procuraArea(cliente->getMorada().getDistrito()) && (ev->getLotacao() < lot));
+        return (cliente.getCartao().getSubscription() == "CartaoAmigoSilver" && horasParaEvento(ev) &&
+                procuraArea(cliente.getMorada().getDistrito()) && (ev->getLotacao() < lot));
     }
 
 }
@@ -708,7 +719,7 @@ bool sistemaCartao::procuraArea(string distrito){
 }
 
 vector<string> sistemaCartao::eventosGratuitosSilver(int idx){
-    Cliente *cli = new Cliente(clientes.at(idx));
+    Cliente cli(clientes.at(idx));
     Bilhete b1;
     vector<string> evOpt =  {};
     if (eventos.size() != 0) {
@@ -722,6 +733,7 @@ vector<string> sistemaCartao::eventosGratuitosSilver(int idx){
     return evOpt;
 }
 
+
 bool sistemaCartao::horasParaEvento(Evento *ev){
 
     Date dat(ev->getData());
@@ -730,14 +742,41 @@ bool sistemaCartao::horasParaEvento(Evento *ev){
     if (act == dat){
         Time actualT;
         actualT.actualTime();
-        cout << "actual hora: " << actualT.getHora()<<endl;
         Time result;
         Time t(ev->getHorario());
         result =  t - actualT;
-        cout << "event hora: " << t.getHora()<< endl;
-        cout << "result:"<< result<<endl;
         Time eventLimit(7,59,59);
         Time zero(0,0,0);
         return (actualT <= t && result <=eventLimit && result >=zero);
+    }
+}
+
+void sistemaCartao::clientsEvents(string line, Cliente &cli, Bilhete &bi)
+{
+    line = regex_replace(line, regex(";"), " "); //Returns the clients packs as a string
+    istringstream test(line);
+    int j;
+    vector<int> aux;
+    while (test >> j)
+    {
+        aux.push_back(j);
+    }
+    for(size_t i = 0; i< aux.size(); i++){
+        cout << "i'm here 1\n";
+        Evento *ev = new Evento(eventos.at(searchEventoById(aux[i])));
+        cout << "Created an event \n";
+        bi.setEvento(ev);
+        cout << "i'm here 2\n";
+        if (metricaSilver(cli, bi, ev)) {
+            createTicketSilver(cli, bi, ev);
+            cout << "this is the kind special" << endl;
+        }
+        else{
+            createTicket(cli, bi, ev);
+            cout << "this is the normal discount" << endl;
+        }
+        cout << "im here 3" << endl;
+        //cout << bi.getValor();
+        cli.addBilhete(bi);
     }
 }

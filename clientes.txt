@@ -5,6 +5,7 @@ Andiara La
 925558694
 Rua central /1/ Camaçari / 4555-012 / Porto
 0
+0;1;3
 CartaoAmigoSilver
 201900846
 Berg
@@ -13,6 +14,7 @@ Berg
 6545454745
 Teste /3/ Camaçari / 4555-012 / Bahia
 1
+3;1
 CartaoAmigoUni
 201800172
 Gabriel Rocco
@@ -21,6 +23,7 @@ Gabriel Rocco
 43243243423
 Rua /94/ Paranhos / 4000 - 600 / Porto
 1
+3;0
 CartaoAmigoUni
 201900864
 Joao Victor
@@ -29,36 +32,5 @@ Joao Victor
 456987897455
 Rua /94/ Paranhos / 4000 - 600 / Porto
 1
+0;1
 CartaoAmigoUni
-2019001028
-TESTE 2
-12/10/1980
-28/10/2019
-25468
-SDASDA/0/SADSAD/SDASDA/SDASDA
-1
-CartaoAmigoUni
-2019001443
-TESTE DO SILVER
-10/10/1940
-28/10/2019
-22222
-Rua do águeda /94/ N importa / 4000-000/ Porto
-0
-CartaoAmigoSilver
-2019001901
-joaquim
-09/05/1976
-28/10/2019
-945675435
-rua da lapa /50/ lapa / 4856-98 / porto
-1
-CartaoAmigoUni
-201900895
-victor laureano
-21/11/1953
-10/11/2019
-935550893
-Rua de sãp brás /94/ paranhos / 4000-065 / Porto
-1
-CartaoAmigoSilver

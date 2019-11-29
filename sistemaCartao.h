@@ -42,10 +42,10 @@ public:
 
     void setMuseu(const Museum &museu);
 
-    void venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento);
+    void venderBilhete(Cliente &cliente, Bilhete &b, Evento *evento);
 
-    void createTicket(Cliente *cliente, Bilhete &b, Evento *ev);
-    void createTicketSilver(Cliente *cliente, Bilhete &b, Evento *ev);
+    void createTicket(Cliente &cliente, Bilhete &b, Evento *ev);
+    void createTicketSilver(Cliente &cliente, Bilhete &b, Evento *ev);
 
     void addCliente();
 
@@ -95,10 +95,10 @@ public:
 
     //funções utilitárias
 
-    void comprarBilhete(Cliente *cli, Bilhete &bi);
+    void comprarBilhete(Cliente &cli, Bilhete &bi);
 
     bool procuraArea(string distrito);
-    bool metricaSilver(Cliente *cliente, Bilhete &b, Evento *ev);
+    bool metricaSilver(Cliente &cliente, Bilhete &b, Evento *ev);
     void WriteAllClients();
 
     void WriteAllSalas();
@@ -114,7 +114,8 @@ public:
     bool horasParaEvento(Evento *ev);
 
     int searchEvento(string nome);
-
+    int searchEventoById(int id);
+    void clientsEvents(string line, Cliente &cli, Bilhete &bi);
     void loadClients();
 
     void loadSalaEspetaculos();
