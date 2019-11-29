@@ -47,13 +47,13 @@ void mainMenu() {       //Chama o menu principal
         int aux = readInteger("\n\"DESEJA FAZER UM REGISTRO?\n1 - SIM\n0 - NÃO \n");
         if (aux == 1) {
             sys.addCliente();
-            sys.sortClients();
-            sys.WriteAllClients();
             idx = sys.searchUser(sys.getClientes()[sys.getClientes().size() - 1].getN_cartao());
             aux = readInteger("IR PARA GENRENCIAMENTO DE CONTA?\n1 - SIM \n0 - NÃO\n");
             if (aux == 1)
                 goto LblMenu;
             else
+                sys.sortClients();
+                sys.WriteAllClients();
                 leaving();
         } else
             leaving();
@@ -65,38 +65,23 @@ void mainMenu() {       //Chama o menu principal
 int auxMenu(int idx) {
     vector<string> menu = {"COMPRAR BILHETE", "ATUALIZAR INFORMAÇÕES"};
     int op = 1;
+    Cliente *cli = new Cliente(sys.getClientes().at(idx));
+    Bilhete b1;
     while (op != 0) {
         op = readOptions(menu);
         if (op == 1) {
-            cout << "Eventos disponíveis:\n";
-            vector<string> eventos = {};
-            for (auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++) {
-                string opt = (*it).getNomeEvento() + " - " + (*it).getData().getDateString();
-                eventos.push_back(opt);
-            }
-            op = readOptions((eventos));
-            for (int i = 0; i < eventos.size(); i++) {
-                if (op - 1 == i) {
-                    Bilhete b1;
-                    Evento *ev = new Evento(sys.getEventos().at(i));
-                    b1.setEvento(ev);
-                    Cliente *cli = new Cliente(sys.getClientes().at(idx));
-                    sys.createTicket(cli, b1, ev);
-                    b1.printBilhete();
-                    sys.venderBilhete(cli, b1, ev);
-                    b1.printBilhete();
-                }
-            }
-            sys.sortSalas();
-            sys.WriteAllSalas();
+            sys.comprarBilhete(cli, b1);
         }
         if (op == 2) {
             sys.updateCliente(sys.getClientes()[idx].getN_cartao());
-            sys.sortClients();
-            sys.WriteAllClients();
+
         }
         op = readInteger("\n1 - VOLTAR \n0 - ENCERRAR");
     }
+    sys.sortClients();
+    sys.WriteAllClients();
+    sys.sortEventos();
+    sys.WriteAllEventos();
     return op;
 }
 
@@ -125,20 +110,20 @@ void leaving() {
 }
 
 void messageSilver(int idx) {
-    Cliente *cli = new Cliente(sys.getClientes().at(idx));
-    if (sys.getEventos().size() != 0) {
-
-        for (auto it = sys.getEventos().begin(); it != sys.getEventos().end(); it++) {
-            Evento *ev = new Evento((*it));
-            if (cli->temCartao() && cli->getIdade() >= 65 && ev->isAderente()) {
-                Bilhete b1;
-                b1.setEvento(ev);
-                sys.createTicket(cli, b1, ev);
-                b1.setValor(0.0);
-                cout << ev->getNomeEvento() << " Acontecerá no dia " << ev->getData().getDateString()
-                     << "\n e por seres membro Silver do Cartão Amigo dos Museus de Portugal tens entrada a borla!\n";
-                cout << "Bilhetes por " << b1.getValor() << " Euros não podes perder! " << endl;
+    vector<string> evOpt = sys.eventosGratuitosSilver(idx);
+    if(evOpt.size()!=0) {
+        if(evOpt.size() >1) {
+            cout << "\nOlá" << sys.getClientes()[idx].getNome() << " faltam menos de 8 horas para que " << evOpt.size()
+                 << " eventos ocorram no seu Distrito são eles:\n";
+            for (size_t i = 0; i < evOpt.size(); i++) {
+                cout << evOpt[i] << endl;
             }
+            cout << "E por seres membro Silver do Cartão Amigo dos Museus de Portugal tens entrada a borla!\n";
+            cout << "Proceda para o gerenciamento da sua conta caso queira reservar seu lugar!\n";
+
+        }else{
+            cout << "Olá" << sys.getClientes()[idx].getNome() <<" faltam menos de 8 horas para que o evento "<< evOpt[0] << " ocorra no seu Distrito e por seres membro Silver do Cartão Amigo dos Museus de Portugal tens entrada a borla!\n";
+            cout << "Proceda para o gerenciamento da sua conta caso queira reservar seu lugar!\n";
         }
     }
 }
@@ -148,9 +133,8 @@ int AdminMode() {
     cout << "MODO ADMINISTRADOR" << endl;
     cout << "**********************" << endl;
     int op = 1;
-    adminStart:
     while (op != 0) {
-
+        adminStart:
         op = readOptions({"SALAS DE ESPETACULO", "EVENTOS", "CLIENTES"});
         if (op == 1) {
             while (op != 0) {
@@ -185,16 +169,15 @@ int AdminMode() {
                         sys.readSala();
                     }
                     goto salasAdm;
-                } else
-                    goto adminStart;
+                }
             }
+            goto adminStart;
         }
         if (op == 2) {
             while (op != 0) {
                 eventosAdm:
                 op = readOptions(
-                        {"ADICIONAR NOVA EVENTO", "EDITAR EVENTO", "EXCLUIR EVENTOS",
-                         "VER EVENTOS DISPONÍVEIS"});
+                        {"ADICIONAR NOVA EVENTO", "EDITAR EVENTO", "EXCLUIR EVENTOS", "VER EVENTOS DISPONÍVEIS"});
                 if (op == 1) {
                     sys.addEvento();
                     sys.sortEventos();
@@ -222,10 +205,9 @@ int AdminMode() {
                         sys.readSala();
                     }*/
                     goto eventosAdm;
-                } else
-                    goto adminStart;
-
+                }
             }
+            goto adminStart;
         }
         if (op == 3) {
             while (op != 0) {
@@ -259,18 +241,19 @@ int AdminMode() {
                         sys.readClient();
                     }
                     goto clientesAdm;
-                } else
-                    goto adminStart;
+                }
             }
+            goto adminStart;
         }
-        cout << "GOSTARIA DE REINICIAR O SISTEMA?\n";
-        op = readOptions({"SIM", "NÃO"});
-        if (op==1) {
-            return op;
-        }
-        else if(op == 2 || op==0){
-            leaving();
-        }
+
+                cout << "GOSTARIA DE REINICIAR O SISTEMA?\n";
+                op = readOptions({"SIM", "NÃO"});
+                if (op == 1) {
+                    return op;
+                } else if (op == 2) {
+                    leaving();
+                } else if (op == 0) {
+                }
 
     }
     return op;

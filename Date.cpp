@@ -106,11 +106,11 @@ int Date::daysMonth(int month, int year) {
 
 void Date::actualDate() {
     int thisYear = 0, thisMonth = 0, thisDay = 0;
-    time_t theTime = time(NULL);
-    struct tm *aTime = localtime(&theTime); //Determines the current date
+    time_t theTime = time(0);
+    tm *aTime = localtime(&theTime); //Determines the current date
     thisYear = aTime->tm_year + 1900;
     thisDay = aTime->tm_mday;
-    thisMonth = aTime->tm_mon;
+    thisMonth = aTime->tm_mon +1;
     this->day = thisDay;
     this->month = thisMonth;
     this->year = thisYear;
@@ -198,14 +198,7 @@ bool Date::valid() const {
 };
 
 bool Date::operator==(const Date &d2) {
-// check for equality
-    if (!d2.valid()) { return false; };
-    if ((this->day == d2.getDay())
-        && (this->month == d2.getMonth())
-        && (this->year == d2.getYear())) {
-        return true;
-    };
-    return false;
+    return(this->day == d2.getDay() && this->month == d2.getMonth() && this->year == d2.getYear());
 }
 
 bool Date::operator!=(const Date &d2) {

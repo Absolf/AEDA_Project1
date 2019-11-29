@@ -53,12 +53,6 @@ ctime
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Museum.h
 string
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/string
-Address.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Address.h
-Atracao.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Atracao.h
-Cliente.h
-/home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/Cliente.h
 vector
 -
 
@@ -79,6 +73,8 @@ vector
 -
 utilitarios.h
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/utilitarios.h
+ctime
+-
 
 /home/laureano/Documents/FEUP 2019-2020/AEDA/Projeto 01/AEDA/sistemaCartao.cpp
 sistemaCartao.h

@@ -4,15 +4,12 @@
 #include "Time.h"
 
 Time::Time() {
-    hora = 0;
-    minutos = 0;
-    segundos = 0;
+    this->hora = 0;
+    this->minutos = 0;
+    this->segundos = 0;
 }
 
-Time::Time(int hora, int minutos, int segundos) {
-    hora = 0;
-    minutos = 0;
-    segundos = 0;
+Time::Time(int hora, int minutos, int segundos) : hora(hora), minutos(minutos), segundos(segundos) {
 }
 
 
@@ -84,32 +81,29 @@ string Time::returnTime(Time &time) {
     return time_output;
 }
 
+void Time::actualTime() {
+    int thisHour = 0, thisMinutes= 0, thisSeconds = 0;
+    time_t theTime = time(0);
+    tm *aTime = localtime(&theTime);
+    thisHour = aTime->tm_hour;
+    thisMinutes = aTime->tm_min;
+    thisSeconds = aTime->tm_sec;
+    this->hora = thisHour;
+    this->minutos = thisMinutes;
+    this->segundos = thisSeconds;
+}
+
 ostream &operator<<(ostream &out, const Time &time) {
-    if (time.getHora() >= 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() >0)) {
-        out << time.hora << ":0" << time.minutos << ":0"<<time.segundos;
+    if (time.hora >= 10 && (time.minutos< 10 && time.minutos >0)){
+        out << time.hora << ":0" << time.minutos;
     }
-    if (time.getHora() >= 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)) {
-        out << time.hora << ":0" << time.minutos << ":00";
+    if ((time.hora < 10 && time.hora >0) && (time.minutos < 10 && time.minutos >0)) {
+        out << "0" << time.hora << ":0" << time.minutos;
     }
-    if (time.getHora() >= 10 && time.minutos >= 10 && (time.getSegundos() < 10 && time.getSegundos() >0)){
-        out << time.hora << ":" << time.minutos << ":0" <<time.segundos;
-    }
-    if (time.getHora() >= 10 && time.minutos >= 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)){
-        out << time.hora << ":" << time.minutos << ":00";
-    }
-    if (time.getHora() < 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() >0)) {
-        out << "0" << time.hora << ":0" << time.minutos << ":0"<<time.segundos;
-    }
-    if (time.getHora() < 10 && time.getMinutos() < 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)) {
-        out << "0" << time.hora << ":0" << time.minutos << ":00";
-        cout << "4\n";
-    }
-    if (time.getHora() < 10 && time.getMinutos() >= 10 && (time.getSegundos() < 10 && time.getSegundos() >0)) {
-        out << "0" << time.hora << ":" << time.minutos << ":0"<< time.segundos;
-    }
-    if (time.getHora() < 10 && time.getMinutos() >= 10 && (time.getSegundos() < 10 && time.getSegundos() == 0)) {
-        out << "0" << time.hora << ":" << time.minutos << ":00";
-    }
+    if ((time.hora < 10 && time.hora >0) && time.getMinutos() >= 10){
+        out << "0" << time.hora << ":" << time.minutos << ":59";
+    }else
+        out << time.hora << ":" << time.minutos<< ":59";
     return out;
 }
 
@@ -165,98 +159,32 @@ bool Time::operator<(const Time &t) {
 }
 
 Time Time::operator-(Time &t) {//----------------------------------------
-    //Podia fazer com matematica mas isto veio-me a cabeça primeiro...
-    // fazer com % divisao e com abs()
-    int hora = this->hora - t.getHora();
-    int minuto = this->minutos - t.getMinutos();
-    int segundo = this->segundos - t.getSegundos();
-    int c = 0;
-    if (hora < 0) {
-        while (hora != 0) {
-            hora++;
-            c++;
-        }
-        hora = 24 - c + 1;
-        //dia = dia - 1 class Time
-    }
-    c = 0;
-    if (minuto < 0) {
-        while (minuto != 0) {
-            minuto++;
-            c++;
-        }
-        minuto = 60 - c;
-        hora--;
-    }
-    c = 0;
-    if (segundo < 0) {
-        while (segundo != 0) {
-            segundo++;
-            c++;
-        }
-        segundo = 60 - c;
-        minuto--;
-    }
-    Time temp;
-    temp.hora = hora;
-    temp.minutos = minuto;
-    temp.segundos = segundo;
+    Time t1;
+    int aux1, aux2;
+    aux1 = t.minutos + 59 * t.hora;
+    aux2 = minutos + 59 * hora;
+    t1.minutos = (aux2 - aux1)%59;
+    t1.hora =(aux2 - aux1) / 59;
+    return t1;
+}
+/*
+Time Time::operator+(Time &t) {
 
-    return temp;
+    Time t1;
+    int aux1, aux2;
+
+    aux1 = segundos +t.segundos;
+    t1.segundos = aux1%60;
+    aux2 = (aux1/60)+minutos+t.minutos;
+    t1.minutos = aux2%60;
+    t1.hora =(aux2/60)+hora+t.hora;
+    t1.hora = t1.hora%24;
+}*/
+
+bool Time::operator<=(const Time &t){
+    return (this->hora<=t.getHora() && this->minutos <=t.getMinutos());
 }
 
-
-Time Time::operator+(const Time &t) {
-    //Podia fazer com matematica mas isto veio-me a cabeça primeiro...
-    // fazer com % divisao e com abs()
-    //possivelmente 59*3 iteraçoes para isto -_-
-    // voltar a fazer ... secalhar
-
-    //pelos resultados isto está a trabalhar com somas de strings.
-    int hour = this->hora + t.getHora();
-    int minuto = this->minutos + t.getMinutos();
-    int segundo = this->segundos + t.getSegundos();
-    int c = 0;
-
-
-    if (hour > 24) {
-        while (hour != 24) {
-            hour--;
-            c++;
-        }
-        hour = c;
-        if (hour == 1)
-            hour = 0;
-        //dia = dia A+ 1 class Time
-    }
-    c = 0;
-    if (minuto > 60) {
-        while (minuto != 60) {
-            minuto--;
-            c++;
-        }
-        minuto = c;
-        hora++;
-
-    }
-    c = 0;
-    if (segundo > 60) {
-        while (segundo != 60) {
-            segundo--;
-            c++;
-        }
-        segundo = c;
-        minuto++;
-    }
-
-    //return Time(hour, minuto, segundo);
-    // implementar esta merda no resto...
-    Time temp;
-
-    temp.hora = hour;
-    temp.minutos = minuto;
-    temp.segundos = segundo;
-
-    return temp;
-
+bool Time::operator>=(const Time &t){
+    return (this->hora>=t.getHora() && this->minutos >=t.getMinutos());
 }

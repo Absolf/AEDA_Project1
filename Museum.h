@@ -6,14 +6,11 @@
 #define AEDA_PROJETO_MUSEUM_H
 
 #include "string"
-#include "Address.h"
-#include "Atracao.h"
-#include "Cliente.h"
 #include <vector>
 
 using namespace std;
 
-class Museum : public Atracao {
+class Museum{
 
 public:
     Museum();

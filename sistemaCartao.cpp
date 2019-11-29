@@ -8,57 +8,6 @@
 sistemaCartao::sistemaCartao() {
 };
 
-void sistemaCartao::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) {
-    int lot;
-    if (evento->getLotacao() < evento->getCapacidadeMaxima()) {
-        cliente->addBilhete(b);
-        lot = evento->getLotacao() + 1;
-        evento->setLotacao(lot);
-    } else
-        cout << "Lotação máxima atingida" << endl;
-    int i = 0;
-    i = searchEvento(evento->getNome());
-    eventos[i].setLotacao(evento->getLotacao());
-
-}
-
-void sistemaCartao::createTicket(Cliente *cliente, Bilhete &b, Evento *ev) {
-    float basePrice = 45.9;
-    if (ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.20) &&
-        ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente())))
-        b.setValor(basePrice);
-    if (ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.60) &&
-        ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))) {
-        basePrice += (basePrice * 0.20);
-        b.setValor(basePrice);
-    }
-    if (ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.80) &&
-        ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))) {
-        basePrice += (basePrice * 0.40);
-        b.setValor(basePrice);
-    }
-    if (ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.90) &&
-        ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))) {
-        basePrice += (basePrice * 0.50);
-        b.setValor(basePrice);
-    }
-    if (ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.1) &&
-        ((!cliente->temCartao() && ev->isAderente()) || (cliente->temCartao() && !ev->isAderente()))) {
-        basePrice += (basePrice * 0.60);
-        b.setValor(basePrice);
-    } //Protótipo para se o cliente é silver ! :)
-    if ((ev->getLotacao() <= (ev->getCapacidadeMaxima() * 0.50)) && cliente->getIdade() >= 65 &&
-        cliente->temCartao() == true) {
-        basePrice = 0;
-        b.setValor(basePrice);
-    }
-    if (cliente->temCartao() && ev->isAderente() && cliente->getIdade() < 65) {
-        basePrice -= (basePrice * 0.25);
-        b.setValor(basePrice);
-    }
-}
-
-
 void sistemaCartao::addSalaEspetaculo() {
     SalaEspetaculo newSala;
     string handler;
@@ -404,7 +353,6 @@ void sistemaCartao::addEvento() {
     }
 }
 
-
 void sistemaCartao::deleteEvento() {}
 
 void sistemaCartao::updateEvento() {}
@@ -668,4 +616,128 @@ void sistemaCartao::sortEventos(){
 }
 
 
+void sistemaCartao::venderBilhete(Cliente *cliente, Bilhete &b, Evento *evento) {
+    int lot;
+    if (evento->getLotacao() < evento->getCapacidadeMaxima()) {
+        cliente->addBilhete(b);
+        lot = evento->getLotacao() + 1;
+        evento->setLotacao(lot);
+    } else
+        cout << "Lotação máxima atingida" << endl;
+    int i = 0;
+    i = searchEvento(evento->getNome());
+    eventos[i].setLotacao(evento->getLotacao());
+}
 
+void sistemaCartao::comprarBilhete(Cliente *cli, Bilhete &bi){
+    cout << "Eventos disponíveis:\n";
+    vector<string> evt = {};
+    Date act;
+    act.actualDate();
+    for (auto it = eventos.begin(); it != eventos.end(); it++) {
+        Evento *ev = new Evento((*it));
+        bi.setEvento(ev);
+        Date dat(ev->getData());
+        stringstream stream;
+        if (metricaSilver(cli, bi, ev)) {
+            createTicketSilver(cli, bi, ev);
+            stream << fixed << setprecision(2) << bi.getValor();
+        }
+        else{
+            createTicket(cli, bi, ev);
+            stream << fixed << setprecision(2) << bi.getValor();
+        }
+        string valor = stream.str();
+        string opt = ev->getNomeEvento() + " - Data: " + ev->getData().getDateString() + " Valor $" + valor;
+        evt.push_back(opt);
+    }
+    int op = readOptions(evt);
+    for (int i = 0; i < evt.size(); i++) {
+        if (op - 1 == i) {
+            Evento *ev = new Evento(eventos[i]);
+            bi.setEvento(ev);
+            if (metricaSilver(cli, bi, ev)) {
+                createTicketSilver(cli, bi, ev);
+            }
+            else{
+                createTicket(cli, bi, ev);
+            }
+            venderBilhete(cli, bi, ev);
+            bi.printBilhete();
+        }
+    }
+}
+
+void sistemaCartao::createTicket(Cliente *cliente, Bilhete &b, Evento *ev) {
+    float basePrice = 45.90;
+    if (ev->isAderente() && cliente->temCartao()){
+        basePrice -= (basePrice * 0.25);
+        b.setValor(basePrice);
+    }else{
+        b.setValor(basePrice);
+    }
+
+}
+
+void sistemaCartao::createTicketSilver(Cliente *cliente, Bilhete &b, Evento *ev) {
+    float basePrice = 0;
+    if((metricaSilver(cliente,b,ev)))
+        b.setValor(basePrice);
+}
+
+bool sistemaCartao::metricaSilver(Cliente *cliente, Bilhete &b, Evento *ev){
+    float lot = ev->getCapacidadeMaxima()* 0.50;
+    Date dat(ev->getData());
+    Date act;
+    act.actualDate();
+    if (act == dat) {
+        return (cliente->getCartao().getSubscription() == "CartaoAmigoSilver" && horasParaEvento(ev) &&
+                procuraArea(cliente->getMorada().getDistrito()) && (ev->getLotacao() < lot));
+    }
+
+}
+bool sistemaCartao::procuraArea(string distrito){
+    if(eventos.size() != 0){
+        for(auto it = eventos.begin(); it != eventos.end(); it++){
+            if(distrito == (*it).getEndereco().getDistrito()){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+vector<string> sistemaCartao::eventosGratuitosSilver(int idx){
+    Cliente *cli = new Cliente(clientes.at(idx));
+    Bilhete b1;
+    vector<string> evOpt =  {};
+    if (eventos.size() != 0) {
+        for(auto it = eventos.begin() ; it != eventos.end(); it++){
+            Evento *ev = new Evento((*it));
+            if(metricaSilver(cli,b1, ev)){
+                evOpt.push_back(ev->getNomeEvento());
+            }
+        }
+    }
+    return evOpt;
+}
+
+bool sistemaCartao::horasParaEvento(Evento *ev){
+
+    Date dat(ev->getData());
+    Date act;
+    act.actualDate();
+    if (act == dat){
+        Time actualT;
+        actualT.actualTime();
+        cout << "actual hora: " << actualT.getHora()<<endl;
+        Time result;
+        Time t(ev->getHorario());
+        result =  t - actualT;
+        cout << "event hora: " << t.getHora()<< endl;
+        cout << "result:"<< result<<endl;
+        Time eventLimit(7,59,59);
+        Time zero(0,0,0);
+        return (actualT <= t && result <=eventLimit && result >=zero);
+    }
+}

@@ -160,6 +160,17 @@ ostream &operator<<(ostream &out, Cliente &cli) {
     return out;
 }
 
+void Cliente::clientsEvents(string line, vector<int> &aux)
+{
+    line = regex_replace(line, regex(";"), " "); //Returns the clients packs as a string
+    istringstream test(line);
+    int i;
+    while (test >> i)
+    {
+        aux.push_back(i);
+    }
+}
+
 bool Cliente::operator<(const Cliente &c1) {
     return this->nome < c1.getNome();
 }

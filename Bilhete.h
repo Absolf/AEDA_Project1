@@ -11,7 +11,7 @@ class Bilhete {
     float valor;
     Evento *evento;
 public:
-    Bilhete() {};
+    Bilhete();
 
     float getValor() const;
 

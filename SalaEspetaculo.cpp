@@ -105,7 +105,7 @@ void Evento::setData(const Date &data) {
     this->data = data;
 }
 
-const Time Evento::getHorario() const {
+const Time Evento::getHorario() const{
     return horario;
 }
 
@@ -157,5 +157,4 @@ ostream &operator<<(ostream &out, const Evento &evento) {
 bool Evento::operator<(const Evento &e1) {
     return this->data < e1.getData();
 }
-
 

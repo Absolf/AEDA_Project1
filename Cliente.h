@@ -47,6 +47,8 @@ public:
 
     const CartaoAmigo &getCartao() const;
 
+    void clientsEvents(string line, vector<int> &aux);
+
     void setCartao(CartaoAmigo *cartao);
 
     bool temCartao();

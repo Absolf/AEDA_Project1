@@ -4,6 +4,8 @@
 
 #include "Bilhete.h"
 
+Bilhete::Bilhete() {this->valor = 45.9;}
+
 float Bilhete::getValor() const {
     return valor;
 }
@@ -39,9 +41,4 @@ ostream &operator<<(ostream &out, const Bilhete &bilhete) {
     cout << bilhete.evento->getCapacidadeMaxima();
     cout << bilhete.evento->getEndereco();
     //cout << "Horário: " << bilhete.evento->getHorario();
-}
-
-void teste() {
-    Bilhete bilhete;
-    cout << bilhete;
 }
