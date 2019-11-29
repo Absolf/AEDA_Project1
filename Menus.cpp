@@ -21,10 +21,11 @@ void mainMenu() {       //Chama o menu principal
     sys.loadEventos();
     sys.loadClients();
     string card;
-    int idx = 0;
     //Pega o numero de usuario para verificar mensagens importantes como validade do cartão e eventos proximos com desconto!
-    card = readString("POR FAVOR DIGITE O NÚMERO DE SEU CARTÃO PARA INICIAR \n:");
-    idx = sys.searchUser(card);
+    cout << "POR FAVOR DIGITE O NÚMERO DE SEU CARTÃO PARA INICIAR :";
+    getline(cin, card);
+    cout << card;
+    int idx = sys.searchUser(card);
 
     if (card == "12345678") {
         admin:

@@ -406,9 +406,10 @@ void sistemaCartao::WriteAllEventos() {
 
 int sistemaCartao::searchUser(string card) {
     for (size_t i = 0; i < clientes.size(); i++) {
-        cout << "hi" << endl;
+        string handler = arrumaString(clientes.at(i).getN_cartao());
+        cout << "hi" <<handler <<endl;
         cout << clientes.at(i).getN_cartao() << endl;
-        if (card == clientes.at(i).getN_cartao()) {
+        if (card == handler) {
             return i;
         }
     }
@@ -459,6 +460,8 @@ void sistemaCartao::loadClients() {
         }
         for (int i = 0; i < lines.size(); i++) {
             Cliente user;
+            lines[i] = arrumaString(lines[i]);
+            cout << lines[i]<< endl;
             user.setN_cartao(lines[i]);
             i++;
             user.setNome(lines[i]);
@@ -480,13 +483,18 @@ void sistemaCartao::loadClients() {
                 user.setUniversitario(false);
             }
             i++;
-            i++;
+           // clientsEvents(lines[i],user)
             user.aderirCartao();
             cout << user.getN_cartao() << endl;
             CartaoAmigo *novo = const_cast<CartaoAmigo *>(&(user.getCartao()));
             novo->setDataAcquisition(oldDate);
+            cout << user.getN_cartao() << endl;
             user.setCartao(novo);
-            setClientes(user);
+            cout << user.getCartao().getN_cartao() << endl;
+            clientes.push_back(user);
+            clientes.at(clientes.size()-1).setN_cartao(user.getN_cartao());
+            //clientes[0].setN_cartao(user.getN_cartao());
+            //cout << clientes[0].getN_cartao() << endl;
         }
         myfile.close();
         cout << endl << "DADOS CLIENTES CARREGADOS COM SUCESSO" << endl << endl;
@@ -779,4 +787,11 @@ void sistemaCartao::clientsEvents(string line, Cliente &cli, Bilhete &bi)
         //cout << bi.getValor();
         cli.addBilhete(bi);
     }
+}
+
+string sistemaCartao::arrumaString(string str){
+    if(!str.empty() && str[str.size()-1] == '\r') {
+        str.erase(str.size()-1,1);
+    }
+    return str;
 }

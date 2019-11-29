@@ -106,6 +106,7 @@ public:
     void WriteAllEventos();
 
     int searchUser(string card);
+    string arrumaString(string str);
 
     int searchSalaEspetaculo(string nome);
 

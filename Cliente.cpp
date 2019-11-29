@@ -12,6 +12,8 @@ Cliente::Cliente(const Cliente &cli){
     this->contacto = cli.getContacto();
     this->morada = cli.morada;
     this->universitario = cli.universitario;
+    this->cartao = cli.cartao;
+    //this->eventos = cli.getEventos();
 }
 
 const string &Cliente::getN_cartao() const {
@@ -142,7 +144,6 @@ void Cliente::printCliente() {
     else
         cout << "Não" << endl;
     if (bilhetes.size() != 0) {
-        cout << "CHECKING TICKETS CREATED \n";
         for (int i = 0; i < this->getBilhetes().size(); i++) {
             cout << endl;
             this->getBilhetes()[i]->printBilhete();
@@ -150,7 +151,7 @@ void Cliente::printCliente() {
         }
     }
 
-    cout << "Tipo de Assinatura: " << "this->cartao->getSubscription()" << endl;
+    cout << "Tipo de Assinatura: " << this->cartao->getSubscription() << endl;
 }
 
 ostream &operator<<(ostream &out, Cliente &cli) {
@@ -161,14 +162,20 @@ ostream &operator<<(ostream &out, Cliente &cli) {
     out << cli.getContacto() << endl;
     out << cli.getMorada() << endl;
     out << cli.getUniversitario() << endl;
+    /*
     stringstream aux;
-    for(auto it = cli.getBilhetes().begin(); it != cli.getBilhetes().end(); it++){
-        aux << (*it)->getEvento().getId()<<";";
-    }
-    string eventsId = aux.str();
-    eventsId = eventsId.substr(0, eventsId.size()-1);
-    out << eventsId <<endl;
-    out << cli.cartao->getSubscription() << endl;
+    if(cli.getBilhetes().size() != 0){
+        for(auto it = cli.getBilhetes().begin(); it != cli.getBilhetes().end(); it++){
+            aux << (*it)->getEvento().getId()<<";";
+        }
+        string eventsId = aux.str();
+        eventsId = eventsId.substr(0, eventsId.size()-1);
+        out << eventsId;
+    }else{
+        out << ""<<endl;
+    }*/
+    //out << cli.eventos << endl;
+    out << cli.cartao->getSubscription()<<endl;
     return out;
 }
 
@@ -176,3 +183,12 @@ ostream &operator<<(ostream &out, Cliente &cli) {
 bool Cliente::operator<(const Cliente &c1) {
     return this->nome < c1.getNome();
 }
+/*
+const string &Cliente::getEventos() const {
+    return eventos;
+}
+
+void Cliente::setEventos(const string &eventos) {
+    this->eventos = eventos;
+}
+*/

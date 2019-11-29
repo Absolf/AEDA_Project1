@@ -16,6 +16,13 @@ class Cliente {
     string contacto;
     string n_cartao;
     CartaoAmigo *cartao;
+    //string eventos;
+public:
+    const string &getEventos() const;
+
+    void setEventos(const string &eventos);
+
+private:
     bool universitario = false;
     vector<Bilhete *> bilhetes = {};
 public:
